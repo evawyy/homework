@@ -1,0 +1,43 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+    \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+%from_here_to_type
+\begin{problem}
+    $H_1,H_2$ are sub-modules of left module $M$ over ring $R$, prove: $H_1+H_2$ is direct sum iff $H_1\cap H_2=\{0\}$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item ``$\Rightarrow$'': Obviously.
+        \item ``$\Leftarrow$'': Only need to prove: $\forall h_1,g_1\in H_1,h_2,g_2\in H_2$, s.t. $h_1+h_2=g_1+g_2$, then $h_1=g_1,h_2=g_2$: Since $h_1+h_2=g_1+g_2$, then $h_1-g_1=g_2-h_2\in H_1\cap H_2=\{0\}$, so $h_1-g_1=h_2-g_2=0$, so  $h_1=g_1,h_2=g_2$.
+    \end{enumerate}
+\end{solution}
+\begin{problem}\label{pro:2}
+    $H_1,H_2$ are sub-modules of left module $M$ over ring $R$ s.t. $H_1\oplus H_2=M$, prove: $M/H_1\cong H_2$, $M/H_2\cong H_1$.
+\end{problem}
+\begin{solution}
+    From the communitive of direct sum and the symmetry of $H_1,H_2$, so we only need to prove $M/H_1\cong H_2$. Let $f:M\to H_2$, $x\mapsto x_2$, where $x=x-x_2+x_2, x-x_2\in H_1$. Since $H_1\oplus H_2=M$, then $\exists | x_2\in H_2$ s.t. $x=x-x_2+x_2, x-x_2\in H_1$. So $f$ is well-defined. And $x+y=(x-x_2+x_2)+(y-y_2+y_2)=(x+y)-(x_2+y_2)+(x_2+y_2)$, so $f$ is homormophism. $rx=r((x-x_2)+x_2)=r(x-x_2)+rx_2$, where $r(x-x_2)\in H_1, rx_2\in H_2$. So $f$ is module homormophism from $M$ to $H_2$, and $\ker f=H_1$. So $M/H_1\cong H_2$.
+\end{solution}
+\begin{problem}
+    $H_1,H_2, \cdots ,H_n$ are sub-modules of left module $M$ over ring $R$ s.t. $H_1\oplus H_2\oplus\cdots\oplus H_n=M$, prove: $M/(H_2\oplus\cdots\oplus H_n)\cong H_1$.
+\end{problem}
+\begin{solution}
+    Since $H_1'=H_1,H_2'=(H_2\oplus\cdots\oplus H_n)$ are modules, so by \Cref{pro:2}, $M/H_2'\cong H_1'$, so $M/(H_2\oplus\cdots\oplus H_n)\cong H_1$.
+\end{solution}
+
+
+
+\end{document}

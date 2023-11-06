@@ -1,0 +1,58 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\usepackage{csquotes}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\renewcommand{\bar}{\overline}
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+    $\mathscr{X}$ is $B^*$ space. Prove: $\mathscr{X}$ is $B$ space $\iff$ $\forall \{x_n\}_{n=1}^{\infty}\subset \mathscr{X}$, $\sum_{n=1}^{\infty}||x_n||<\infty\rightarrow \sum_{n=1}^{\infty}x_n$ exists in $\mathscr{X}$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item \enquote{$\Rightarrow$}: Let $\{x_n\}_{n=1}^{\infty}\subset \mathscr{X}$, $\sum_{n=1}^{\infty}||x_n||<\infty$, then $\forall \epsilon>0$, $\exists N$ s.t. $\forall n>N$, $\forall k\in \mathbb{N}_+$, $||\sum_{i=1}^{n+k}x_{i}-\sum_{i=1}^nx_i||\leq\sum_{i=1}^k||x_{n+i}||< \epsilon$. So $\{\sum_{i=1}^{n}x_i\}_{n=1}^{\infty}$ is a Cauchy sequence. Since $\mathscr{X}$ is $B$ space, then $\exists x\in \mathscr{X}$ s.t. $\lim_{n\to\infty}\sum_{i=1}^nx_i=x\in \mathscr{X}$.
+        \item \enquote{$\Leftarrow$}: Let $\{x_n\}_{n=1}^{\infty}\subset \mathscr{X}$ is a Cauchy seqence. We only need to prove that exist $\{x_{n_k}\}_{k=1}^{\infty}\subset \{x_n\}_{n=1}^{\infty}$ that converges.
+        Let $k\in \mathbb{N}_+$, assuming $N_i,n_i,i=1,\cdots, k-1$ have defined, we'll define $N_k,n_k$. Since $\exists N_k\geq \max_{i=1,\cdots, k-1}N_i$, $\forall n,m\geq N_k$, $||x_{m}-x_n||<\frac{1}{2^k}$, let $n_k=N_k+1$. 
+        Obviously, $n_{k}>n_{i},i<k$,  $\forall k\in \mathbb{N}_+$, $||x_{n_{k+1}}-x_{n_k}||<\frac{1}{2^k}$. So $\sum_{i=1}^{\infty}||x_{n_{i+1}}-x_{n_{i}}||<\sum_{i=1}^{\infty}\frac{1}{2^i}<\infty$, so $\lim_{k\to\infty}x_{n_k}=\sum_{k=1}^{\infty}(x_{n_{k+1}}-x_{n_k})+x_{n_1}\in \mathscr{X}$. Thus, $x=\lim_{n\to\infty}x_n\in \mathscr{X}$.
+        \end{enumerate}
+\end{solution}
+
+
+\begin{problem}
+    $[a,b]\subset \mathbb{R}$, let $\mathbb{P}_n:=\{f\in \mathbb{R}^{[a,b]}:\exists g\in \mathbb{R}[x],\deg g\leq n,\forall t\in[a,b], f(t)=g(t)\}$. Prove: $\forall f\in C[a,b], \exists P_0\in \mathbb{P}_n$ s.t. 
+    \begin{equation}
+        \max_{a\leq x\leq b}|f(x)-P_0(x)|=\min_{P\in \mathbb{P}_n}\max_{a\leq x\leq b}|f(x)-P(x)|.
+    \end{equation}
+\end{problem}
+\begin{solution}
+    Since $(C[a,b],\norm{\cdot})$ is $B$ space, where $\norm{f}=\max_{t\in[a,b]}|f(t)|, \forall f\in C[a,b]$, and $\dim_{\mathbb{R}}\mathbb{P}_0=n+1$, so by optimal approximation theorem $\forall f\in C[a,b]$, $\exists P_0\in \mathbb{P}_n$ s.t. 
+    \begin{equation}
+        \max_{a\leq x\leq b}|f(x)-P_0(x)|=\min_{P\in \mathbb{P}_n}\max_{a\leq x\leq b}|f(x)-P(x)|
+    \end{equation}.
+\end{solution}
+
+
+\begin{problem}
+    $\mathscr{X}$ is $B^*$ space, $\mathscr{X}_0\subset \mathscr{X}$ is a subspace. Assume $\exists c\in(0,1)$, s.t. 
+    \begin{equation}
+        \inf_{x\in \mathscr{X}_0}||y-x||\leq c||y||\quad(\forall y\in \mathscr{X}).
+    \end{equation}
+    Proof: $\mathscr{X}_0$ is dense in $\mathscr{X}$.
+\end{problem}
+\begin{solution}
+    Since $\forall y:\norm{y}=1,\ \rho(y,\mathscr{X}_0):=\inf_{x\in \mathscr{X}_0}\norm{y-x}\leq c\norm{y}=c$, and $\mathscr{X}_0\subset \bar{\mathscr{X}_0}$, so $\rho(y,\overline{\mathscr{X}_0}):=\inf_{x\in \bar{\mathscr{X}_0}}\norm{y-x}\leq\inf_{x\in \mathscr{X}_0}\norm{y-x}=\rho(y,\mathscr{X}_0)\leq c$. If $\bar{\mathscr{X}_0}\subsetneq \mathscr{X}$, By Riesz theorem, $\forall \epsilon>0,\forall y\in \mathscr{X}\minus\bar{\mathscr{X}_0}:\norm{y}=1$, $\exists x\in \mathscr{X}_0$, s.t. $\norm{y-x}>1-\epsilon$, let $\epsilon=\frac{1-c}{2}$, then $\exists x\in \mathscr{X}_0$, s.t. $\norm{y-x}>1-\epsilon=1-\frac{1-c}{2}>1-(1-c)=c$, contradiction!
+\end{solution}
+
+\end{document}

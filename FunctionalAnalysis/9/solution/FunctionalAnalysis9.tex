@@ -1,0 +1,52 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+    $(C[0,1],\norm{\cdot}_1)$, let $f:C[0,1]\to \mathbb{R}$, $x\mapsto\int_0^1sx(s)\d s$. Prove $f$ is continous linear functional on $C[0,1]$, calculate $\norm{f}$.
+\end{problem}
+\begin{solution}
+    ll
+\end{solution}
+
+\begin{problem}
+    $T:(\mathbb{R}^n,l^1)\to (\mathbb{R}^n,l^1)$ is linear operation. Calculate $\norm{T}$.
+\end{problem}
+\begin{solution}
+    kk
+\end{solution}
+
+\begin{problem}
+    $f: C[a,b]\to \mathbb{R}$, $x\mapsto x(a)-x(b)$. Prove $f$ is bounded linear functional, calculate $\norm{f}$.
+\end{problem}
+
+\begin{problem}
+    $f: \mathcal{X}\to \mathbb{R}$,$x\mapsto\int_0^1\sqrt{t} x(t^2)\d t$.Calculate $\norm{f}$
+    \begin{enumerate}
+        \item $\mathcal{X}=C[0,1]$.
+        \item $\mathcal{X}=L^2[0,1]$
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    $\Phi: C[0,1]\to \mathbb{R}$, $\Phi(f)\mapsto \int_0^1\phi(t)f(t)\d t$, where $\phi\in C[0,1]$ Calculate $\norm{\Phi}$
+\end{problem}
+
+
+
+
+
+\end{document}

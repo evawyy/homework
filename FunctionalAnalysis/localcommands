@@ -1,0 +1,2 @@
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}

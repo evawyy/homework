@@ -1,0 +1,386 @@
+\documentclass{ctexart}
+%\usepackage{xeCJK}
+%\usepackage[T1]{fontenc}
+%\usepackage{mathptmx}
+\usepackage{amsmath,amssymb,amsthm,color,mathrsfs}
+\usepackage{enumitem,anysize}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{hyperref}
+\hypersetup{
+	hypertex=true,
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=cyan,
+}
+
+\geometry{a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm}
+
+\def\<{\langle}
+\def\>{\rangle}
+\edef\lim{\displaystyle\lim}
+\def\email#1{\href{mailto:#1}{\texttt{#1}}}
+
+\newtheorem{problem}{\textbf{Problem}}
+\renewcommand\theproblem{\textbf{\Roman{problem}}}
+\newenvironment{solution}{\begin{proof}[\textbf{Solution}]}{\end{proof}}
+
+\newcommand\Deo{\Delta_0}
+\newcommand\Lo{\mathcal {L}_0}
+\newcommand\N{\mathbb {N}}
+\renewcommand\phi{\varphi}
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\newcommand\qie{\wedge}
+\newcommand\huo{\vee}
+\newcommand{\bigqie}{\bigwedge}
+\newcommand{\bighuo}{\bigvee}
+\newcommand\calF{\mathcal{F}}
+\newcommand\calA{\mathcal{A}}
+\newcommand\calP{\mathscr{P}}
+\newcommand{\Cb}[2]{\binom{#1}{#2}}
+\newcommand{\minus}{\mathbin{\backslash}}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\id}{\mathrm{id}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{cora}{Corallary}
+
+\iffalse
+
+2-4.
+2-5.
+$3-1$.
+$3-2$. 
+3-4. 
+4-4. 
+
+补充题
+1. 以 $h(m, n)$ 表示用 $m$ 种颜色去涂 $2 \times n$ 的棋盘, 使得相邻格子昗 色的涂色方案数, 求证:
+$$
+h(m, n)=m(m-1)\left(m^2-3 m+3\right)^{n-1} .
+$$
+2. 求至少出现一个 6 且能被 3 整出的五位数的个数.
+3. 求正整数 $a, b, c$ 使得 $m^3=a\left(\begin{array}{c}m \\ 3\end{array}\right)+b\left(\begin{array}{c}m \\ 2\end{array}\right)+c\left(\begin{array}{c}m \\ 1\end{array}\right)$, 并计算 $1^3+2^3+\cdots+n^3$ 的值.
+4. 证明
+$$
+\sum_{k=0}^n(k+1)^2\left(\begin{array}{l}
+n \\
+k
+\end{array}\right)=2^{n-2}\left(n^2+5 n+4\right) .
+$$
+5. 证明
+$$
+\sum_{k=0}^n \frac{1}{k+2}\left(\begin{array}{l}
+n \\
+k
+\end{array}\right)=\frac{n \cdot 2^{n+1}+1}{(n+1)(n+2)} .
+$$
+6. 证明
+$$
+\sum_{k=0}^n\left(\begin{array}{c}
+2 n \\
+k
+\end{array}\right)=2^{2 n-1}+\frac{1}{2}\left(\begin{array}{c}
+2 n \\
+n
+\end{array}\right) .
+$$
+7. 证明
+$$
+\sum_{k=0}^n\left(\begin{array}{c}
+n+k \\
+n
+\end{array}\right) 2^{-k}=2^n .
+$$
+\fi
+
+
+\pagestyle{empty}
+\title{$\mathbb{COMBINATION}\text{2}$}
+\author{王胤雅\\
+SID:201911010205\\
+\email{201911010205@mail.bnu.edu.cn}}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+    确定数 $3^4 \times 5^2 \times 11^7 \times 13^8$ 的正整数因数的个数.
+\end{problem}
+\begin{proof}
+    Let $V_p(n)=\sup\{k\in\N: p^k|n\}$, $p$ is prime. 
+    Let $p_1=3,p_2=5,p_3=11,p_4=13, a_1=4,a_2=2,a_3=7,a_4=8, a=3^4 \times 5^2 \times 11^7 \times 13^8$, $A:=\{n\in N: V_{p_i}(n)\leq a_i, i=1,\cdots ,4, V_p(n)=0, p \ \text{is prime, and}\  p\neq p_i, 1\leq i\leq 4 \}$, $F:=\{n\in \N : n|a\}$. 
+    \iffalse$\psi : A\to F$, $n\mapsto 3^{V_3(n)} \times 5^{V_5(n)} \times 11^{V_{11}(n)}\times 13^{V_{13}(n)}$. \fi
+    \begin{enumerate}
+        \item $\forall n\in A$, then $n= 3^{V_3(n)} \times 5^{V_5(n)} \times 11^{V_{11}(n)}\times 13^{V_{13}(n)}$,  then $n|a$, since $p_i^{n_i}|p_i^{a_i}, 1\leq i\leq 4$, so $n\in F$.
+        \item $\forall n\notin A$, if $\exists $ prime $p\neq p_i,1\leq i\leq 4$ s.t. then $V_p(n) > 0$, then$n\nmid a$, then $n\notin F$. If $\forall $ prime $p\neq p_i,1\leq i\leq 4$ s.t. $V_p(n)=0$ and $\exists p_i | n, 1\leq i\leq 4 $ s.t. $V_{p_i}(n)>a_i$, then $p_i^{V_p(n)}|n$ but $p_i^{V_p(n)}\nmid a$, so $n\notin F$.
+    \end{enumerate}
+    Then $A=F$. So $|F|=|A|=5*3*8*9=1080$
+\end{proof}
+\begin{problem}
+    在 $0-9999$ 之间有多少个整数只有一位数字是 5 ?
+\end{problem}
+\begin{proof}
+    The number between $0-9999$ can be written as $a = a_4*10^3+a_3*10^2+a_2*10^1+a_1*10^0$. $\phi: [0,9999]\cap \N\to A:=\{(a_1,a_2,a_3,a_4):0\leq a_j\leq 9, j=1,\cdots, 4\}$,  $\phi(a):=(a_1,a_2,a_3,a_4)$. Obviously, $\phi$ is bijection. Let $A_i:=\{(a_1,a_2,a_3,a_4):a_i=5,0\leq a_j\leq 9, j=1,\cdots, 4\}$. Consider $\theta_{ij}: A_i\to A_j$, $(a_1,a_2,a_3,a_4)\mapsto(a_{\sigma(1)},a_{\sigma(2)},a_{\sigma(3)},a_{\sigma(4)})$, where $\sigma\in S_4, \sigma=(i\ j)$
+    Obviously, $\theta_{ij}$ is bijection. So the amount is $4|A_1|$. Obviously, $|A_1|=9^3=729$.
+\end{proof}
+\begin{problem}
+    比 5400 大的四位数中, 数字 2 和 7 不出现, 且各位数字不同的 整数有多少个?
+\end{problem}
+\begin{proof}
+    The number between $0-9999$ can be written as $a = a_4*10^3+a_3*10^2+a_2*10^1+a_1*10^0$. $\phi: [0,9999]\cap \N\to A:=\{(a_1,a_2,a_3,a_4):0\leq a_j\leq 9, j=1,\cdots, 4\}$,  $\phi(a):=(a_1,a_2,a_3,a_4)$. Obviously, $\phi$ is bijection. 
+    Since $2,7$ can't appear in any digit, then $
+    B:=\{(a_1,a_2,a_3,a_4) : a_i\in\{0,1,3,4,6,8,9\}, 1\leq i\leq 4, a_i \neq a_j, i\neq j, 1\leq i,j\leq 4, \phi^{-1}(a_1,a_2,a_3,a_4)\in[5400,\infty)\cap\N\}$. Let $A_i:=\{(a_1,a_2,a_3,a_4)\in B: a_4=i, a>5400\}$, $A_{i,j}:=\{(a_1,a_2,a_3,a_4)\in B:a_4=i, a_3=j, a>5400 \}$
+    \begin{enumerate}
+        \item  $A_{5}:$
+        \begin{enumerate}
+        \item $a\in A_{54}$, if $a_1=1$, then $a_2\in\{0,3,4,6,8,9\}$; if $a_1=0$, then $a_2\in\{1,3,4,6,8,9\}$. Then $|A_{54}|=6+6=12$.
+        \item $a\in A_{5j}, j\leq6$, 
+        $\theta_{jk}: A_{5j}\to A_{5k},j\neq k$, $(a_1,a_2,a_3,a_4)\mapsto(\sigma(a_1),\sigma(a_2),\sigma(a_3),\sigma(a_4))$, where $\sigma\in S_9, \sigma=(j k)$.
+        When $a_1,a_2\neq k$, then $\theta_{jk}(a_1,a_2,5,j)=(a_1,a_2,5,k)\in A_{5k}$; when $a_1= k$, then $a_2\notin\{k,j\}$, then $\theta_{jk}(k,a_2,5,j)=(j,a_2,5,k)\in A_{5k}$; it is the same for $a_2=k$. So $\theta_{jk}$ is well-defined. It is trivial that $\theta_{jk}$ is injection. And $\theta_{kj}\circ \theta_{jk}=\id$, so $\theta_{jk}$ is bijection. $\forall a \in A_{56}$, $a_i\in\{0,1,3,4,8,9\}, i=1,2$ so $|A_{56}|=A_{6}^{2}=30$. 
+        \end{enumerate}
+        So $|A_{5}|=|A_{54}\cup(\cup_{j\in\{6,8,9\}}A_{5j})|=12+30\times 3=102$.
+        \item As for $A_{i}, i\in\{6,8,9\}$, $\theta_{ij}: A_{i}\to A_{j},i\neq j$, $(a_1,a_2,a_3,a_4)\mapsto(\sigma(a_1),\sigma(a_2),\sigma(a_3),\sigma(a_4))$, where $\sigma\in S_9, \sigma=(i j),  i,j\in\{6,8,9\}$.When $a_1,a_2,a_3\neq j$, then $\theta_{ij}(a_1,a_2,a_3,i)=(a_1,a_2,a_3,j)\in A_{j}$; when $a_1= j$, then $a_2,a_3\notin\{i,j\}$, then $\theta_{ij}(i,a_2,a_3,j)=(j,a_2,a_3,i)\in A_{j}$; it is the same for $a_2,a_3=j$. So $\theta_{ij}$ is well-defined. It is trivial that $\theta_{ij}$ is injection. And $\theta_{ji}\circ \theta_{ij}=\id$, so $\theta_{jk}$ is bijection. $\forall a\in A_{6}$, then $a_i=\{0,1,3,4,5,8,9\} i=1,2,3$, then $|A_6|=A_{7}^{3}=7\times 6\times 5=210$. 
+    \end{enumerate}
+    So the total number is $|\cup_{i\geq5}A_i|=102+210*3=732$.
+\end{proof}
+\begin{problem}
+    10 个字母的字符串中(由 26 个英文小写字母中的一些字母组 成, 可以有重复字母), 两个相邻字母都不相同的字符串有多少个.
+\end{problem}
+\begin{proof}
+    $A:=\{All the character\}:=\{x_1,x_2,\cdots,x_{26}\}$, $E:=\{a\in A^{10}:a_i\neq a_{i+1}1\leq i\leq25\}$
+\end{proof}
+\begin{problem}
+    在 26 个英文大写字母的全排列中, 使得任两个元音字母 $(A, E, I, O, U)$ 都不相邻的排列共有多少个.
+\end{problem}
+\begin{proof}
+   $21!*A_{22}^{5}=\frac{21!*22!}{17!}$ 
+\end{proof}
+\begin{problem}
+    把 18 人分成 4 个小组, 使各组人数分别为 $5 、 5 、 4 、 4$ 人, 有多少种分法.
+\end{problem}
+\begin{proof}
+    $\frac{C_{18}^{5}C_{13}^{5}C_{8}^{4}}{2!*2!}=\frac{18!13!8!}{5!13!5!8!4!4!2!2!}=306306$
+\end{proof}
+\begin{problem}
+    将 $a, b, c, d, e, f, g, h$ 排成一行, 要求 $a$ 在 $b$ 的左侧, $b$ 在 $c$ 的左侧, 问有多少种排法?
+\end{problem}
+\begin{proof}
+    $5!*C_{6}^{3}=600$
+\end{proof}
+\begin{problem}
+    3 个男生和 7 个女生聚餐, 围坐在圆桌旁, 任意两个男生不相邻的坐法有多少种?
+\end{problem}
+\begin{proof}
+    $C_{3}^{1}*\frac{8!}{8}*C_{2}^{1}*C_{6}^{1}*C_{5}^{1}=\frac{3*8!6!2!5!}{8*5!*4!}=907200$
+\end{proof}
+\begin{problem}
+    设 $k, k_1, k_2, \ldots, k_n$ 为正整数, 且满足 $k_1+k_2+\cdots+k_n=k$, 将$k$个不同的物品放入 $n$ 个不同的盒子 $B_1, B_2, \ldots, B_n$ 中, 使得 $B_j$ 中放入$k_j(1 \leq j \leq n)$ 个物品, 问不同的放法有多少种?
+\end{problem}
+\begin{proof}
+    The positive solution of equation $k_1+k_2+\cdots+k_n=k$ equal to the non-negtive solution $x_1+x_2+\cdots+x_n=k-n$ which is $C_{k-n+n-1}^{n-1}$. So the different way to deposite different items is $\frac{n!(k-1)!}{(n-1)!(k-n)!}=\frac{n(k-1)!}{(k-n)!}$
+\end{proof}
+\begin{problem}
+    将 $r$ 个相同的球放入 $k$ 个不同的盒子中, 有多少种不同的放 法?
+\end{problem}
+\begin{proof}
+$\frac{(r+k-1)!}{r!(k-1)!}$
+\end{proof}
+\begin{problem}
+ 将 6 个蓝球, 5 个红球, 4 个白球, 3 个黄球排成一排, 要求黄球 不挨着, 问有多少种排列方式.
+\end{problem}
+\begin{proof}
+    First we arrange blue, red and white balls , the amount of arrangement is $\frac{(6+5+4)!}{6!5!4!}=630630$. Then we arrange the yellow ones,  the amount of arrangement is $\frac{(6+5+4)!}{6!5!4!}*C_{16}^{3}=2118916800$
+\end{proof}
+\begin{problem}
+    不等式 $x_1+x_2+\cdots+x_9<2000$ 的正整数解有多少个?
+\end{problem}
+\begin{proof}
+    Equal to amount of the non-negtive solution of $x_1+x_2+\cdots+x_9<1991$, that is $\sum_{k=0}^{1990}\frac{(k+8)!}{k!8!}$ 
+\end{proof}
+\begin{problem}
+    证明 $(1+\sqrt{3})^{2 m+1}+(1-\sqrt{3})^{2 m+1}$ 是一个整数.
+\end{problem}
+\begin{proof}
+\begin{equation}
+\begin{aligned}
+&(1+\sqrt{3})^{2 m+1}+(1-\sqrt{3})^{2 m+1}\\
+=&\sum_{k=0}^{2m+1}\sqrt{3}^k+\sum_{k=0}^{2m+1}(-\sqrt{3})^k\\
+=&\sum_{l=0}^{m}(\sqrt{3}^{2l}+\sqrt{3}^{2l})+(\sqrt{3}^{2l+1}-\sqrt{3}^{2l+1})\\
+=&\sum_{l=0}^{m}2*3^l
+\end{aligned}
+\end{equation}
+\end{proof}
+\begin{problem}
+    用多项式定理展开 $\left(x_1+x_2+x_3\right)^4$.
+\end{problem}
+\begin{proof}
+    \begin{equation}
+        \begin{aligned}
+           & \left(x_1+x_2+x_3\right)^4\\
+           =&\sum_{n_1+n_2+n_3=4}\frac{4!}{n_1!n_2!n_3!}x_1^{n_1}x_2^{n_2}x_3^{n_3}\\
+           =&x_1^4+x_2^4+x_3^4+4x_1x_2^3+4x_1x_3^3+4x_2x_1^3+4x_2x_3^3+4x_3x_1^3+4x_3x_2^3+6x_1^2x_2^2+6x_1^2x_3^2\\
+           &+6x_2^2x_3^2+12x_1x_2x_3^2+12x_1x_2^2x_3+12x_1^2x_2x_3
+        \end{aligned}
+    \end{equation}
+\end{proof}
+\begin{problem}
+用牛顿二项式定理近似计算 $10^{\frac{1}{3}}$.
+\end{problem}
+\begin{proof}
+\begin{equation}
+    \begin{aligned}
+        &10^{\frac{1}{3}}\\
+    =&(1+9)^{\frac{1}{3}}\\
+    =&\sum_{k=0}^{\infty}\frac{\frac{1}{3}\cdots(\frac{1}{3}-k+1)}{k!}9^k\\
+    =&\frac{1}{3}*\frac{4}{3}+\frac{1}{3}*9-\frac{\frac{1}{3}*\frac{2}{3}*9^2}{2*1}+\sum_{k=3}^{\infty}\frac{\frac{1}{3}*\cdots *(\frac{1}{3}-k+1)}{k!}3^{2k}\\
+    =&\frac{10}{3}+\sum_{m=0}^{\infty}\frac{1*\cdots *(1-3(m+2))}{(m+3)!}3^{m+3}\\
+    =&\frac{10}{3}+\sum_{m=0}^{\infty}\frac{2*\cdots *(-3m-5)}{(m+3)!}3^{m+3}\\\iffalse    
+    =&\frac{10}{3}+\sum_{t=0}^{\infty}\frac{1*\cdots *(1-3(2t+2))}{(2t+3)!}3^{2t+3}+\sum_{t=0}^{\infty}\frac{1*\cdots *(1-3(2t+3))}{(2t+4)!}3^{2t+4}\\
+    =&\frac{10}{3}+\sum_{t=0}^{\infty}\(\frac{1*\cdots *(1-3(2t+2))}{(2t+3)!}3^{2t+3}+\frac{1*\cdots *(1-3(2t+3))}{(2t+4)!}3^{2t+4}\)\\
+    =&\frac{10}{3}+\sum_{t=0}^{\infty}\(\frac{2*\cdots *(6t+5)}{(2t+3)!}3^{2t+3}-\frac{2*\cdots *(6t+8)}{(2t+4)!}3^{2t+4}\)\\
+    =&\frac{10}{3}+\sum_{t=0}^{\infty}\frac{2*\cdots *(6t+5)}{(2t+3)!}\(1-\frac{6t+8}{2t+4}*3 \)3^{2t+3}\\
+    =& \frac{10}{3}-\sum_{t=0}^{\infty}\frac{4*2*\cdots *(6t+5)*(4t+5)}{(2t+4)!}3^{2t+3}\\\fi
+\end{aligned}
+\end{equation}
+\end{proof}
+\begin{problem}
+运用数学归纳法证明
+$$
+\frac{1}{(1-z)^n}=\sum_{k=0}^{\infty}\left(\begin{array}{c}
+n+k-1 \\
+k
+\end{array}\right) z^k, \quad|z|<1 .$$
+\end{problem}
+\begin{proof}
+    \begin{itemize}
+        \item When $n=0$, trivial
+        \item When $n=1$, it turns to 
+        \begin{equation}
+            \begin{aligned}
+                &\frac{1}{1-z}=\sum_{k=0}^{\infty} z^k\\
+               & \Iff \\
+                &1=\sum_{k=0}^{\infty} z^k(1-z)\\
+                =&\sum_{k=0}^{\infty}z^k-z^{k+1}\\
+                =&1+\sum_{k=1}^{\infty}z^{k}-\sum_{k=0}^{\infty}z^{k+1}\\
+                =&1\\
+            \end{aligned}
+        \end{equation}
+        
+        \item If $n$ the equation is right, then we goes to $n+1$.
+        \begin{equation}
+            \begin{aligned}
+                &\frac{1}{(1-z)^{n+1}}\\
+            =&\frac{1}{1-z}\sum_{k=0}^{\infty}\left(\begin{array}{c}
+                n+k \\
+                k
+                \end{array}\right) z^k\\
+            =&\sum_{k=0}^{\infty} z^k\sum_{k=0}^{\infty}\left(\begin{array}{c}
+                n+k \\
+                k
+                \end{array}\right) z^k\\
+            =&\sum_{m=0}^{\infty}\sum_{k=0}^{m}\(\begin{array}{c}
+                n+k\\
+                k
+            \end{array}\)z^m\\
+            =&\sum_{m=0}^{\infty}
+            \(\begin{array}{c}
+                n+m\\
+                m
+                 \end{array}\)z^m\\           
+            \end{aligned}
+        \end{equation}
+    \end{itemize}
+\end{proof}
+
+%%%%%%week3
+
+\begin{problem}
+By applying integral to binomial theorem, proof: 
+$\forall n$,  we have
+$$
+\sum_{k=0}^{n}\frac{1}{k+1}\Cb{n}{k}=\frac{2^{n+1}-1}{n+1} .
+$$
+\end{problem}
+\begin{solution}
+Since$(x+1)^n=\sum_{k=0}^n\Cb{n}{k}x^k$, 
+apply integral on $[0,1] $to both side, we get $\frac{1}{n+1}(x+1)^{n+1}|_0^1=\sum_{k=0}^n\frac{1}{k+1}\Cb{n}{k}x^{k+1}|_0^1$, 
+that means $\frac{2^{n+1}-1}{n+1}=\sum_{k=0}^n\frac{1}{k+1}\Cb{n}{k}$.
+\end{solution}
+
+\begin{problem}
+Proof:$$
+\sum_{k=0}^n\Cb{m}{k}\Cb{m-k}{n-k}=2^n\Cb{m}{n}
+$$
+\end{problem}
+\begin{solution}
+$\sum_{k=0}^n\Cb{m}{k}\Cb{m-k}{n-k}=\sum_{k=0}^n\frac{m!}{k!(m-k)!}\frac{(m-k)!}{(n-k)!(m-n)!}=\sum_{k=0}^n\frac{m!}{n!(m-n)!}\frac{n!}{(n-k)!k!}=2^n\Cb{m}{n}$
+\end{solution}
+
+\begin{problem}
+    Apply $m^2=2\Cb{m}{2}+\Cb{m}{1}$, calculate the value of  $1^2+2^2+\cdots+n^2$ .
+\end{problem}
+\begin{solution}
+    $\sum_{m=1}^n m^2=\sum_{m=1}^n \(2\Cb{m}{2}+\Cb{m}{1}\)=2\(\Cb{n+1}{3}-\Cb{0}{2}\)+\(\Cb{n+1}{2}-\Cb{0}{1}\)=\frac{(n+1)n(n-1)}{3}+\frac{(n+1)n}{2}=\frac{(n+1)n(2n+1)}{6}$.
+\end{solution}
+
+\begin{problem}
+    Let $q=\left\lceil\frac{n}{2}\right\rceil$, then
+$$
+\sum_{k=0}^{q}\Cb{n}{2k}2^{n-2k}=\frac{3^n+1}{2} .
+$$
+\end{problem}
+\begin{solution}
+$(2+1)^n+(2-1)^n=2\(\sum_{k=0}^q\Cb{n}{2k}2^{n-2k}\)=2\(\sum_{k=0}^{q}\Cb{n}{2k}2^{n-2k}\)$
+\end{solution}
+\begin{problem}
+    Proof:
+$$
+\sum_{k=0}^n \frac{k+2}{k+1}\Cb{n}{k}=\frac{(n+3) 2^n-1}{n+1} .
+$$
+\end{problem}
+\begin{solution}
+    $\sum_{k=0}^n\Cb{n}{k}x^k=(x+1)^n$, so $\int_{[0,1]}(x+1)^n=\int_{[0,1]}\sum_{k=0}^n\Cb{n}{k}x^k$, 
+    so $\frac{2^{n+1}-1}{n+1}=\sum_{k=0}^n\frac{1}{k+1}\Cb{n}{k}$. 
+    Therefore, $\sum_{k=0}^n\frac{k+2}{k+1}\Cb{n}{k}=\sum_{k=0}^n\Cb{n}{k}+\sum_{k=0}^n\frac{1}{k+1}\Cb{n}{k}=\frac{2^{n+1}-1}{n+1}+2^n=\frac{(n+3) 2^n-1}{n+1}$
+\end{solution}
+\begin{problem}
+    Using $m(m \geq 2)$ colors to paint a chess broad of $1 \times n$, every cell has one color. Let $h(m, n)$ be the amount of different painting methods in which every neibouring cell has different color and every color is used, calculate $h(m, n)$.
+\end{problem}
+\begin{solution}
+$$h(m,n)=\sum_{1=t_1<t_2<\cdots<t_m<t_{m+1}=n+1}m!\prod_{k=1}^m (k-1)^{t_{k}-t_{k-1}-1}$$
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\iffalse
+
+$5-3$. 
+5-4. 
+5-5. 
+5-6. 
+\fi
+
+\end{document}

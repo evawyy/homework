@@ -1,0 +1,124 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+    \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+
+%from_here_to_type
+\section{homework}
+\begin{problem}\label{pro:1}
+    Let $\phi$ is representation of $\gl_n(K)$ over $K^n$. And $\phi(A)\alpha:=A \alpha$. Prove:$\phi$ is faithful and irreducible and $n-$dimentional. 
+\end{problem}
+
+\begin{solution}
+    It is obvious that $\phi$ is $n-$dimentional. $\forall A,B\in GL_n(K)$, $A\neq B$, $\exists \alpha\in K$, $A \alpha\neq B \alpha$, so $\phi(A) \alpha=A \alpha\neq B \alpha=\phi (B) \alpha$. So $\phi$ is injective, so it is faithful. $\forall \alpha , \beta\in K^n\minus\{0\}$, $\exists A\in GL_n(K)$ s.t. $A(\alpha)=\beta$, so there is no invariant subspace of $K^n$.
+\end{solution}
+
+
+\begin{problem}
+    For $A\in\gl_n(K)$, let $\psi(A)X=AX,\forall X\in M_n(K)$. Then:
+    \begin{enumerate}
+        \item $\psi$ is $n^2-$dimentional representation of $\gl_n(K)$ over $K$. 
+        \item For $j:1\leq j\leq n$, let $M_n^{(j)}(K):=\{(a_{ik})_{n\times n}:a_{ik}\neq 0\to k=j\}$. Prove $M_n^{(j)}$ is invariant subspace of $\gl_n(K)$. Let $\psi$ is subrepresentation of $\psi$ in $M_n^{(j)}$, prove $\psi_j$ is irreducible and $\psi=\bigoplus_{j=1}^n \psi_j$. 
+        \item Prove $\psi_j\cong \phi$, where $\phi=(\Cref{pro:1}).\phi$
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item Since $M_n(K)$ is $n^2-$dimentional on $K$ and $\forall A,B\in GL_n(K),\forall X\in M_n(K)$, $\psi(AB)X=ABX=\psi(A)BX=\psi(A)(B)X$, so $\psi$ is a homomorphism. So $\psi$ is a $n^2$-dimentional representation.
+        \item\label{it:1} $\forall A\in GL_n(K),\forall X\in M_n^{(j)}(K)$, let $X=(x_{ik})_{n\times n}$, $A=(a_{ik})_{n\times n}$, $\phi(A)X=AX
+        =:(b_{ik})_{n\times n}$, $b_{ik}=\sum_{l=1}^na_{il}x_{lk}\neq 0$, then $k=j$, so $AX\in M_n^{(j)}(K)$, so $M_n^{(j)}(K)$ is invariant subspace. Since $M_n{(K)}=\oplus_{j=1}^nM_n^{(j)}(K)$, so $\psi=\oplus_{j=1}^n\psi_j$. Consider $\tau : M_n^{(j)}(K)\to K^n$, $(\tau(X))_{k}=x_{kj}$, so $\tau$ is a isomophism. Obviously, $\psi$ is a isomophism between $\psi_j$ and $\phi$, $\forall j=1,\cdots,n$. While $\phi$ is irreducible, so $\psi_j$ is irreducible.
+        \item As \Cref{it:1} has prooved.
+        
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}
+    Let $K=\mathbb{C}$ and $n=2$ in (Group representation second homework).(Problem 3), prove the subrepresentation of $\phi$ over $M_2^0(\mathbb{C})$ is irreducible.
+\end{problem}
+\begin{solution}
+    Since $\forall X\in M_2(\mathbb{C})$, $X$ can be diagonalized on $\mathbb{C}$. $\forall X\in M_n^0{(\mathbb{C})}$, $\exists A\in M_n(\mathbb{C})$, s.t. $\phi(A)(X)=\left(\begin{array}{cc}
+        \lambda &0\\
+        0 &- \lambda
+    \end{array}\right)=\lambda\left(\begin{array}{cc}
+    1 &0\\
+    0 &-1
+\end{array}\right)$. So $\forall X\in E$, where $E$ is the invariant subspace of $M_2^0(\mathbb{C})$. so $\left(\begin{array}{cc}
+1 &0\\
+0 &-1
+\end{array}\right)\in V$. So $M_2^0(\mathbb{C})\subset E$, so $E=M_2^0(\mathbb{C})$.
+\end{solution}
+
+\begin{problem}
+    Assume $n\geq 3$ and $n\nmid \char K$, proof: then $n-$ dimentional permutate representation of $S_n$ can be decomposed as the direct sum of a main representation and a $n-1-$ dimentional irreducible subrepresentation
+\end{problem}
+\begin{solution}
+    As we have prooved in the second homework in \Cref{pro:old1}. $\phi_{V_1}$ is the main representation, and $V_2$ is $n-1$dimentional, so we only need to proof $V_2$ is irreducible. $\forall \{0\}\neq V\subset V_2$ is a invariant subspace, $\forall x\in V\minus\{0\}$, $x=\sum_{i=1}^na_ix_i, \sum_{i=1}^na_i=0$, if $a_i=k, i=1,\cdots,n$, so $\sum_{i=1}^na_n=nk=0$, while $n\nmid \char K$, $k=0$, so $x=0$. W.L.O.G. Let $a_1\neq a_2$, so $\phi((1 2))x=a_2x_1+a_1x_2+\sum_{k=3}^na_kx_k\in V$, then $x-\phi((1 2))x=(a_1-a_2)(x_1-x_2)\in V$, then $x_1-x_2\in V$, so $\phi((2 j))(x_1-x_2)=x_1-x_j\in V$. While $\{x_1-x_2,\cdots, x_1-x_n\}\subset V$ and they are linear independent. Then $\dim(V)\geq n-1$, so $V=V_2$. Thus, $\phi|_{V_2}$ is irreducible.
+\end{solution}
+
+\begin{problem}
+    Caculate the $1- $ dimentional $\mathbb{C}$ representation:
+    \begin{enumerate}
+        \item $(2,4)-$type of $8-$ order elementary Abel group.
+        \item the addition group of $\mathbb{Z}_p^n$
+    \end{enumerate} 
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $G=\mathbb{Z}_2\times \mathbb{Z}_4$, $\phi(x,y)=\mathrm{e}^{\frac{(2x+y)\pi \mathrm{i}}{2}}$.
+        \item $\phi(a_1,\cdots,a_n)=\mathrm{e}^{\frac{2\sum_{k=1}^na_k\pi \mathrm{i}}{p}}$
+    \end{enumerate}
+\end{solution}
+
+
+\section{The second homework}
+\setcounter{problem}{0}
+\begin{problem}\label{pro:old1}
+    Group $G$ has an action on set $\Omega=\left\{x_1, x_2, \cdots, x_n\right\}$, let $(\phi, V)$ be the $n-$ dimensional $K$ permutation representation of $G$, where $K$ is the field of vector space $V$, and 
+    $$
+V=\left\{\sum_{i=1}^n a_i x_i \mid a_i \in K, i=1,2, \cdots, n\right\} .
+$$
+Let
+$
+ V_1=\left\langle\sum_{i=1}^n x_i\right\rangle, 
+ V_2=\left\{\sum_{i=1}^n a_i x_i \mid \sum_{i=1}^n a_i=0, a_i \in K\right\} .
+$
+Proof: (1) $V_1$ and $V_2$ are  invariant subspaces of $G$ ;
+(2) If $\char K \nmid n$, then $\varphi=\varphi_{V_1} \oplus \varphi_{V_2}$.
+\end{problem}\\
+
+\setcounter{problem}{2}
+\begin{problem}
+    $\mathcal{O}(n):=\{A\in M_n(\mathbb{R}):AA^T=I_n\}$ is the set of all $n$-dimensional orthogonal matrix over $\mathbb{R}$. Let: 
+    \begin{equation}
+     \begin{aligned}
+         \varphi: \mathcal{O}(n) &\rightarrow \mathrm{GL}\left(M_n(\mathbb{R})\right) \\
+         A &\mapsto \varphi(A), \\
+     \end{aligned}
+    \end{equation}
+     \begin{equation}
+  \varphi(A) X:=A X A^{-1}: \quad \forall X \in M_n(\mathbb{R}) 
+     \end{equation}
+  $M_n^{+}(\mathbb{R}):=\{A\in M_n^0(\mathbb{R}): A=A^T\}$, $M_n^{-}(\mathrm{R}):=\{A\in M_n^0(\mathbb{R}): A^T=-A\}$.
+     (1) Proof: $M_n^{+}(\mathrm{R})$ and $M_n^{-}(\mathrm{R})$ are invariant spaces of $\varphi$;
+     (2) Let the subrepresentation of $\varphi$ on $\langle I \rangle$,$ M_n^{+}(\mathbb{R}), M_n^{-}(\mathbb{R})$ be  $\varphi_0, \varphi_1, \varphi_2$. Proof:
+     $
+     \varphi=\varphi_0+\varphi_1+\varphi_2 \text {. }
+     $
+     (3) calculate a $\frac{1}{2} n(n-1)-$ dimensional $ \mathbb{R}$ representation of $\mathcal{O}(n)$.
+ \end{problem}
+
+
+\end{document}

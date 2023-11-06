@@ -1,0 +1,30 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+Prove: There is no such inner product such that $\forall f\in C[a,b], (f,f)^{\frac{1}{2}}= \max_{x\in[a,b]} |f(x)|$.
+\end{problem}
+
+
+\begin{problem}
+$f:L^2[0,T]\to[0,+\infty)$, $x\mapsto |\int_0^T \mathrm{e}^{-(T-\tau)}x(\tau)\d \tau|$.Prove: $f$ can reach maximum in $S^2$, calculate the maximum and find the element of $x$ which reaches the maximum.
+\end{problem}
+
+\begin{problem}
+$(X,(\cdot,\cdot))$ is an inner product space, $M\subset N\subset X$. Prove $N^{\perp}\subset M^{\perp}$.
+\end{problem}
+

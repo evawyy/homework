@@ -1,0 +1,137 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+    \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+%from_here_to_type
+\iffalse
+\begin{problem}
+    Given the function $x_1+x_2+x_3+x_4=r$, where $x_1,x_2,x_3,x_4$ are non-negtive integers, $x_1\leq 4$, $x_2\le 9$ is odd, $x_3,\ x_4\le10$ are even. Let $a_r$ are the amount of the equation's solution. Calculate the generating function of $\{a_r\}_{r=0}^{\infty}$.
+\end{problem}
+\begin{solution}
+    Let $A:=\{\infty\cdot b_1,\infty\cdot b_2,\infty\cdot b_3,\infty\cdot b_4\}$, so $a_r$ means a restricted $r-$combination number of $A$.
+    Let $M_i$ is the all the possible appearance times of $b_i$, $1\leq 4$, $M_1:=\{0,1,2,3,4\},M_2:=\{1,3,5,7\},M_3:=\{0,2,4,6,8\}=M_4$. So $\prod_{i=1}^4\sum_{m\in M_i}x^m$ is the the generating function of $\{a_r\}_{r=0}^{\infty}$. Then,
+    \begin{equation}
+        \begin{aligned}
+            G{a_r}&=(1+x+x^2+x^3+x^4)(x+x^3+x^5+x^7)(1+x^2+x^4+x^6+x^8)^2\\
+                  &=x(1-x^5)(1-x^8)(1-x^{10})^2 \frac{1}{(1-x)^4}\frac{1}{(1+x)^3}\\
+                  &=(1-x^5-x^8-2x^{10}+x^{13}+2x^{15}+2x^{18}+x^{20}-2x^{23}-x^{25}-x^{28}+x^{33})\times\\
+                  &\sum_{n=0}^{\infty}\sum_{i=0}^n((-1)^{n-i}\Cb{3+i}{i}\Cb{2+n-i}{n-i})x^{n+1}
+        \end{aligned}
+    \end{equation}
+\end{solution}
+
+\begin{problem}
+    Calculate $\sum_{k=1}^{n}k^3$.
+\end{problem}
+\begin{solution}
+    Since $\sum_{k=0}^{\infty}k^2x^k=\frac{x(1+x)}{(1-x)^3}$, so $\sum_{k=1}^{\infty}k^3x^{k-1}=\left(\sum_{k=0}^{\infty}k^2x^k\right)'=\left(\frac{x(1+x)}{(1-x)^3}\right)'=\frac{1+4x+x^2}{(1-x)^4}$. So $\sum_{k=0}k^3x^k=\frac{x+4x^2+x^3}{(1-x)^4}$, $b_n=\sum_{k=0}^nk^3$, so the generating function of $\{b_n\}_{n=0}^{\infty}=\frac{x+2x^2-x^3}{(1-x)^5}=(x+4x^2+x^3)\sum_{k=0}^{infty}\Cb{k+4}{k}x^k$. Then, $b_n=\Cb{n+3}{n-1}+4\Cb{n+2}{n-2}+\Cb{n+1}{n-3}=\frac{n^2(n+1)^2}{4}$.
+\end{solution}
+
+\begin{problem}
+    Putting $25$ same balls into $7$ different boxes, the first box contains less or equal $10$ balls. Calculate the different ways of arrangement. 
+\end{problem}
+\begin{solution}
+    Let $M_i, 1\leq i\leq 7$ be the possible balls each boxes contains, so $M_1:=\{0,1,2,3,\cdots,10\}$, $M_i:=\mathbb{N}, 2\leq i\leq 7$. So $\prod_{i=1}^7\sum_{m\in M_i}x^m$ is the the generating function of $\{a_n\}_{n=0}^{\infty}$, where $n$ means the amount of balls. Then,
+    \begin{equation}
+        \begin{aligned}
+            G{a_n}&=(1+x+x^2+\cdots+x^{10})(1+x+x^2+\cdots)^6\\
+                  &=\frac{1-x^{11}}{1-x}\frac{1}{(1-x)^6}\\
+                  &=(1-x^{11})\sum_{n=0}^{\infty}\Cb{n+6}{n}x^n\\
+        \end{aligned}
+    \end{equation}
+    So $a_{25}=\Cb{25+5}{25}-\Cb{14+5}{14}=843408$.
+\end{solution}
+
+\begin{problem}
+    \begin{enumerate}
+        \item Prove the exponsial generating function of sequence $\{\frac{1}{n+1}\}_{n=0}^{\infty}$ is $\frac{1}{x}(e(x)-1)$.
+        \item Prove the exponsial generating function of sequence $\{\sum_{i=0}^n\frac{n!}{(n-i+1)!(i+1)!}\}_{n=0}^{\infty}$ is $\frac{1}{x^2}(e(x)-1)^2$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $\sum_{n=0}^{\infty}\frac{1}{n+1}\frac{x^n}{(n+1)!}=\sum_{n=0}^{\infty}\frac{x^n}{n!}=\frac{1}{x}(e(x)-1)$.
+        \item $\sum_{n=0}^{\infty}\sum_{i=0}^n\frac{n!}{(n-i+1)!(i+1)!}\frac{x^n}{n!}=\sum_{n=0}^{\infty}\sum_{i=0}^n\frac{x^{i}x^{n-i}}{(n-i+1)!(i+1)!}=\sum_{i=0}^{\infty}\frac{x^{i}}{(i+1)!}\sum_{n=0}^{\infty}\frac{x^{n}}{(n+1)!}=(\frac{1}{x}(e(x)-1))^2.$
+    \end{enumerate}
+\end{solution}
+
+
+\begin{problem}
+    $h_n$ represents $n$ digit number made from $1,3,5,7,9$ which $1,3$ only appear even times. Calculate $h_n$.
+\end{problem}
+\begin{solution}
+    Let $M_i, i\in \{1,3,5,7,9\}$ be the possible appearance of $i$, so $M_1:=\{0,2,\cdots,\}=M_3$, $M_i:=\mathbb{N}, i\in\{5,7,9\} $. So $\prod_{i\in\{1,3,5,7,9\}}\sum_{m\in M_i}x^m$ is the the generating function of $\{a_n\}_{n=0}^{\infty}$, where $n$ means the digit. Then,
+    \begin{equation}
+        \begin{aligned}
+            G{a_r}&=(1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots)^2(1+x+\frac{x^3}{3!}+\cdots)^3\\
+            &=e^3(x)(\frac{e(x)+e(-x)}{2})^2\\
+            &=\frac{e(5x)+e(x)+2e(3x)}{4}\\
+            &=\sum_{n=0}^{\infty}\frac{5^n+1+2\times 3^n}{4}\frac{x^n}{n!}\\
+        \end{aligned}
+    \end{equation}
+    So, $h_n=\frac{5^n+1+2\times 3^n}{4}$.
+\end{solution}
+
+
+
+\begin{problem}
+    Turn $2n$ persons into $n$ group (no difference between groups), $2$ persons in each group, how many different way to divide them?
+\end{problem}
+\begin{solution}
+    $\frac{\prod_{k=0}^{n}\Cb{2n-2k}{2}}{n!}=\frac{(2n)!}{2^nn!}$.
+\end{solution}
+\fi
+
+\begin{problem}\label{pro:1}
+    Divide $n$ into positive integers that are less or equal $m$, let $p'(n,m)$ be the counting of different ways. Prove $p'(n,m)=p'(n,m-1)+p'(n-m,m)$.
+\end{problem}
+\begin{solution}
+    Since $p'(n,m)$ equal to the solution of equation $n=1\cdot k_1+\cdots+m\cdot k_m$, where $0\leq k_i\leq m, 1\leq i\leq m$, then 
+    \begin{enumerate}
+        \item When $k_m=0$, the total solution of equation $n=1\cdot k_1+\cdots+m\cdot k_m$, where $0\leq k_i\leq m, 1\leq i\leq m$ is $p'(n,m-1)$.
+        \item When $k_m\geq 1$, the total solution of equation $n=1\cdot k_1+\cdots+m\cdot k_m$, where $0\leq k_i\leq m, 1\leq i\leq m$ equal to the total solution of equation $n-m=1\cdot k_1+\cdots+m\cdot k_m$, where $0\leq k_i\leq m, 1\leq i\leq m$, which is $p'(n-m,m)$.
+    \end{enumerate}
+    So $p'(n,m)=p'(n,m-1)+p'(n-m,m)$.
+\end{solution}
+
+\begin{problem}\label{pro:2}
+    Calculate the $p(9,5)$.
+\end{problem}
+\begin{solution}
+    By Ferrers picture, we can easily get $p(n,m)=p'(n,m)-p'(n,m-1)$.
+    So by \Cref{pro:1} $p(n,m)=p'(n-m,m)$, then $p(9,5)=p'(4,5)=p'(4,4)=p'(4,3)+p'(0,4)=p'(4,2)+p'(1,3)=p'(4,1)+p'(2,2)+p'(1,1)=p'(4,1)+p'(2,1)+p'(0,2)+p'(1,1)=1+1+0+1=3$.
+\end{solution}
+
+
+\begin{problem}
+    Prove: when $m\equiv 0(\mod 6)$, $p(m,3)=\frac{m^2}{12}$. 
+\end{problem}
+\begin{solution}
+    Let $m=6k, k\in \mathbb{N}$, so it equals to prove $p(6k,3)=\frac{(6k)^2}{12}=3k^2$ :
+    \begin{enumerate}
+        \item When $k=0$, so $p(0,3)=0$.
+        \item When $k$, there is $p(6k,3)=\frac{(6k)^2}{12}=3k^2$. So same as \Cref{pro:2}, $p(6k+6,3)=p'(6k+6,3)-p'(6k+6,2)=p'(6k+3,3)=p'(6k+3,2)+p'(6k,3)=p'(6k+3,2)+p'(6k,2)+p(6k,3)$. Since $p'(6k+3,2)=3k+1+1=3k+2,p'(6k,2)=3k+1$, $p(6k,3)=3k^2$. So, $p(6k+6,3)=3k^2+6k+3=3(k+1)^2$.
+    \end{enumerate}
+    
+\end{solution}
+
+
+
+
+
+
+
+\end{document}

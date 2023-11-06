@@ -1,0 +1,9 @@
+{
+	"group":"GroupRepresentation",
+	"set":"SetTheory",
+	"dsjh":"AlgebraicGeometry",
+	"algebra":"AlgebraicGeometry",
+	"com":"Combination",
+	"fun":"FunctionalAnalysis",
+	"par": "ParallelComputing"
+}

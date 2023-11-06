@@ -1,0 +1,27 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+
+%from_here_to_type
+\begin{problem}
+proof: $\sum_{i=0}^{\infty}(-1)^i\Cb{n+i}{i}x^i=\frac{1}{(1+x)^{n+1}}$
+\end{problem}
+
+\begin{problem}
+Power series expansion: $\frac{2+3x-6x^2}{1-2x}$.
+\end{problem}
+

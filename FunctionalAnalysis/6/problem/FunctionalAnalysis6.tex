@@ -1,0 +1,40 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\usepackage{csquotes}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\else
+\maketitle
+\fi
+\renewcommand{\bar}{\overline}
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+$\mathscr{X}$ is $B^*$ space. Prove: $\mathscr{X}$ is $B$ space $\iff$ $\forall \{x_n\}_{n=1}^{\infty}\subset \mathscr{X}$, $\sum_{n=1}^{\infty}||x_n||<\infty\rightarrow \sum_{n=1}^{\infty}x_n$ exists in $\mathscr{X}$.
+\end{problem}
+
+
+\begin{problem}
+$[a,b]\subset \mathbb{R}$, let $\mathbb{P}_n:=\{f\in \mathbb{R}^{[a,b]}:\exists g\in \mathbb{R}[x],\deg g\leq n,\forall t\in[a,b], f(t)=g(t)\}$. Prove: $\forall f\in C[a,b], \exists P_0\in \mathbb{P}_n$ s.t.
+\begin{equation}
+\max_{a\leq x\leq b}|f(x)-P_0(x)|=\min_{P\in \mathbb{P}_n}\max_{a\leq x\leq b}|f(x)-P(x)|.
+\end{equation}
+\end{problem}
+
+
+\begin{problem}
+$\mathscr{X}$ is $B^*$ space, $\mathscr{X}_0\subset \mathscr{X}$ is a subspace. Assume $\exists c\in(0,1)$, s.t.
+\begin{equation}
+\inf_{x\in \mathscr{X}_0}||y-x||\leq c||y||\quad(\forall y\in \mathscr{X}).
+\end{equation}
+Proof: $\mathscr{X}_0$ is dense in $\mathscr{X}$.
+\end{problem}
+

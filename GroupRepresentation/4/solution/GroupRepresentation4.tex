@@ -1,0 +1,121 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\iffalse
+\section{Homework}
+\begin{problem}
+Find all of $1-$dimentional complex representation of the alternating group $A_4$.
+\end{problem}
+\begin{solution}
+    Since $A_4'=\{(1),(12)(34),(13)(24),(14)(23)\}$, so $|A_4/A_4'|=\frac{|A_4|}{|A_4'|}=3$, so $A_4/A_4'$ is a $3-$cyclic group and $A_4/A_4'=<(123)A_4'>$. Let $\overline{\phi}_r((1\ 2\ 3)A_4')=\mathrm{e}^{\frac{2r\mathrm{i}   \pi}{3}}$, $r=0,1,2$, where $\overline{\phi}_0$ is the main representation of $A_4/A_4'$. So $\phi_0$ is the main representation of $A_4$. $\forall x\in A_4'$, $\phi_1(x)=\phi_2(x)=\id$. $\forall x\in (1\ 2\ 3)A_4'=\{(1\ 2\ 3),(1 \ 3\ 4), (2\ 4\ 3), (1\ 4\ 2)\}$, $\phi_r(x)=\overline{\phi}_r((1\ 2\ 3)A_4')=\mathrm{e}^{\frac{2r\mathrm{i}\pi}{3}}$, $\forall x\in (1\ 3\ 2)A_4'=\{(1\ 2\ 3), (2\ 3\ 4), (1\ 2\ 4), (1\ 4\ 3)\}$, $\phi_r(x)=\overline{\phi}_r((1\ 3\ 2)A_4')=\mathrm{e}^{\frac{4r\mathrm{i}   \pi}{3}}$.
+\end{solution}
+
+
+
+\begin{problem}\label{pro:2}
+Consider $N\trianglelefteq S_4$ and $N=\{(1),(12)(34),(13)(24),(14)(23)\}$.
+\begin{enumerate}
+\item Prove: $S_4/N\cong S_3$.
+\item Find a $2-$dimentional irreducible complex matrix representation of $S_4$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item Since $S_3\cap N=\{1\}$, so $S_3N=\{xy:x\in S_3, y\in N\}\le S_4$, and $|S_3N|=\frac{|S_3||N|}{|S_3\cap N|}=24=|S_4|$, so $S_3N=S_4$, then $S_3N/N\cong S_3/S_3\cap N$, that is $S_4/N\cong S_3$.
+        \item By the problem four of the third Homework, we get $S_3$ has a $2-$dimentional irreducible complex representation $\phi_2$ whose representation space is $V_2:=\{\sum_{i=1}^3a_ix_i:\sum_{i=1}^3a_i=0,a_i\in \mathbb{C}\}$. Given the base $\{x_1-x_2,x_1-x_3\}$, the matrix representation of $S_3$ are 
+        \begin{equation}
+            \psi_1((1\ 2))=\left(\begin{array}{cc}
+                -1 & -1\\
+                0 & 1\\               
+            \end{array}\right),
+            \psi_1((1\ 2\ 3))=\left(\begin{array}{cc}
+                -1 & -1\\
+                1 & 0\\               
+            \end{array}\right)
+        \end{equation}
+        Let $\sigma$ be the isomorphism from $S_4/N$ to $S_3$, and $S_4/N=\langle (1 \ 2)N, (1\ 2\ 3)\rangle$. So we only need to find the function of $(1\ 2)N$ and $(1\ 2\ 3)N$. Then, $\overline{\theta}_2:=\phi_2\sigma$. $\forall x\in(1\ 2)N\subset S_4$, $\theta_2(x)=\overline{\theta}_2(1\ 2)N=\phi_2(1\ 2)$. $\forall x\in(1\ 2\ 3)N\subset S_4$, $\theta_2(x)=\overline{\theta}_2(1\ 2\ 3)N=\phi_2(1\ 2\ 3)$. For other coset, it can be generate by $(1\ 2)N, (1\ 2\ 3)N$.
+    \end{enumerate}
+\end{solution}
+
+
+\begin{problem}
+Assuem $K$ is a field and $m\in \mathbb{N}^*$. Let $\phi_m(t):=t^m,\forall t\in K^*$, then $\phi_m$ is a $1-$dimentional $K-$representation of $(K^*,\cdot)$. Use $\phi_m$ to find a $1-$ dimentional $K-$ representation of $\gl_n(K)$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item First we prove that $\phi_m$ is a $1-$dimentional $K-$representation of $(K^*,\cdot)$: It is obvious that $\phi_m$ is a homomorphism on $K^*$, and $\phi_m\circ \phi_{-m}=\id$.
+        \item Let $\mathrm{det}:GL_n(K)\to K^*$, so $\mathrm{det}$ is homomorphic, so $\psi_m:=\phi_m(\mathrm{det}(A))=(\mathrm{det}(A))^m$, $\forall m\in \mathbb{N}_+, A\in GL_n(K)$. So $\psi_m$ is a $1-$ dimentional $K-$ representation of $\gl_n(K)$
+    \end{enumerate}
+\end{solution}
+
+
+\begin{problem}\label{pro:4}
+Prove that if $\phi$ is $1-$dimentional complex representation of finite group $G$, then $G/\ker\phi$ is a cyclic group.
+\end{problem}
+\begin{solution}
+    Since $|G|=n$, $\forall g\in G$, $g^n=e$, so $\phi(g)^n=\id$, so $\phi(g)\in\langle \iota \rangle$, where $\iota$ is $n$-th unit root. Where $\phi$ is homomorphism, then $\phi(G)=\{\phi(g):g\in G\}\subset \langle \iota \rangle$. So $G/\ker\phi\cong\phi(G)$ is cyclic.
+\end{solution}
+
+
+\begin{problem}
+Prove: If $G$ is a non-cyclic finite group, then there is no faithful $1-$dimentional complex representation of $G$.
+\end{problem}
+\begin{solution}
+    If $G$ is a non-cyclic finite group, and there is no faithful $1-$dimentional complex representation of $G$, then by \Cref{pro:4} $G/\ker\phi\cong G$ is cyclic.
+\end{solution}
+
+
+\begin{problem}
+Assume $(\phi,V)$ and $(\psi,W)$ are two $K-$representation of group $G$.
+Prove: $(\phi \dot{+}\psi)^*\approx \phi^*\dot{+}\psi^*$.
+\end{problem}
+\begin{solution}
+    Let $((\phi \dot{+}\psi)^*,(V\dot{+}W)^*)$ ,$(\phi^*\dot{+}\psi^*, V^*\dot{+} W^*)$ are two $K-$representation of group $G$. And $\sigma:(V\dot{+}W)^*\to V^*\dot{+} W^*$, $f\mapsto(f_1,f_2)$, $f_1(\alpha)=f(\alpha,0), f_2(\beta)=f(0,\beta), \forall \alpha\in V, \beta\in W, f(\alpha,\beta)=f_1(\alpha)+f_2(\beta)$. $\forall (\alpha,\beta)\in V\dot{+} W$, $f\in (V\dot{+}W)^*, g\in G$, then 
+    \begin{equation}
+        \begin{aligned}
+            &\sigma((\phi \dot{+}\psi)^*(g) f)(\alpha,\beta)\\
+            =&\sigma(f(\phi \dot{+}\psi)(g^{-1}))(\alpha,\beta)\\
+            =&((f(\phi \dot{+}\psi)(g^{-1}))_1,(f(\phi \dot{+}\psi)(g^{-1}))_2)(\alpha,\beta)\\
+            =&(f(\phi \dot{+}\psi)(g^{-1}))_1 \alpha+(f(\phi \dot{+}\psi)(g^{-1}))_2 \beta\\
+            =&(f(\phi \dot{+}\psi)(g^{-1}))(\alpha,0)+(f(\phi \dot{+}\psi)(g^{-1}))(0,\beta)\\
+            =&(\phi^*(g)f_1)\alpha+(\phi^*(g)f_2)\beta
+        \end{aligned}
+    \end{equation} 
+    \begin{equation}
+        \begin{aligned}
+            ((\phi^*\dot{+}\psi^*)(g)(\sigma f))(\alpha,\beta)=(\phi^*(gf_1))\alpha+(\phi^*(g)f_2)\beta
+        \end{aligned}
+    \end{equation}
+    Then, $\sigma((\phi \dot{+}\psi)^*(g) f)=(\phi^*\dot{+}\psi^*)(g)(\sigma f)$, then $\sigma(\phi \dot{+}\psi)^*(g)=()\phi^*\dot{+}\psi^*(g)\sigma$, then $(\phi \dot{+}\psi)^*\approx \phi^*\dot{+}\psi^*$.
+\end{solution}\fi
+
+
+
+\begin{problem}
+    $K$ is a field, $A$ is algebra on $K$, $\emptyset\neq A_1\subset A$, we call $A_1$ is a subalgebra of $A$, if $A_1$ is a subring of $A$ which contains $1$ of $A$ and $A_1$ is a subspace of $A$ on K and is also an algebra on $K$. Let $Z(A):=\{c\in A:ca=ac,\forall a\in A\}$. Prove: $Z(A)$ is a subalgebra of $A$, we call $Z(A)$ is the center of algebra $A$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item\label{it:1} $Z(A)$ is a subring of $A$ which contains $1$ of $A$: Since $\forall a\in A$, A is a ring, then $1a=a1$. So $1\in Z(A)$. $\forall c_1,c_2\in Z(A)$, $\forall a\in A$, $(c_1-c_2)a=(c_1+(-c_2))a=c_1a+(-1)c_2a=ac_1+(-1)ac_2=ac_1+a(-1)c_2=a(c_1+(-1)c_2)=a(c_1-c_2)$, then $c_1-c_2\in Z(A)$. $(c_1c_2)a=c_1(c_2a)=c_1(ac_2)=(c_1a)c_2=(ac_1)c_2=a(c_1c_2)$, then $c_1c_2\in A$.
+        \item\label{it:2} $Z(A)$ is a subspace of $A$ on K:$\forall k\in K$, $\forall c,c_1,c_2\in Z(A),\ \forall a\in A$, since $A$ is an algebra on $K$, then $(kc)a=k(ca)=k(ac)=a(kc)$, then $kc\in Z(A)$. And by \Cref{it:1}, we get $c_1+c_2\in Z(A)$.
+        \item By \Cref{it:1}, \Cref{it:2}, we get $Z(A)$ is also an algebra on $K$.
+    \end{enumerate}
+    So $Z(A)$ is a subalgebra of $A$.
+\end{solution}
+
+
+\end{document}

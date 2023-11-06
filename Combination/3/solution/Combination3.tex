@@ -1,0 +1,41 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+    \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+
+%from_here_to_type
+\begin{problem}
+    proof: $\sum_{i=0}^{\infty}(-1)^i\Cb{n+i}{i}x^i=\frac{1}{(1+x)^{n+1}}$
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $n=0$: obviously!
+        \item Assume $n$, we have the equation.
+        \item We go to $n+1$, so $
+                \frac{1}{(1+x)^{n+2}}=\frac{1}{(1+x)^{n+1}}\frac{1}{1+x}
+                =\sum_{i=0}^{\infty}(-1)^i\Cb{n+i}{i}x^i\sum_{i=0}^{\infty}(-1)^ix^i=\sum_{i=0}^{\infty}(-1)^i\sum_{l=0}^i\Cb{n+l}{l}x^i=\sum_{i=0}^{\infty}(-1)^i\Cb{n+i+1}{i}x^i$
+
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}
+    Power series expansion: $\frac{2+3x-6x^2}{1-2x}$.
+\end{problem}
+\begin{solution}
+Let $t=2x$, so $\frac{2+3x-6x^2}{1-2x}=\frac{1}{2}\frac{4+3t-3t^2}{1-t}=\frac{2}{1-t}+\frac{3t}{2}=2\sum_{i=0}^{\infty}t^i+\frac{3t}{2}=2+\frac{7}{2}t+2\sum_{i=2}^{\infty}t^i=2+7x+\sum_{i=2}^{\infty}2^{i+1}x^i$.
+\end{solution}
+
+\end{document}

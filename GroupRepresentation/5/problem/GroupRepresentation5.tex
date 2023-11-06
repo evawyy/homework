@@ -1,0 +1,35 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+
+%from_here_to_type
+
+
+\begin{problem}
+$K$ is a field, $A$ is algebra on $K$, $\emptyset\neq A_1\subset A$, we call $A_1$ is a subalgebra of $A$, if $A_1$ is a subring of $A$ which contains $1$ of $A$ and $A_1$ is a subspace of $A$ on K and is also an algebra on $K$. Let $Z(A):=\{c\in A:ca=ac,\forall a\in A\}$. Prove: $Z(A)$ is a subalgebra of $A$, we call $Z(A)$ is the center of algebra $A$.
+\end{problem}
+
+\begin{problem}
+Let $G$ is infinite group, $K$ is a field. Prove:
+\begin{enumerate}
+\item $\sum_{g\in G}g\in Z(K[G])$;
+\item $C_a:=\{gag^{-1}:g\in G\}$, $\sum_{x\in C_a}x\in Z(K[G])$.
+\end{enumerate}
+\end{problem}
+
+
+

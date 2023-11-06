@@ -1,0 +1,30 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+%\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\else
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\maketitle
+\fi
+%from_here_to_type
+\begin{problem}
+$H_1,H_2$ are sub-modules of left module $M$ over ring $R$, prove: $H_1+H_2$ is direct sum iff $H_1\cap H_2=\{0\}$.
+\end{problem}
+\begin{problem}\label{pro:2}
+$H_1,H_2$ are sub-modules of left module $M$ over ring $R$ s.t. $H_1\oplus H_2=M$, prove: $M/H_1\cong H_2$, $M/H_2\cong H_1$.
+\end{problem}
+\begin{problem}
+$H_1,H_2, \cdots ,H_n$ are sub-modules of left module $M$ over ring $R$ s.t. $H_1\oplus H_2\oplus\cdots\oplus H_n=M$, prove: $M/(H_2\oplus\cdots\oplus H_n)\cong H_1$.
+\end{problem}
+
+
+

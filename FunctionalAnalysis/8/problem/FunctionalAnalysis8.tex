@@ -1,0 +1,46 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+Let $A=\{e_k\}$ are orthonormal basis in inner product space $X$. Prove: $\forall x,y\in X$, $\sum_{k=1}^{\infty}|(x,e_k)(y,e_k)|\leq \norm{x}\norm{y}$.
+\end{problem}
+
+\begin{problem}
+$H$ is Hilbert space, $\{e_k\},\{e_k'\}$ are two kinds of orthonormal set in inner product space $H$, $\sum_{k=1}^{\infty}\norm{e_k-e_k'}^2<1$. Prove: if one of $\{e_k\},\{e_k'\}$ is complete, then the other is complete.
+\end{problem}
+
+\begin{problem}
+$H$ is an inner space, these propositions below are equal:
+\begin{enumerate}
+\item $x\perp y$;
+\item $\norm{x+\alpha y}\geq \norm{x}$, $\alpha\in \mathbb{C}$;
+\item $\norm{x+\alpha y}=\norm{x-\alpha y},\forall \alpha\in \mathbb{C}$.
+\end{enumerate}
+\end{problem}
+
+\iffalse
+\begin{problem}
+$X$ is a linear space over field $\mathbb{C}$ or $\mathbb{R}$, $(X,\norm{\cdot})$ is a $B^*$ space, then $\norm{\cdot}$ can be induced by an inner product if and only if $\forall x,y\in X$, $\norm{x+y}^2+\norm{x-y}^2=2(\norm{x}^2+\norm{y}^2)$.
+\end{problem}
+\begin{lemma}\label{lem:1}
+$f:\mathbb{R}\to \mathbb{R}$ s.t. $f$ is continous and $f(m+n)=f(m)+f(n),\forall m,n\in \mathbb{R}$, then $f(x)=xf(1),\forall x\in \mathbb{R}$.
+\end{lemma}
+
+
+\fi
+
+

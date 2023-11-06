@@ -1,0 +1,74 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\usepackage{fixdif}
+\begin{document}
+\large
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\shi}{\1}
+\setlength{\baselineskip}{2em}
+\begin{problem}
+    $(X,||\cdot||)$ is a $B$ space, $\{x_n\}\subset X$, $g \in L(0,\infty)$ is decreasing and $g\geq 0$, $\forall n\in \mathbb{N}_+, ||x_n||\leq g(n)$. Proof:  $\sum_{n=1}^\infty ||x_n||$ converges.
+    \end{problem}
+    \begin{solution}
+    Since $g \in L(0,\infty)$ is decreasing and $g\geq 0$, so $\int_0^{\infty}g(t)\d t<\infty$, and $g(t)\geq \sum_{k=0}^{\infty}g(k+1)\shi_{[k,k+1)}(t)$. Besides, $\forall n\in \mathbb{N}_+, ||x_n||\leq g(n)$. So $\sum_{n=1}^\infty ||x_n||\leq\sum_{k=1}^{\infty}g(k)=\sum_{k=0}^{\infty}\int_0^{\infty}g(k+1)\shi_{[k,k+1)}(t)\d t=\lim_{m\to\infty}\sum_{k=0}^{m}\int_0^{\infty}g(k+1)\shi_{[k,k+1)}(t)\d t=\lim_{m\to\infty}\int_0^{\infty}\sum_{k=0}^{m}g(k+1)\shi_{[k,k+1)}(t)\d t\overset{LCDT}{=}
+    \int_0^{\infty}\sum_{k=0}^{\infty}g(k+1)\shi_{[k,k+1)}(t)\d t\leq \int_0^{\infty}g(t)\d t<\infty$
+    \end{solution}
+    
+    
+    \begin{problem}
+        $(X_k,||\cdot||_k), k\in \mathbb{N}_+$ is a sequence of $B(B^*)$ spaces on field $\mathbb{K}$, let $X=\{\{x_k\}_{k=1}^{\infty}: x_k\in X_k, k\in \mathbb{N}_+$, $\sum_{k=1}^{\infty}||x_k||_k^p<\infty, p\geq 1\}$, $\forall x=\{x_k\}_{k=1}^{\infty},y=\{y_k\}_{k=1}^{\infty}\in X$, $\forall k_1,k_2\in \mathbb{K}$, let $k_1x+k_2y=\{k_1x_k+k_2y_k\}_{k=1}^{\infty}$, $||x||=(\sum_{k=1}^{\infty}||x_k||_k^p)^{\frac{1}{p}}(p\geq 1)$
+        Proof: $(X,||\cdot||)$ is a $B(B^*)$ space.
+    \end{problem}
+    \begin{solution}
+        \newcommand*{\Iff}{\iff}
+        \begin{enumerate}
+            \item $X$ is a linear space. 
+            \begin{enumerate}
+            \item The operation of add and number multiplication in $X$ is closed: $\forall x=\{x_k\}_{k=1}^{\infty},y=\{y_k\}_{k=1}^{\infty}\in X$, $k_1x+k_2y=\{k_1x_k+k_2y_k\}_{k=1}^{\infty}$. $\forall p\geq 1,\forall 1\leq k<\infty$, since $(X_k,||\cdot||_k)$ is $B$ space, $\forall k_1,k_2\in \mathbb{K}$, let $||k_1x_k+k_2y_k||_k^p\leq (|k_1|||x_k||_k+|k_2|||y_k||_k)^p\\
+            \leq (2\max\{|k_1|, |k_2|\}\max\{||x_k||_k,||y_k||_k\})^p\leq(2\max\{|k_1|, |k_2|\})^p(||x_k||_k^p+||y_k||_k^p)$. 
+            Therefore, \begin{equation}
+            \begin{aligned}
+            &\sum_{k=1}^{\infty}||k_1x_k+k_2y_k||_k^p\\
+            \leq &\sum_{k=1}^{\infty}(2\max\{|k_1|, |k_2|\})^p(||x_k||_k^p+||y_k||_k^p)\\
+            =&(2\max\{|k_1|, |k_2|\})^p\sum_{k=1}^{\infty}(||x_k||_k^p+||y_k||_k^p)\\
+            =&(2\max\{|k_1|, |k_2|\})^p(\sum_{k=1}^{\infty}||x_k||_k^p+\sum_{k=1}^{\infty}||y_k||_k^p)<\infty \\
+            \end{aligned}
+            \end{equation}
+            so $k_1x+k_2y\in X$.
+            \item Let $\theta={x_k}, x_k=\theta_k$, which is the $0$ element in $X_k$. So, it is trivial that $X$ is a linear space on $\mathbb{K}$.
+            \end{enumerate}
+        \item $(X,||\cdot||)$ is $B^*$ space:
+        \begin{enumerate}
+            \item $\forall x\in X$, since $\forall k\in \mathbb{N}_+(x_k, ||\cdot||_k)$ is $B^*$ space, so $\forall k\in \mathbb{N}_+, ||x_k||_k\geq0, ||x_k||_k=0\Iff x_k=\theta_k$. So $||x||=(\sum_{k=1}^{\infty}||x_k||_k^p)^{\frac{1}{p}}\geq0$. So $||x||=(\sum_{k=1}^{\infty}||x_k||_k^p)^{\frac{1}{p}}=0\Iff \sum_{k=1}^{\infty}||x_k||_k^p=0\Iff ||x_k||_k^p=0, \forall k\in \mathbb{N}_+\Iff ||x_k||_k=0, \forall k\in \mathbb{N}_+\Iff x_k=0, \forall k\in \mathbb{N}_+\Iff x=\theta$
+            \item $\forall x\in X, \forall a\in \mathbb{K}, p\geq1$, $||ax||=(\sum_{k=1}^{\infty}||ax_k||_k^p)^{\frac{1}{p}}=(\sum_{k=1}^{\infty}|a|^p||x_k||_k^p)^{\frac{1}{p}}=|a|(\sum_{k=1}^{\infty}||x_k||_k^p)^{\frac{1}{p}}=|a|||x||$.
+            \item $\forall x, y\in X$, $\forall k\in \mathbb{N}_+$, $||x_k+y_k||_k^p\leq (||x_k||_k+||y_k||_k)^p$, so by Minkovski Inequation $(\sum_{k=1}^{\infty}||x_k+y_k||_k^p)^{\frac{1}{p}}\leq(\sum_{k=1}^{\infty}(||x_k||_k+||y_k||_k)^p)^{\frac{1}{p}}\leq (\sum_{k=1}^{\infty}||x_k||_k^p)^{\frac{1}{p}}+(\sum_{k=1}^{\infty}||y_k||_k^p)^{\frac{1}{p}}$.
+        \end{enumerate}
+        \item $(X, ||\cdot||)$ is complete: $\forall \{x^{(m)}\in X: x^{(m)}=\{x^{(m)}_k\}_{k=1}^{\infty}, m\in \mathbb{N}_+\}$ s.t. $\lim_{m,n\to\infty}||x^{(m)}-x^{(n)}||=0$, so $\forall k\in \mathbb{N}_+, ||x^{(m)}_k-x^{(n)}_k||_k\leq (\sum_{k=1}^{\infty}||x^{(m)}_k-x^{(n)}_k||_k^p)^{\frac{1}{p}}\to0,$ as $m,n\to\infty$, by the completeness of $(X_k, ||\cdot||_k)$, $\{x^{(m)}_k\}_{m=1}^{\infty}\subset X_k$ is a Cauchy sequence in $X_k$. Let $x=\{x_k\}_{k=1}^{\infty}$, where $x_k=\lim_{n\to\infty} x_k^{(n)}\in X_k$, so $(\sum_{k=1}^{\infty}||x_k||_k^p)^{\frac{1}{p}}=(\sum_{k=1}^{\infty}||\lim_{m\to\infty} x^{(m)}_k||_k^p)^{\frac{1}{p}}$.
+        \begin{enumerate}
+            \item $x\in X$: that is to proof $(\sum_{k=1}^{\infty}||\lim_{m\to\infty}x^{(m)}_k||_k^p)^{\frac{1}{p}}<\infty$. Since $\exists M$, $\forall i,j \geq M$, $(\sum_{k=1}^{\infty}||x^{(i)}_k-x^{(j)}_k||_k^p)^{\frac{1}{p}}\leq 1$, let $j=M$, then $\forall i>M$, $(\sum_{k=1}^{\infty}||x^{(i)}_k||_k^p)^{\frac{1}{p}}\leq(\sum_{k=1}^{\infty}||x^{(i)}_k-x^{(M)}_k||_k^p)^{\frac{1}{p}}+(\sum_{k=1}^{\infty}||x^{(M)}_k||_k^p)^{\frac{1}{p}}<(\sum_{k=1}^{\infty}||x^{(M)}_k||_k^p)^{\frac{1}{p}}+1<\infty$ . So $\exists N, \forall i$, $(\sum_{k=1}^{\infty}||x^{(i)}_k||_k^p)^{\frac{1}{p}}<N$. So , 
+            \begin{equation}
+                \begin{aligned}
+            N\geq&\lim_{m\to\infty}(\sum_{k=1}^{\infty}||x^{(m)}_k||_k^p)^{\frac{1}{p}}\\
+            \overset{LCDT}{=}& (\sum_{k=1}^{\infty}\lim_{m\to\infty}||x^{(m)}_k||_k^p)^{\frac{1}{p}}\\
+            =&(\sum_{k=1}^{\infty}||\lim_{m\to\infty}x^{(m)}_k||_k^p)^{\frac{1}{p}}=||x||\\
+                \end{aligned}
+        \end{equation}
+            \item $||x^{(m)}-x||\to0, m\to \infty$: $\forall \epsilon>0$, $\exists M$, $\forall i,j \geq M$, $(\sum_{k=1}^{\infty}||x^{(i)}_k-x^{(j)}_k||_k^p)^{\frac{1}{p}}\leq \frac{\epsilon}{2}$. $\forall k$, $\exists M_k>M$, $\forall j_k>M_k$, $||x_k^{(j_k)}-x_k||_k\leq\frac{\epsilon}{2^{k+1}}$, so $(\sum_{k=1}^{\infty}||x^{(j)}_k-x_k||_k^p)^{\frac{1}{p}}\leq (\sum_{k=1}^{\infty}(||x^{(j_k)}_k-x_k||_k+||x^{(j)}_k-x^{(j_k)}_k||_k)^p)^{\frac{1}{p}}\leq (\sum_{k=1}^{\infty}||x^{(j_k)}_k-x_k||_k^p)^\frac{1}{p}+(\sum_{k=1}^{\infty}||x^{(j)}_k-x^{(j_k)}_k||_k^p)^\frac{1}{p}\leq \sum_{k=1}^{\infty}\frac{\epsilon}{2^{k+1}}+\frac{\epsilon}{2}=\epsilon$.
+            
+        \end{enumerate}
+    
+    \end{enumerate}
+    \end{solution}
+\end{document}

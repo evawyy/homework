@@ -1,0 +1,240 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\DeclareMathOperator{\ord}{Ord}
+\DeclareMathOperator{\otype}{OrderType}
+\newcommand{\ini}{\mathrm{\mathop{ini}}}
+\newtheorem{example}{Example}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\len}{\mathop{\mathrm{len}}}
+\newcommand{\Q}{\mathbb{Q}}
+\crefname{enumi}{}{}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\section{Question}
+\begin{problem}
+Let $(U,\le),(V,\prec)$ be two well-orderings. Consider $f:=\{(x,y):x\in U\xand y\in V\xand (U_x,\le)\cong (V_y,\prec)\}$, prove $f$ is isomorphism from some initial segment of $U$ to some initial segment of $V$. 
+\end{problem}
+\begin{solution}
+Let $f:=\{(x,y):x\in U\xand y\in V\xand (W_x,\le)\cong(W_y,\prec)\}$
+\begin{enumerate}
+    \item $f:\dom f\to V$ is a function: $\forall x\in\dom f$, if $\exists y_1,y_2\in V$, s.t. $(x,y_1)\in f, (x,y_2)\in f$, w.l.o.g., $y_1\prec_{y} y_2$, s.t. $(W_x,\le_{x})\cong(W_{y_1},\prec_{y_1})$, $(W_x,\le)\cong(W_{y_2},\prec_{y_2})$. However, $W_{y_1}\subseteq W_{y_2}$, contradiction!
+    \item $f$ is isomorphic:  $\forall x_1,x_2\in U:\ x_1\le x_2$, $\exists y_1,y_2\in V$, s.t. $g_1: (W_{x_1},\le_{x_1})\to(W_{y_1},g_2: \prec_{y_1})$, $(W_{x_2},\le_{x_2})\to(W_{y_2},\prec_{y_2})$, where $g_1,g_2$ are isomorphic. Since $W_{x_1}\subset W_{x_2}$, so $W_{y_1}\subset W_{y_2}$, so $y_1\prec y_2$. Therefore, $f$ is isomorphic. Thus, It is trivial that $f$ is injective, moreover, $f$ is bijective.
+    \item $\dom f, \ran f$ are both initial segment of $U,V$ respectly:
+    \begin{lemma}\label{lem:1}
+        $g: (x,\le_{x})\to(y,\prec_{y})$ is isomorphic, then $\forall W_a\subset x, a<x$, s.t. $g[W_a]=W_{g(a)}$ 
+    \end{lemma}
+    \begin{proof}
+        $\forall u\in W_{g(a)}$ i.e $u\le_{x} a$, then $g(u)\prec_{y} g(a)$, so $g(u)\in W_{g(a)}$. 
+        $\forall v\in W_{g(a)}\subset W_{y}$, $\exists u\in W_x$, s.t. $g(u)=v$. Since $v\prec_{y} g(a)$, then $u\le_{x} a$, so $v\in g[W_a]$. Therefore, $g[W_a]=W_{g(a)}$.
+    \end{proof}
+        \begin{enumerate}
+            \item $\forall x\in \dom f$, $\forall a\le_{x} x$, then $\exists | y\in V\ \exists g:(W_x,\le_{x})\to(W_y,\prec_{y})$, where $g$ is isomorphic. By \Cref{lem:1}, $g|_{W_a}:(W_x,\le_{x})\cong(W_y,\prec_{y})$ is isomorphic.
+            \item $\forall y\in \ran f$, $\forall b\prec_{y} y$, then $\exists | x\in U\ \exists h:(W_y,\prec_{y})\to(W_x,\le_{x})$, where $h$ is isomorphic. Just as before, $h|_{W_b}:(W_y,\prec_{y})\cong(W_x,\le_{x})$.
+        \end{enumerate} 
+    \item $\dom f,\ran f$ can't be both proper initial segment of $U,V$ : Otherwise, $\dom f\subseteq U,\ran f\subseteq V$, $u:=\min U\dom f, v:=\min V\ran f$, so $\tilde{f}:\dom (f\cup\{(u,v)\})\to\ran (f\cup\{(u,v)\})$ s.t. $x\in\dom f$, $\tilde{f}(x)=f(x),\tilde{f}(u)=v$. Obviously, $\tilde{f}$ is isomorphic. So $u\in\dom f$, contradiction!
+\end{enumerate}
+\end{solution}
+
+\begin{problem}\label{pro:2}
+The relation ``$(P,\le)\cong(Q,\le)$'' is an equivalence relation (on the class of all partially ordered sets).
+\end{problem}
+\begin{solution}
+    Let $\mathcal{A}=\{$ All of the partially order sets $\}$.
+\begin{enumerate}
+    \item $\forall (P,\le)\in \mathcal{A}$, $\id :P\to P$, which is an autoisomophism on $P$. So $(P,\le)\cong (P,\le)$.
+    \item If $(P_1,\le_1)\cong (P_2,\le_2)$, so $\exists f: (P_1,\le_1)\to (P_2,\le_2)$, which is isomorphic. So $f^{-1}: (P_2,\le_2)\to (P_1,\le_1)$ is isomorphic, too. So $(P_2,\le_2)\cong (P_1,\le_1)$
+    \item If $(P_1,\le_1)\cong (P_2,\le_2), (P_2,\le_2)\cong (P_3,\le_3)$, so so $\exists f_1: (P_1,\le_1)\to (P_2,\le_2)$, which is isomorphic, $\exists f_2: (P_2,\le_2)\to (P_3,\le_3)$, which is isomorphic. So $f_2\circ f_1: (P_1,\le_1)\to(P_3,\le_3)$ is isomorphic.
+\end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}
+Let $\mathcal{A}$ denote the class of all well orderings. For any $a,b\in\mathcal{A}$, define $a\prec b\iff a$ is isomorphic to an initial segment of $b$. Show that $\prec$ is a well ordering on $\mathcal{A}/\cong$, where $\cong$ is the equivalence relation given in \Cref{pro:2}.  
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $(\mathcal{B},\le):=(\mathcal{A}/\cong,\le)$ is well defined: $\forall [a],[b]\in \mathcal{B}$, if $a\le b$, then $\forall a'\in [a], b'\in [b]$, $\exists f:a\to b$, where $f$ is a order-preserving function, $\exists g_1: a'\to a, g_2:b\to b'$, where $g_1,g_2$ are isomorphic. So $h:=g_2\circ f\circ g_1: a'\to b'$, where $h$ is a order-preserving function. So by \Cref{lem:1}, $h[a']=W_{(h(a'))}$. So $a'\le b'$.
+        \item $(\mathcal{B},\le)$ is a partially ordered set, which is obvious.
+        \item $(\mathcal{B},\le)$ is a well-ordered set. $\forall \emptyset\neq B\subset  \mathcal{B}$, let $[a]\in \mathcal{B}$, $W:=\{x\in a: [b]\in B\xand [b]\le [a], b\cong W_{x}\}$.
+        So $\emptyset \neq W\subset a$, $\exists x_0=\min W$, $x_0\in a$. $\forall [c]\in B: [c]\leq [a]$, $\exists x\in W$, $W_{x_0}\leq c\cong W_{x}<a$. So $\min B=W_{x_0}$.
+
+    \end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}
+\begin{enumerate}
+\item If $(W,<)$ is a well ordering and $U \subset W$, then $(U,<\cap(U \times U))$ is a well ordering.
+\item
+If $\left(W_1,<_1\right)$ and $\left(W_2,<_2\right)$ are two well orderings and $W_1 \cap W_2=\varnothing$, then $W_1 \oplus W_2=\left(W_1 \cup W_2, \prec\right)$ is a well ordering, where
+$$
+\prec=<_1 \cup<_2 \cup\left\{(a, b) \mid a \in W_1 \wedge b \in W_2\right\}
+$$
+\item
+If $\left(W_1,<_1\right)$ and $\left(W_2,<_2\right)$ are two well orderings, then $W_1 \otimes W_2=\left(W_1 \times W_2, \prec\right)$ is a well ordering, where
+$$
+\left(a_1, b_1\right) \prec\left(a_2, b_2\right) \leftrightarrow b_1<_2 b_2 \vee\left(b_1=b_2 \wedge a_1<_1 a_2\right)
+$$
+\end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $\forall \emptyset \neq A\subset U\subset W$, in $W$, $\exists a=\min A$, and $\le$ is the same when $\le$ in $U$. So $a$ is the minum element in $U$ of $A$.
+        \item $\forall \emptyset \neq A\subset W_1\oplus W_2$, if $A\cap W_1=\emptyset$, then $A=A\cap W_2\neq\emptyset$, so $a=\min A\cap W_2=\min A$. If $A\cap W_1\neq\emptyset$, $a=\min A\cap W_1$. So, it is obvious that $a=\min A$.
+        \item $\forall \emptyset \neq A\subset W_1\otimes W_2$, $b=\min \ran A$, $W_1\subset W: =\{a:(a,b)\in A\}\neq \emptyset$. Let $a=\min W$, $(a,b)=\min A$, obviously.
+    \end{enumerate}
+\end{solution}
+
+
+\begin{problem}
+Show that the following are equivalent:
+\begin{enumerate}[ref=\theproblem.\arabic*]
+\item\label{it:1} $T$ is transitive;
+\item\label{it:2}$\bigcup T \subseteq T$;
+\item\label{it:3} $T \subseteq \mathscr{P}(T)$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $\Cref{it:1}\to\Cref{it:2}$:$\forall x\in \bigcup T$, $\exists y \in T$, s.t. $x\in y\in T$, since $y$ is transitive, so $y\subset T$, so $x\in T$.
+        \item $\Cref{it:2}\to\Cref{it:3}$:$\forall y\in x\in T$, $y\in\bigcup T\subset T$, so $y\in T$.
+        \item $\Cref{it:3}\to\Cref{it:1}$:$\forall x\in T\subset \mi{T}$, $x\in\mi{T}$, $x\subset T$. 
+    \end{enumerate}
+   
+\end{solution}
+
+
+
+\begin{problem}
+Let $\alpha, \beta, \gamma \in\ord$ and let $\alpha<\beta$. Then
+\begin{enumerate}[label=\alph*,ref=\theproblem.\alph*]
+\item\label{it:11} $\alpha+\gamma \leq \beta+\gamma$.
+\item\label{it:12} $\alpha \cdot \gamma \leq \beta \cdot \gamma$.
+\item\label{it:13} $\alpha^\gamma \leq \beta^\gamma$.
+\end{enumerate}
+Given examples to show that $\leq$ cannot be replaced by $<$ in either inequality.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $\phi(\gamma):=\forall \alpha \beta\in\ord(\alpha+\gamma \leq \beta+\gamma)$, by Transfinite Induction, $\gamma=0$, then $\alpha+\gamma =\alpha\le \beta= \beta+\gamma$. If $\forall \nu\le \gamma$, $\phi(\nu)$, when $\gamma$ is a successor ordinal, $\gamma=\nu\cup\{\nu\}$, so $\alpha+\gamma=S(\alpha+\nu)\leq S(\beta+\nu)=\beta+\gamma$. When $\gamma$ is a limit ordinal, $\alpha+\gamma=\lim_{\nu\to \gamma}\alpha+\nu\leq \lim_{\nu\to \gamma}\beta+\nu=\beta+\gamma$.\\
+        Example: $\alpha=1,\beta=2,\gamma=\omega$. Then $\alpha+\gamma=\omega=\beta+\gamma$
+        \item $\phi(\gamma):=\forall \alpha \beta\in\ord(\alpha\cdot\gamma \leq \beta\cdot\gamma)$, by Transfinite Induction, $\gamma=0$, then $\alpha\cdot\gamma =0=\beta\cdot\gamma$. If $\forall \nu\le \gamma$, $\phi(\nu)$, when $\gamma$ is a successor ordinal, $\gamma=\nu\cup\{\nu\}$, so by \Cref{it:11}, $\alpha\cdot \gamma=\alpha\cdot \nu+\alpha\leq \beta\cdot \nu+\beta=\beta\cdot \gamma$. When $\gamma$ is a limit ordinal, $\alpha\cdot\gamma=\lim_{\nu\to \gamma}\alpha\cdot\nu\leq \lim_{\nu\to \gamma}\beta\cdot\nu=\beta\cdot\gamma$.\\
+        Example: $\alpha=1,\beta=2,\gamma=\omega$. Then $\alpha\cdot \gamma=\omega, f: \beta\cdot \gamma\to \gamma$, $f(<a,b>)=2*b, a=0,f((a,b))=2*b+1, a=1$, so $f$ is isomorphic. Then $\beta\cdot \gamma=\gamma$.
+        \item $\phi(\gamma):=\forall \alpha \beta\in\ord(\alpha^{\gamma} \leq \beta^{\gamma})$, by Transfinite Induction, $\gamma=0$, then $\alpha^{\gamma} =1=\beta^{\gamma}$. If $\forall \nu\le \gamma$, $\phi(\nu)$, when $\gamma$ is a successor ordinal, $\gamma=\nu\cup\{\nu\}$, so by \Cref{it:12}, $\alpha^{ \gamma}=\alpha^{ \nu}\cdot\alpha\leq \beta^{ \nu}\cdot\beta=\beta^{ \gamma}$. When $\gamma$ is a limit ordinal, $\alpha^{\gamma}=\lim_{\nu\to \gamma}\alpha^{\nu}\leq \lim_{\nu\to \gamma}\beta^{\nu}=\beta^{\gamma}$.\\
+        Example: $\alpha=1,\beta=2,\gamma=0$. Then $\alpha^\gamma=1,\beta^\gamma=1$.
+    \end{enumerate}
+\end{solution}
+
+
+
+
+\begin{problem}
+Show that the following rules do not hold for all $\alpha, \beta, \gamma \in\ord$:
+\begin{enumerate}[label=\alph*,ref=\theproblem.\alph*]
+\item If $\alpha+\gamma=\beta+\gamma$ then $\alpha=\beta$.
+\item If $\gamma>0$ and $\alpha \cdot \gamma=\beta \cdot \gamma$ then $\alpha=\beta$.
+\item $(\beta+\gamma) \cdot \alpha=\beta \cdot \alpha+\gamma \cdot \alpha$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item Just like example in \Cref{it:11}.
+        \item Just like example in \Cref{it:12}.
+        \item $\beta=1,\gamma=1,\alpha=\omega$, then $2\cdot \omega=\omega\neq \omega+\omega$.
+    \end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}
+Find a set $A \subset \mathbb{Q}$ such that $\left(A,<_{\mathbb{Q}}\right) \cong(\alpha, \in)$, where
+\begin{enumerate}[label=\alph*,ref=\theproblem.\alph*]
+\item  $\alpha=\omega+1$,
+\item  $\alpha=\omega \cdot 2$,
+\item  $\alpha=\omega \cdot \omega$,
+\item  $\alpha=\omega^\omega$,
+\item  $\alpha=\varepsilon_0$.
+\item  $\alpha$ is any ordinal $<\omega_1$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $\{-\frac{1}{n}:n\in \mathbb{N}_+\}\cup {1}$
+        \item $\{-\frac{1}{n}:n\in \mathbb{N}_+\}\cup\{1-\frac{1}{n}:n\in \mathbb{N}_+\}$
+        \item $\cup_{k\in \mathbb{N}_+}\{k-\frac{1}{n}:n\in \mathbb{N}_+\}$
+        \item $\{n-\sum_{l=1}^{n}\prod_{i=1}^{l}\frac{1}{2^{k_i}}:k_i\in \mathbb{N}_+\}:=W_n$, it is obvious that $W_n\cong \omega^{n}$. While  $\omega^ \omega=\sum_{n\in \omega} \omega^n$ and $\bigcup_{n\in \omega}W_n\cong \sum_{n\in \omega}\omega^n$, so $\sum_{n\in \omega}\omega^n\cong\bigcup_{n\in \omega}W_n$
+    \end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}
+An ordinal $\alpha$ is a limit ordinal iff $\alpha=\omega \cdot \beta$ for some $\beta \in\ord$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item $\Rightarrow$: $\omega\cdot \beta$ is a limit ordinal, that is to proove $\omega\cdot \beta$ doesn't have a maximum element. If $\omega\cdot \beta$ has a maximum element $(a,b)\in \omega\cdot \beta$, but $(a+1,b)\in\omega\cdot \beta$, $(a,b)<(a+1,b)$, contradiction!
+        \item $\Leftarrow$: $A:=\{\gamma < \alpha:\gamma$ is a limit ordinal $\}$, $f: \alpha\to A$, $f(x):=\inf\{y:\exists n: x=y+n\}$, if $\inf\{y:\exists n: x=y+n\}$ is a successor ordinal of $z$, then $x=y+n=z+1+n$, so $z\in\{y:\exists n: x=y+n\}$, contradiction! So $\inf\{y:\exists n: x=y+n\}$ is a limit ordinal, then, $f$ is well-defined. Let $\beta=$OrderType$(A)$, next to proof $\omega \cdot \beta=\alpha$, i.e. $\omega \otimes A\cong\alpha$. $g: \alpha \to\omega \otimes A$, $g(x)=(n,f(x))$, where $x=f(x)+n$, so $g$ is isomorphic. Since $\alpha$ is a limit ordinal, then $\forall (n,\gamma)\in \omega\otimes A$, $\gamma+n<\alpha$, while $f(\gamma+n)=\gamma$, so $g$ is surjection. Thus, $\omega \otimes A\cong\alpha$.
+    \end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}
+Find the first three $\alpha>0$ s.t. $\xi+\alpha=\alpha$ for all $\xi<\alpha$.
+\end{problem}
+\begin{solution}
+    The first one is $0$, since $\forall \xi< 0$ is false, so $\xi+0=0$ is true.
+    The second one is $1$, since $\xi<1$, then $\xi=0$, so $0+1=1$.
+    The third one is $\omega$, since $\forall \xi<\omega$, $\xi+\omega=\omega$. $\forall 1<n< \omega$, then $1+n\cong n+1\neq n$.
+\end{solution}
+
+
+
+\begin{problem}
+Find the least $\xi$ such that
+\begin{enumerate}[label=\alph*,ref=\theproblem.\alph*]
+\item  $\omega+\xi=\xi$.
+\item  $\omega \cdot \xi=\xi, \xi \neq 0$.
+\item  $\omega^{\xi}=\xi$.
+\end{enumerate}
+(Hint for (1): Consider a sequence $\left\langle\xi_n\right\rangle$ s.t. $\xi_{n+1}=\omega+\xi_n$.)
+\end{problem}
+\begin{solution}
+    \begin{lemma}\label{lem:2}
+        If $f:\ord\to\ord$, s.t. $\forall x< y$, $f(x)< f(y)$, $\sup f(B)=f(\sup B)$, let $a_0=0$, $a_{n+1}=f(a_n)$, then $\sup_{n\in \omega} a_n$ is the minimum ordinal s.t. $f(\sup_{n\in \omega} a_n)=\sup_{n\in \omega} f(a_n)$.
+    \end{lemma}
+    \begin{proof}
+        \begin{enumerate}
+            \item Since the increasing of $f$, so $a_{n+1}=f(a_n)>a_n$, so $\sup_{n\in \omega} f(a_n)=\sup_{n\in \omega} a_{n+1}=f(\sup_{n\in \omega} a_n)$. $\forall \alpha$, $f(\alpha)=\alpha$, $\alpha>a_n, \forall n\in \omega$, so $\alpha>\sup_{n\in \omega}a_n$.
+        \end{enumerate}
+    \end{proof}
+    \begin{enumerate}
+        \item $f:\ord \to\ord$, $f(x)=\omega+x$, $f$ is increasing. $a_0=0$, $a_{n+1}=f(a_{n})$, $\sup_{n\in \omega}a_{n+1}=\sup_{n\in \omega}f(a_n)=\sup_{n\in \omega}\omega+a_n=\omega+\sup_{n\in \omega}a_n$. So, by \Cref{lem:2} $\xi=\omega\cdot\omega$.
+        \item $f:\ord \to\ord$, $f(x)=\omega\cdot x$, $f$ is increasing. $a_0=0$, $a_{n+1}=f(a_{n})$, $\sup_{n\in \omega}a_{n+1}=\sup_{n\in \omega}f(a_n)=\sup_{n\in \omega}\omega\cdot a_n=\omega\cdot\sup_{n\in \omega}a_n$. So, by \Cref{lem:2} $\xi=\omega^\omega$.
+        \item $f:\ord \to\ord$, $f(x)=\omega^x$, $f$ is increasing. $a_0=0$, $a_{n+1}=f(a_{n})$, $\sup_{n\in \omega}a_{n+1}=\sup_{n\in \omega}f(a_n)=\sup_{n\in \omega}\omega^a_n=\omega^{\sup_{n\in \omega}a_n}$. So, by \Cref{lem:2} $\xi=\epsilon_0$.
+    \end{enumerate}
+    
+    
+\end{solution}
+
+
+\end{document}
+
+

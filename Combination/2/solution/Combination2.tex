@@ -1,0 +1,186 @@
+\documentclass{ctexart}
+%\usepackage{xeCJK}
+%\usepackage[T1]{fontenc}
+%\usepackage{mathptmx}
+\usepackage{amsmath,amssymb,amsthm,color,mathrsfs}
+\usepackage{enumitem,anysize}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{cleveref}
+\hypersetup{
+	hypertex=true,
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=cyan,
+}
+
+\geometry{a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm}
+
+\def\<{\langle}
+\def\>{\rangle}
+\edef\lim{\displaystyle\lim}
+\def\email#1{\href{mailto:#1}{\texttt{#1}}}
+
+\newcounter{problem}
+\renewcommand{\theproblem}{\Roman{problem}}
+\newenvironment{problem}{\refstepcounter{problem}\noindent\color{blue}\textbf{Problem}\theproblem.}{}
+\newenvironment{solution}{\begin{proof}[\textbf{Solution}]}{\end{proof}}
+\crefname{problem}{Problem}{Problem}
+\newcommand\Deo{\Delta_0}
+\newcommand\Lo{\mathcal {L}_0}
+\newcommand\N{\mathbb {N}}
+\renewcommand\phi{\varphi}
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\newcommand\qie{\wedge}
+\newcommand\huo{\vee}
+\newcommand{\bigqie}{\bigwedge}
+\newcommand{\bighuo}{\bigvee}
+\newcommand\calF{\mathcal{F}}
+\newcommand\calA{\mathcal{A}}
+\newcommand\calP{\mathscr{P}}
+\newcommand{\Cb}[2]{\binom{#1}{#2}}
+\newcommand{\minus}{\mathbin{\backslash}}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\id}{\mathrm{id}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{cora}{Corallary}
+\pagestyle{empty}
+\title{$\mathbb{COMBINATION}\text{2}$}
+\author{王胤雅\\
+SID:201911010205\\
+\email{201911010205@mail.bnu.edu.cn}}
+
+
+
+\begin{document}
+\maketitle
+\begin{problem}
+Caculate integral between $1-1000$ which is neither square number nor cubic number.
+\end{problem}
+\begin{solution}
+	$A:=[0,1000]\cap \mathbb{N}, B:=\{a\in A: \exists b\in \mathbb{N}, b^2=a\}, C=\{a\in A: \exists b\in \mathbb{N}, b^3=a\}, D=B\cap C, E:=\{a\in A: \exists b\in \mathbb{N}, b^6=a\}$.
+	 $\forall a\in D$, $\exists b\in A, a=b^2,\exists c\in A, a=c^3$, then let $b=p_1^{r_1}\cdots p_n^{r_n}, q=q_1^{s_1}\cdots q_m^{s_m}$, where $p_i,q_j, $ are prime $i=1,\cdots, n, j=1,\cdots, m$ and $p_i\neq p_j, i\neq j, q_i\neq q_j, i\neq j$. 
+	 So $p_1^{2r_1}\cdots p_n^{2r_n}=q_1^{3s_1}\cdots q_m^{3s_m}$. 
+	 Then by Prime factorization theorem, $n=m$, $\forall i, \exists j$ s.t. $p_i=q_j$ and $2r_i=3s_j$. 
+	 WLOG, let $\forall i=1,\cdots,n, p_i=q_i$, so $2r_i=3r_i$. 
+	 Since $(2,3)=1$, so $3|r_i, 2|s_i$. 
+	 Assume $r_i=3k_i$, so $s_i=2k_i$. 
+	 Therefore $(\prod_{i=1}^np_i^{k_i})^6=b^2=a$. So $a\in E$. $\forall a\in E$, $\exists e\in A$, $e^6=a$, 
+	 so $(e^2)^3=a=(e^3)^2$, so $a\in B\cap C=D$. So $D=E$.\\
+	 While $|B|=|[0,1000^{1/2}]\cap \mathbb{N}|=31, |C|=|[0,1000^{1/3}]\cap \mathbb{N}|=10, |D|=|E|=|[0,1000^{1/6}]\cap \mathbb{N}|=3$. 
+	 By the Inclusion-Exclusion Principle, $F:=\{a\in A: \forall b, b^2\neq a, b^3\neq a\}=(A\minus(B\cup C))\cup (B\cap C)$, 
+	 so $F=|A|-(|B|+|C|)+|B\cap C|=1000-(31+10)+3=962$.
+\end{solution}
+
+\begin{problem}
+Caculate the permtation of $\{1,2,3,4,5,6\}$ $i_1i_2i_3i_4i_5i_6$, where $i_1\neq1,5$, $i_2\neq 2,3,5,$, $i_4\neq4$, $i_5\neq 5,6$. 
+\end{problem}
+\begin{solution}
+	$U:=\{i_1i_2i_3i_4i_5i_6: \exists \sigma\in S_6, \sigma(k)=i_k, k=1,\cdots, 6\}$
+	$A:=\{i_1i_2i_3i_4i_5i_6: \exists \sigma\in S_6, \sigma(k)=i_k, k=1,\cdots, 6,i_1\neq1,5$, $i_2\neq 2,3,5, i_4\neq4, i_5\neq 5,6. \}$. 
+	Since $i_1,i_2,i_5\neq 5$, $i_3, i_4$ or $i_5=5$. $A_{j}:=\{a\in A: i_j=5\}, j=3,4,5$. 
+	Since $\sigma_{35}: A_{3}\to A_{5},\sigma_{35}=(35)\in S_6$, $\sigma_{35}(i_1i_2i_3i_4i_5i_6)=i_1i_2i_{5}i_4i_{3}i_6$, it is obviously that $\sigma_{35}$ is well-defined and injective, and $\sigma_{53}\circ \sigma_{35}=\id$. So $\sigma_{35}$ is bijective, then $|A_{3}|=|A_{5}|$.  So we only need to caculate $A_3,A_4$.
+	\begin{enumerate}
+		\item Consider $A_{3}:=\{i_1i_2i_3i_4i_5i_6\in U: i_1\neq 1, i_2\neq 2,3,i_3=5,i_4\neq 4,i_6\neq 6\}$. Let $B:=\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3 \}, B_{j}:=\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3, i_j\neq j\},B_{jk}:=\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3, i_t\neq t, t=j,k\},B_{jkl}:=\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3, i_t\neq t, t=j,k,l\}$. By the Inclusion-Exclusion Principle, $|B_1\cup B_4\cup B_6|=|B_1|+|B_4|+|B_6|-|B_{14}|-|B_{16}|-|B_{46}|+|B_{146}|$. \\
+		Besides, $\forall l,k\in\{1,4,6\},l\neq k, \phi_{lk}: B\minus B_l\to B\minus B_k$, $j_1j_2j_3j_4j_5j_6:=\phi_{lk}(i_1i_2i_3i_4i_5i_6)$ s. t. $i_s=k, s\neq l, j_k=k, j_l=i_k, j_s=l$. So $\phi_{lk}$ is well defined.$t_1t_2t_3t_4t_5t_6:=\phi_{kl}\circ \phi_{lk}(i_1i_2i_3i_4i_5i_6)$ s.t. $i_s=k, s\neq l, j_k=k, j_l=i_k, j_s=l$, so $t_l=l, t_s=k, t_k=j_l=i_k$, so $t_1t_2t_3t_4t_5t_6=i_1i_2i_3i_4i_5i_6$. So $\phi_{kl}\circ \phi_{lk}$ is $\id$. It is the same for  $\phi_{lk}\circ \phi_{kl}$. So $\phi_{lk}$ is bijective. So $|B\minus B_l|=|B\minus B_k|$.\\
+		Moreover, $\forall l,k,r\in\{1,4,6\}, l\neq k, l\neq r, k\neq r,$ let $C_{rl}:=\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3, i_r\neq r, i_l=l\}$. $ \psi_{lk}: C_{rl}\to C_{rk}$, $j_1j_2j_3j_4j_5j_6:=\psi_{lk}(i_1i_2i_3i_4i_5i_6)$ s. t. $i_s=k, s\neq l, j_k=k, j_l=i_k, j_s=l$. So $\psi_{lk}$ is well defined. It is the same to proof $\psi_{lk}$ is bijective as before we have proved. Noticing that $B_{r}\minus C_{rk}= B_{rk}$, so $|B_{rk}|=|B_{pl}|, r,k,p,l\in\{1,4,6\}, r\neq k, p\neq k$\\
+		By caculating, we get $|B|=A_{4}^2\times A_{3}^3=4\times 3\times 3\times 2\times1=72$, $|B\minus(B_1\cup B_4\cup B_6)|=|\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3, i_t= t, t=1,4,6\}|=0$, $|B\minus B_1|=|\{i_1i_2i_3i_4i_5i_6\in U: i_3=5,i_2\neq 2,3, i_1= 1\}|=A_3^2\times A_2^2=3\times2\times2\times 1=12$. $|C_{14}|=A_2^2+C_2^1\times C_2^1\times A_2^2=2+2\times2\times2\times1=10$. $|B_{14}|=|B_{1}\minus C_{14}|=(72-12)-10=50$. \\
+		Therefore, $|B_1\cup B_4\cup B_6|=|B|-|B\minus(B_1\cup B_4\cup B_6)|=72-0=|B_1|+|B_4|+|B_6|-|B_{14}|-|B_{16}|-|B_{46}|+|B_{146}|=3\times(72-12)-3\times50+|B_{146}|$, so $|A_3|=|B_{146}|=42$. 
+		\item Consider $A_{4}:=\{i_1i_2i_3i_4i_5i_6\in U: i_1\neq 1, i_2\neq 2,3,i_4=5,i_6\neq 6\}$. Let $D:=\{i_1i_2i_3i_4i_5i_6\in U: i_4=5,i_2\neq 2,3 \}, D_{jk}:=\{i_1i_2i_3i_4i_5i_6\in U: i_4=5,i_2\neq 2,3, i_t\neq t, t=j,k\}.$ By the Inclusion-Exclusion Principle, $|D_1\cup D_6|=|D_1|+|D_6|-|D_{16}|$. \\
+		Noticing, $\exists f$ is bijection between $B,D$ just like before. So do $D\minus D_{l}=\{i_1i_2i_3i_4i_5i_6\in U: i_4=5,i_2\neq 2,3, i_l= l\}$ and $B\minus B_{l}, l\in\{1,6\}$\\
+		By caculating, $|D|=|B|=72$, $|D\minus (D_1\cup D_6)|=|\{i_1i_2i_3i_4i_5i_6\in U: i_4=5,i_2\neq 2,3, i_1= 1, i_6=6\}|=2$, $|D_1\cup D_6|=|D|-|D\minus (D_1\cup D_6)|=72-2=|D_{1}|+|D_{6}|-|D_{16}|=2\times(72-12)-|D_{16}|$, then $|D_{16}|=50=|A_4|$
+		\end{enumerate}
+		Therefore, the total number is $|A|=|A_3|+|A_5|+|A_4|=50\times2+50=150$.
+\end{solution}
+
+
+\begin{problem}
+    Put $n$ different balls into different $k$ boxes, none of boxes is empty. Caculate the different ways.
+\end{problem}
+\begin{solution}
+	\iffalse Consider $C:=\{f\in \{1,\cdots,n\}^{\{1,\cdots,k\}}\}$,  $C_i=\{f\in C: |f[n]|=i\}$, where $f[n]:=\{f(i):i\in \{1,\cdots,n\}\}$, $A_i=\{f\in \{1,\cdots,n\}^{\{1,\cdots,i\}}:|f[n]|=i\}, i\in \mathbb{N}$. So $|C|=\sum_{i=1}^k C_k^i |A_i|=n^k$.\fi
+	Let every different balls have a number, and so do those boxes. Let's say balls names $\{1,\cdots,n\}$, and boxes named $\{1,\cdots,k\}$.
+	Consider $C:=\{f\in \{1,\cdots,n\}^{\{1,\cdots,k\}}\}$,  $C_i=\{f\in C: i\notin f[n]\}$, where $f[n]:=\{f(i):i\in \{1,\cdots,n\}\}$. Since $\forall g\leq k$, $\forall t_1,\cdots, t_g\in \{1,\cdots,k\}$, $|\cap_{i=1}^gC_{t_i}|=|\{f\in C: t_1,\cdots, t_g\notin f[n]\}|=(k-g)^n$. By the Inclusion-Exclusion Principle, we get $|\cap_{i=1}^{k}(C_i)^c|=|C|+\sum_{s=1}^k(-1)^s\sum_{1\leq i_1<\cdots<i_s\leq k}|\cap_{t=1}^gC_{i_t}|=\sum_{i=1}^{k}(-1)^{k-i}\Cb{k}{i}i^n$.
+
+\end{solution}
+
+\begin{problem}
+    Caculate the prime between $1-120$.
+\end{problem}
+\begin{solution}
+	If $1\leq i\leq 120$ is not a prime, then $\exists 1<d\leq \sqrt{120}$ s.t. $d|i$. So we only need to exclude those number $i$, which can be divided by $1<d\leq \sqrt{120}$. $\forall B\subset [1,120]\cap \mathbb{N}, A_{B}:=\{1\leq a\leq 120:  \forall d\in B, d|a\}$
+	%=\{dk: k=1,\cdots, \lfloor \frac{120}{d}\rfloor\}$. 
+	So $A_{\{2\}}:=\{2k:1\leq k\leq 60\}$, $A_{\{3\}}:=\{3k:1\leq k\leq 40\}$, $A_{\{5\}}:=\{5k:1\leq k\leq 24\}$, $A_{\{7\}}:=\{7k:1\leq k\leq 17\}$, $A_{\{2,3\}}:=\{6k:1\leq k\leq 20\}$, $A_{\{2,5\}}:=\{10k:1\leq k\leq 12\}$, $A_{\{2,7\}}:=\{14k:1\leq k\leq 8\}$, $A_{\{3,5\}}:=\{15k:1\leq k\leq 8\}$, $A_{\{3,7\}}:=\{21k:1\leq k\leq 5\}$, $A_{\{5,7\}}:=\{35k:1\leq k\leq 3\}$, $A_{\{2,3,5\}}:=\{30k:1\leq k\leq 4\}$, $A_{\{2,3,7\}}:=\{42k:1\leq k\leq 2\}$, $A_{\{2,5,7\}}:=\{70\}$, $A_{\{3,5,7\}}:=\{105\}$, $A_{\{2,3,5,7\}}=\emptyset$. \\
+	By the Inclusion-Exclusion Principle, $|\{1,\cdots,120\}\minus \cup_{d\in \{2,3,5,7\}} A_{\{d\}}|=|\{1\leq a\leq 120:  \forall d\in \{2,3,5,7\}, d\nmid a\}|=120-(60+40+24+17)+(20+12+8+8+5+3)-(4+2+1+1)+0=120-141+56-8=27$.
+	But $1$ is not prime, and $\{2,3,5,7\}\cap \{1\leq a\leq 120:  \forall d\in \{2,3,5,7\}, d\nmid a\}=\emptyset$, so the total number is $27-1+4=30$.
+\end{solution}
+\begin{problem}
+    There are $n$ kinds different balls, each kind of ball has $2$. Arrange these $2n$ balls into a circle, same balls are not adjacent. Caculate the different arrangement.  
+\end{problem}
+\begin{solution}
+	Let the  $n$ different balls be $\{a_1,a_2,\cdots,a_n\}$, then the different arrangement of $2n$ balls equal to the circle arrangement of set $\{2\cdot a_1, \cdots, 2\cdot a_n\}$. 
+	$A:=\{$ all of the circle arrangement of $\{2\cdot a_1, \cdots, 2\cdot a_n\}$ $\}$. $\forall 1\leq l\leq n$, $\forall i_1,\cdots, i_l\in \{1,\cdots, n\}$, $A_{i_1,i_2,\cdots,i_l}:=$ $ \{$ all of the circle arrangement of $\{2\cdot a_1, \cdots, 2\cdot a_n\}$ that appears $a_ka_k, k\in\{i_1,\cdots, i_l\}\}$. $A_{i_1,i_2,\cdots,i_l}$ equals to the circle arrangement of $\{a_{i_1},\cdots  ,a_{i_l}, 2\cdot a_j, 1\leq j\leq n, j\notin \{i_1,i_2,\cdots,i_l\} \}$.\\
+	By caculating, $|A|=\frac{1}{2n}\frac{2n!}{(2!)^n}$, $|A_{i_1,i_2,\cdots,i_l}|=\frac{1}{l+2(n-l)}\frac{(l+2(n-l))!}{2!^{n-l}}$. So by the Inclusion-Exclusion Principle, we get $|A\minus\cup_{k=1}^n A_k|=|\{$ all of the circle arrangement of $\{2\cdot a_1, \cdots, 2\cdots a_n\}$ that does't appear $a_ka_k,k=1,\cdots,n\}|$ $=|A|+\sum_{l=1}^n\sum_{1\leq i_1<\cdots <i_l\leq n}(-1)^l|A_{i_1,i_2,\cdots,i_l}|=\frac{1}{2n}\frac{2n!}{(2!)^n}+\sum_{l=1}^n(-1)^l\Cb{n}{l}\frac{1}{l+2(n-l)}\frac{(l+2(n-l))!}{2!^{n-l}}=\frac{(2n-1)!}{(2!)^n}+\sum_{l=1}^n(-1)^l\Cb{n}{l}\frac{(2n-l-1)!}{2!^{n-l}}$.
+\end{solution}
+
+\begin{problem}
+    Arrange $\{4\cdot x, 3\cdot y, 2\cdot z\}$, none of $xxxx, yyy, zz$ appears. How many  of these arrangement?
+\end{problem}
+\begin{solution}
+	$A:=\{$ all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}\}$, $B_1:=\{ $ all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $xxxx\}$, $B_2:=\{ $ all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $yyy\}$, $B_3:=\{ $ all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $zz\}$, $B_{12}:=\{$  all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $xxxx,yyy\}$, $B_{13}:=\{$  all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $xxxx,zz\}$, $B_{23}:=\{$  all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $yyy,zz\}$, $B_{123}:=\{$  all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\}$ that appears $xxxx,yyy,zz\}$. \\
+	By the Inclusion-Exclusion Principle, $|A\minus (\cup_{i=1}^3B_i)|=|\{$ all of the arrangement of $\{4\cdot x, 3\cdot y, 2\cdot z\} $ that none of $xxxx,yyy,zz$ appears $\}|=|A|-(|B_1|+|B_2|+|B_3|)+(|B_{12}|+|B_{13}|+|B_{23}|)-|B_{123}|=\frac{9!}{4!3!2!}-(6\frac{5!}{3!2!}+7\frac{6!}{4!2!}+8\frac{7!}{4!3!})+(\Cb{3}{2}+\Cb{4}{2}+\Cb{5}{2})-A_3^3=1260-(60+105+280)+(3+6+10)-6=828$.
+\end{solution}
+
+\begin{problem}
+    Pick $10$ number from $\{\infty\cdot a,3\cdot b,5\cdot c,7\cdot d\}$, how many ways can you find?
+\end{problem}
+\begin{solution}
+	Let $a_1=a, a_2=b,a_3=c,a_4=d, k_1=10,k_2=3,k_3=5,k_4=7$, $T:=\{$Pick $10$ number from $\{\infty\cdot a,3\cdot b,5\cdot c,7\cdot d\}\}$. $S_{\infty}:=\{\infty\cdot a, \infty\cdot b, \infty \cdot c, \infty \cdot d\}$, $\mathcal{A}$ represents the combination of picking $10$ number from $S_{\infty}$. So $|\mathcal{A}|=\Cb{10+4-1}{10}=\Cb{13}{10}=286$. $\forall 1\leq i\leq 4$, $\mathcal{A}_{i}:=\{x\in \mathcal{A}: $ the number of $a_i>k_i\}$. So $T=\cap_{i=1}^4\mathcal{A}_i^c$. $\forall 1\leq l\leq 4$, $i_1,\cdots, i_l\in {1,2,3,4}$, $\cap_{j=1}^l\mathcal{A}_{i_j}:=\{x\in \mathcal{A}: $ the number of $a_{i_j}>k_{i_j}, j=1,\cdots, l\}$. So $|\cap_{j=1}^l\mathcal{A}_{i_j}|=\Cb{10-\sum_{j=1}^l(k_{i_j}+1)+3}{10-\sum_{k=1}^l(k_{i_j}+1)}. $ Therefore, by the Inclusion-Exclusion Principle, $|\cup_{k=1}^4A_k|=\sum_{l=1}^4\sum_{1\leq i_1,\cdots, i_l\leq 4}(-1)^{l-1}|\cap_{t=1}^{l}\mathcal{A}_{i_t}|$.\\
+	By caculating, 
+	\begin{equation}
+	\begin{array}{l}
+	|\mathcal{A}|=286,\\
+	|\mathcal{A}_1|=\Cb{10-(k_1+1)+3}{10-(k_1+1)}=\Cb{2}{-1}=0, \\
+	|\mathcal{A}_2|=\Cb{10-(k_2+1)+3}{10-(k_2+1)}=\Cb{9}{6}=84, \\
+	|\mathcal{A}_3|=\Cb{10-(k_3+1)+3}{10-(k_3+1)}=\Cb{7}{4}=35,\\
+	|\mathcal{A}_4|=\Cb{10-(k_4+1)+3}{10-(k_4+1)}=\Cb{5}{2}=10, \\
+	|\mathcal{A}_{1l}|=\Cb{10-(k_1+1)-(k_l+1)+3}{10-(k_1+1)-(k_l+1)}=\Cb{-2}{-5}=0, 	l\in\{2,3,4\}, \\
+	|\mathcal{A}_{23}|=\Cb{10-(k_2+1)-(k_3+1)+3}{10-(k_2+1)-(k_3+1)}=\Cb{3}{0}=1, \\
+	|\mathcal{A}_{24}|=\Cb{10-(k_2+1)-(k_4+1)+3}{10-(k_2+1)-(k_4+1)}=\Cb{1}{-1}=0, 
+	\\
+	|\mathcal{A}_{34}|=\Cb{10-(k_3+1)-(k_4+1)+3}{10-(k_3+1)-(k_4+1)}=\Cb{-1}{-4}=0, \\
+	 |\mathcal{A}_{1lt}|=\Cb{10-(k_1+1)-(k_l+1)-(k_t+1)+3}{10-(k_1+1)-(k_l+1)-(k_t+1)}=0, l,t\in\{2,3,4\}, \\
+	|\mathcal{A}_{234}|=\Cb{10-(k_2+1)-(k_3+1)-(k_4+1)+3}{10-(k_2+1)-(k_3+1)-(k_4+1)}=0, \\
+	|\mathcal{A}_{1234}|=\Cb{10-(k_1+1)-(k_2+1)-(k_3+1)-(k_4+1)+3}{10-(k_1+1)-(k_2+1)-(k_3+1)-(k_4+1)}=0, 
+\end{array}
+\end{equation}
+	so $|E|=286-(84+35+10)+1=158$.
+\end{solution}
+
+\begin{problem}
+	Caculate the postive integral solution of equation $x_1+x_2+x_3=14$, where $x_i\leq 8, i=1,2,3$.
+\end{problem}
+\begin{solution}
+	$y_i=x_i-1,i=1,\cdots,3$, so $0\leq y_i\leq 7$, $x_1+x_2+x_3=14\Iff y_1+y_2+y_3=11$. $A=\{$ all of the non-negtive solution of $y_1+y_2+y_3=11\}$. 
+	$A_i:=\{$ all of the non-negtive solution of $y_1+y_2+y_3=11$ and $y_i>7\}, i=1,2,3.$ \\
+So $|A|=\Cb{11+3-1}{11}=\Cb{13}{2}=78$. $|A_i|=\Cb{11-(7+1)+3-1}{11-(7+1)}=\Cb{5}{3}=10, i=1,2,3$, $|A_i\cap A_j|=0, i,j\in{1,2,3}, i\neq j$, $|A_1\cap A_2\cap A_3|=0$. Therefore, $|A_1^c\cap A_2^c\cap A_3^c|=|A|-\sum_{i=1}^3|A_i|+\sum_{1\leq i< j\leq 3}|A_i\cap A_j|-|A_1\cap A_2\cap A_3|=78-3\times 10+0-0=48$.
+\end{solution}
+\iffalse
+\begin{problem}
+	Caculate $\mu(20),\mu(105), \mu(210),$. 
+\end{problem}
+
+\begin{problem}
+	Caculate the arithmetic function defined by $\sum_{d|n}g(d)=5$
+\end{problem}
+\fi
+
+
+\end{document}

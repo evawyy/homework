@@ -1,0 +1,193 @@
+\documentclass{ctexart}
+%\usepackage{xeCJK}
+%\usepackage[T1]{fontenc}
+%\usepackage{mathptmx}
+\usepackage{amsmath,amssymb,amsthm,color,mathrsfs}
+\usepackage{enumitem,anysize}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{bbm}
+\usepackage{tikz}
+\usepackage{hyperref}
+\hypersetup{
+	hypertex=true,
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=cyan,
+}
+
+\geometry{a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm}
+
+\def\<{\langle}
+\def\>{\rangle}
+\edef\lim{\displaystyle\lim}
+\def\email#1{\href{mailto:#1}{\texttt{#1}}}
+
+\newtheorem{problem}{\textbf{Problem}}
+\renewcommand\theproblem{\textbf{\Roman{problem}}}
+\newenvironment{solution}{\begin{proof}[\textbf{Solution}]}{\end{proof}}
+
+\renewcommand\phi{\varphi}
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\shi}{\mathbbm{1}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\div}{\mathrm{div}}
+\renewcommand{\arg}{\mathrm{arg}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\chara}{\mathrm{char}}
+\newcommand{\tra}{\mathrm{tr}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\zzh}{\textsuperscript{T}}
+\newcommand{\calO}{\mathcal{O}}
+%\newcommand{\deg}{\mathrm{deg}}
+\newcommand{\eto}{\mapsto}
+
+
+
+
+\newcommand{\minus}{\mathbin{\backslash}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{cora}{Corallary}
+
+\iffalse
+
+
+.
+
+\fi
+
+
+
+\pagestyle{empty}
+\title{$\mathbbm{Group\quad Representation}$}
+\author{王胤雅\\
+SID:201911010205\\
+\email{201911010205@mail.bnu.edu.cn}}
+\begin{document}
+\large
+\maketitle
+\begin{problem}
+    Group $G$ has an action on set $\Omega=\left\{x_1, x_2, \cdots, x_n\right\}$, let $(\phi, V)$ be the $n-$ dimensional $K$ permutation representation of $G$, where $K$ is the field of vector space $V$, and 
+    $$
+V=\left\{\sum_{i=1}^n a_i x_i \mid a_i \in K, i=1,2, \cdots, n\right\} .
+$$
+Let
+$
+ V_1=\left\langle\sum_{i=1}^n x_i\right\rangle, 
+ V_2=\left\{\sum_{i=1}^n a_i x_i \mid \sum_{i=1}^n a_i=0, a_i \in K\right\} .
+$
+Proof: (1) $V_1$ and $V_2$ are  invariant subspaces of $G$ ;
+(2) If $\chara K \nmid n$, then $\varphi=\varphi_{V_1} \oplus \varphi_{V_2}$.
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+    \item $\forall \sigma\in S_n$, $\forall v_i\in V_i,i=1,2$, 
+    then $v_1=k\sum_{i=1}^n x_i,k\in K,v_2=\sum_{i=1}^n a_i x_i, \sum_{i=1}^n a_i=0$, 
+    so $\sigma(v_1)=k\sum_{i=1}^n x_{\sigma(i)}=k\sum_{i=1}^n x_i$, 
+    $\sigma(v_2)=\sum_{i=1}^n a_i x_{\sigma(i)}=\sum_{i=1}^n a_{\sigma^{-1}(i)} x_i,$ $\sum_{i=1}^n a_{\sigma^{-1}(i)}=0$, so $\sigma(v_2)\in V_2$
+    Since $\phi(G)\cong H\leq S_n$, then $\forall g\in G$, $\phi(g)(v_1)=v_1\in V_1,\phi(g)(v_2)\in V_2$.
+    \item We only need to proof $V=V_1\oplus V_2$.
+    $\forall v\in V_1\cap V_2$, $v=k\sum_{i=1}^n x_i=\sum_{i=1}^n a_i x_i$ where $k\in K ,\sum_{i=1}^n a_i=0$, then $\sum_{i=1}^n(k-a_i)x_i=0$, so $k-a_i=0,\forall 1\leq i\leq n$, which means $\sum_{i=1}^n a_i=nk=0$. 
+    Since $\chara K\nmid n$, then $k=0$. Thus, $v=0$. $\forall u\in V$, let $k=\frac{1}{n}\sum_{i=1}^nb_i$, $u=\sum_{i=1}^n b_ix_i$, so $u=k\sum_{i=1}^nb_ix_i+\sum_{i=1}^n(b_i-k)x_i$. By noting that $\sum_{i=1}^n(b_i-k)=\sum_{i=1}^nb_i-n\times k=0$, $V=V_1+V_2$.
+\end{enumerate}
+
+
+\end{solution}
+\begin{problem}
+ Using exercise $1$, calculate a $2-$dimensional complex representation of $S_3$ and its matrix of the representation.
+\end{problem}
+\begin{solution}
+Let $\Omega=\{x_1,x_2\}, V:=\{a_1x_1+a_2x_2:a_i\in K,i=1,2\}$, $\phi: S_3\to \GL(V)$. Since $\forall a_1x_1+a_2x_2=0, a_1+a_2=0$, then $a_1=-a_2$, $a_1x_1+a_2x_2=a_1x_1-a_1x_2$, so $V_2=\langle x_1-x_2\rangle$. 
+$\forall \sigma\in S_3$, $\phi(\sigma)=\id$, when $\sigma$ is an even permutation; $\phi(\sigma)=(12)$, when $\sigma$ is an odd permutation. So $\phi(\sigma)|_{V_1}=\id,\phi(\sigma)|_{V_2}=\id$, when $\sigma$ is even; $\phi(\sigma)|_{V_1}=\id,\phi(\sigma)|_{V_2}:V_2\to V_2, \forall v\in V_2, \phi(\sigma)|_{V_2}(v)=-v$, when $\sigma$ is odd.
+Therefore, the matrix of $\phi(\sigma)$ is 
+\begin{equation}\(
+    \begin{array}{cc}
+        1 & 0\\
+        0 & -1\\
+    \end{array}\)
+\end{equation}
+when $\sigma$ is odd;  the matrix of $\phi(\sigma)$ is $I_2$ when $\sigma$ is even.
+
+\end{solution}
+
+\begin{problem}
+   $M_{\mathrm{n}}(K):=\{(a_{i,j})_{n\times n}:a_{ij}\in K,\forall 1\leq i,j\leq n\}$.
+    Let
+    $$
+    \begin{aligned}
+    \varphi: \mathrm{GL}_n(K) & \rightarrow \mathrm{GL}\left(M_n(K)\right) \\
+    A & \rightarrow \varphi(A),
+    \end{aligned}
+    $$
+    $$
+    \varphi(A) X:=A X A^{-1} ; \quad \forall X \in M_n(K) .
+    $$
+    (1) Illustrate $\varphi$ is the $n^2$-dimensional $K$ representation of group  $\mathrm{GL}_n(K)$;
+    (2) $M_n^0(K):=\{A\in M_n(K):\tra A=0\}$. Illustrate $M_n^0(K)$ and $\langle I\rangle$ are  invariant subspaces of $\varphi$;
+    (3) Prove: If $\chara K\nmid n$, then
+    $
+    \varphi=\varphi_{\langle I\rangle} \oplus \varphi_{M^{0}_n(K)}
+    $
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+    \item \begin{enumerate}
+		\item $\phi(A)$ is an invertible linear transformation:
+		\begin{itemize}
+			\item $\phi(A)$ is linear: $\forall X, Y \in M_n(K),a,b\in K$, $\phi(A)(aX+bY)=A(aX+bY)A^{-1}=aAXA^{-1}+bAYA^{-1}=a\phi(A)(X)+b\phi(A)(Y)$
+			\item $\phi(A)$ is invertible: $\phi(A)\in \GL(V)$, $\exists A^{-1}\in \GL_n(K)$ s.t. $\id=\phi(A^{-1})\circ\phi(A)(X)=A^{-1}(AXA^{-1})(A^{-1})^{-1}=X$.
+		\end{itemize}
+		\item $\phi$ is a group homomorphism: $\phi(AB): V\to V$, $\forall X$, $\phi(A)\circ\phi(B)(X)=A(BXB^{-1})A^{-1}=(AB)X(AB)^{-1}=\phi(AB)(X)$
+	\end{enumerate}
+    \item $\forall X\in M_n^0(K)$, $\tra(\phi(A)(X))=\tra(AXA^{-1})=\tra(A^{-1}AX)=\tra(X)=0$, so $\phi(A)(X)\in M^0_n(K)$ , $\phi(A)(kI)=AkIA^{-1}=kI\in \langle I\rangle$
+    \item $\forall X\in  M_n^0(K)\cap \langle I\rangle$, then $X=kI$ and $\tra (X)=nk=0$.
+    Since $\chara K\nmid n$, $k=0$. So $X=0$. $\forall X\in M_n(K)$, $k=\frac{1}{n}\tra(X)$, then $\tra(X-kI)=\tra(X)-nk=0$, so $X=kI+(X-kI)$, that means $M_n(K)=M_n^0(K)+\langle I\rangle$. Therefore, $M_n(K)=M_n^0(K)\oplus\langle I\rangle$
+\end{enumerate}
+\end{solution}
+\begin{problem}
+   $\calO(n):=\{A\in M_n(\R):AA^T=I_n\}$ is the set of all $n$-dimensional orthogonal matrix over $\R$. Let: 
+   \begin{equation}
+    \begin{aligned}
+        \varphi: \calO(n) &\rightarrow \mathrm{GL}\left(M_n(\mathbb{R})\right) \\
+        A &\mapsto \varphi(A), \\
+    \end{aligned}
+   \end{equation}
+    \begin{equation}
+ \varphi(A) X:=A X A^{-1}: \quad \forall X \in M_n(\mathbb{R}) 
+    \end{equation}
+ $M_n^{+}(\mathbb{R}):=\{A\in M_n^0(\R): A=A^T\}$, $M_n^{-}(\mathrm{R}):=\{A\in M_n^0(\R): A^T=-A\}$.
+    (1) Proof: $M_n^{+}(\mathrm{R})$ and $M_n^{-}(\mathrm{R})$ are invariant spaces of $\varphi$;
+    (2) Let the subrepresentation of $\varphi$ on $\langle I \rangle$,$ M_n^{+}(\mathbb{R}), M_n^{-}(\mathbb{R})$ be  $\varphi_0, \varphi_1, \varphi_2$. Proof:
+    $
+    \varphi=\varphi_0+\varphi_1+\varphi_2 \text {. }
+    $
+    (3) calculate a $\frac{1}{2} n(n-1)-$ dimensional $ \R$ representation of $\calO(n)$.
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+    \item Since $\calO(n)\subset \GL_n(\R)$, $M_n^+(\R),M_n^-(\R)\subset M_n^0(\R)$, then $\forall A\in\calO(n) , X\in M_n^+(\R)(or M_n^-(\R))$, by problem 3,$\phi(A)(X)\in M_n^0(\R)$.
+    Since $AA^T=I_n$, then $A^T=A^{-1}$, so
+    $\forall X\in M^+_n(\R)$, $(\phi(A)(X))^T=(AXA^{-1})^T=(A^{-1})^TX^TA^T=(A^T)^{-1}XA^T=AXA^{-1}=\phi(A)(X)$, so $\phi(A)(X)\in M_n^+(\R)$. 
+    $\forall X\in M^-_n(\R)$, 
+    $(\phi(A)(X))^T=(AXA^{-1})^T=(A^{-1})^TX^TA^T=-(A^T)^{-1}XA^T=-AXA^{-1}=-\phi(A)(X)$, so $\phi(A)(X)\in M_n^-(\R)$. 
+\item By problem $3(3)$, we get $M_n(K)=M_n^0(K)\oplus\langle I\rangle$, so we only need to proof $M_n^0(\R)=M_n^+(\R)\oplus M_n^-(\R)$. $\forall Y\in M_n^0(\R)$, $Z^+=\frac{Y+Y^T}{2},Z^-=\frac{Y-Y^T}{2}$, so $Z^+\in M_n^+(\R),Z^-\in M_n^-(\R)$ and $Y=Z^++Z^-$. 
+Therefore $M_n^0(\R)=M_n^+(\R)+ M_n^-(\R)$.
+$\forall X\in M_n^+(\R)\cap M_n^-(\R)$, $X^T=X=-X$, so $X=0$.
+\item Let $\psi=\phi|_{M_n^+(\R)}$, since $\dim_{\R}M_n^+(\R)=\frac{1}{2}n(n-1)$, so $(\psi, M_n^+(\R))$ is a $\frac{1}{2}n(n-1)-$ dimensional representation of $\calO(n)$.
+\end{enumerate}
+\end{solution}
+
+\end{document}

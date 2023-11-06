@@ -1,0 +1,199 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\crefname{enumi}{}{}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+\input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+Prove the following statements.
+\begin{enumerate}
+\item If $x \cap y=\varnothing$ and $x \cup y \preccurlyeq y$, then $\omega \times x \preccurlyeq y$.
+\item If $x \cap y=\varnothing$ and $\omega \times x \preccurlyeq y$, then $x \cup y \approx y$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item Let $f:x\cup y\to y$ is injective, $f_1:=f,f_{n+1}:=f_n\circ f$. $g:\omega\times x\to y,g(n,t)\mapsto f_{n+1}(t)$. Next we will prove $g$ is injective. Since $f$ is injective, then $f_n$ is injective obviously $\forall n\in \mathbb{N}_+$. For $(n,u),(m,v)\in \omega\times x$:
+        \begin{enumerate}
+            \item If $n=m$, then $f_n(u)\neq f_n(v)$.
+            \item If $m\neq n$, W.L.O.G. let $n< m,m=n+k$. So $f_m[x]=f_{n+k}[x]=f_n[f_k[x]]\subset f_n[y]$. Since $f_n$ is injective, we get $f_n[x]\cap f_n[y]=\varnothing$. While $g(n,u)\in f_n[x], g(m,v)\in f_n[y]$, so $g(n,u)\neq g(m,v)$, so $g$ is injective.
+        \end{enumerate}
+        \item Let $f:\omega\times x\to y$ is injective, $x_n:=\{(n,t):t\in x\}$. Then $\omega\times x=\cup_{n\in \omega}x_n$. Consider $g:x\cup y\to y$. If $t\in x$, then $g(t):=f(0,t)$. If $t\in f[x_n]$, then $g(t)=f(n+1,t)$. If $t\notin x\cup (\cup_{n=1}^{\infty} f[x_n])$, then $g(t)=t$. Next we will prove $g$ is a bijection. 
+        
+       \begin{enumerate}
+        \item $g$ is injection:  For $u,v\in x\cup y,u\neq v$,  
+        \begin{itemize}
+         \item If $u,v\in x$, since $f$ is injective, then $g(u)=f(0,u)\neq f(0,v)=g(v)$. 
+         \item If $u\in x,v\in f[x_n]$,for some $n$, then $g(u)=f(0,u)\in f[x_0]$. $g(v)=f(n+1,v)\in f[x_{n+1}]$. Since $f$ is injective, $f[x_0]\cap f[x_{n+1}]=\varnothing$, so $g(u)\neq g(v)$. 
+         \item If $u\in x,v\notin x\cup (\cup_{n=1}^{\infty} f[x_n])$, then we know $g(v)=v\notin f[x_0]\ni g(u)$. 
+         \item If $u\in f[x_m],v\in f[x_n]$, then 
+          \begin{enumerate}
+            \item If $m=n$, then $g(u)=f(m+1,u)\neq f(n+1,v)=g(v)$. 
+            \item If $m\neq n$, then $g(u)\in f[x_{m+1}],g(v)\in f[x_{n+1}]. $ Since $f$ is injective, $f[x_{m+1}]\cap f[x_{n+1}]=\varnothing$. So $g(u)\neq g(v)$. 
+            \item If $u\in x_n,v\notin x\cup (\cup_{n=1}^{\infty} f[x_n])$, then $g(u)\in f[x_{n+1}]$ and $g(v)=v\notin f[x_{n+1}]$. 
+            \item If $u,v\notin x\cup (\cup_{n=1}^{\infty} f[x_n])$, then $g(u)=u\neq v=g(v)$. 
+        \end{enumerate}
+        \end{itemize}
+        \item $g$ is surjective. 
+        \begin{itemize}
+         \item If $\exists n $ s.t. $u\in f[x_n]$, then: 
+         \begin{enumerate}
+            \item When $n=0$, then$\exists t\in x$ s.t. $y=f(0,t)$. Then $g(t)=u$. 
+            \item When $n\geq 1$, let $n=m+1$. Then $\exists t\in x$ s.t. $y=f(m+1,t)$. So $g(t)=u$. 
+        \end{enumerate}
+         \item If $u\notin f[x_n],\forall n$, then $g(u)=u$. 
+        \end{itemize}
+       \end{enumerate}
+    \end{enumerate}
+\end{solution}
+
+
+\newcommand{\peq}{\preccurlyeq}
+\newcommand{\set}{\mathbb{S}et}
+\begin{problem}
+\begin{enumerate}[ref=\theproblem.\arabic*]
+\item\label{it:2.1} A subset of a finite set is finite.
+\item\label{it:2.2} The union of a finite set of finite sets is finite.
+\item The power set of a finite set is finite.
+\item The image of a finite set (under a mapping) is finite.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}
+     \item \begin{enumerate}
+        \item When $n=0$, $A\approx 0\to A=\varnothing$. So $B\subset A$, then $B=\varnothing\approx 0$.
+        \item If $n$ s.t. $\forall A\approx n,\forall B\subset A,\exists m\in \omega,B\approx m$ for $n\in \omega$. 
+        
+        Now we prove $n+1$. Let $A\approx n+1$, $f:A\to n+1$ is bijection. If $B=A$, then $B\approx n+1$. Else, $\exists x\in A\minus B$. 
+       
+        Let $g:A\to n+1$, where $g(t)=f(t)$, if $t\neq x$ and $g(t)\neq n$; $g(t)=n+1$, if $t=x$; $g(t)=f(x)$, if $f(t)=n$. So $g$ is bijection. And since $x\notin B$ we get $B\subset g^{-1}[n]\approx n$, so by induction we get $\exists m\in \omega,B\approx m$. 
+     
+     \end{enumerate}
+      
+     \item \begin{enumerate}
+        \item $A$ and $B$ are finite and $A\cap B=\emptyset$:
+            \begin{enumerate}
+                \item For $B=\varnothing$, $A\cup B=A$ is finite.
+                \item For $B\approx 1$, assume $A\approx n$, and $B\approx \{n\}$, so $A\cup B\approx n\cup\{n\}=n+1$ is finite. 
+                \item For certain $n$ s.t. $\forall B\approx n$, $A\cup B$ is finite. Then to prove it's right for $n+1$. Let $f:B\to n+1$ is bijection, then $f^{-1}[n]\approx n$, so by induction assumption $A\cup f^{-1}[n]$ is finite. Since $B=f^{-1}[n]\cup\{f^{-1}(n)\}$, so $A\cup B=A\cup f^{-1}[n]\cup\{f^{-1}(n)\}$. Since $\{f^{-1}(n)\}\approx 1$, so by induction assumption the union is finite.
+                
+            \end{enumerate} 
+            \item 
+            $\forall A,B$ are two finite sets, so $A\cup B=A\cup (B\setminus A)$. By \Cref{it:2.1}, $B\setminus A$ is finite, so $A\cup B$ is finite. \\
+            Now we use MI to prove $\forall n, A_i,i\leq n$ is Finite, then $\cup_{i=1}^n$ is Finite.
+            \begin{enumerate}
+                \item When $n=0,1,2$ it's obvious.
+                \item For certain $n\geq 2$ we have $A_i,i\leq n$ is Finite, then $\cup_{i=1}^nA_i$ is Finite. Then we prove $n+1$. Since $\cup_{i=1}^nA_i$ is Finite, and so do $A_{n+1}$, then $\cup_{i=1}^{n+1}A_i$.
+            \end{enumerate}
+            
+     \end{enumerate}   
+     \item \begin{enumerate}
+        \item For $x\approx 0$, so $\mi{x}=\{\varnothing\}\approx 1$.
+        \item For certain $n$ s.t. $\forall x\approx n,\mi{x}$ is Finite, then it goes to $x\approx n+1$: Assume $f:x\to n+1$ is bijection. Let $y=f^{-1}[n]$ and $t=f^{-1}(n)$. Then $y\approx n$. Let $\theta:\mi{x}\setminus \mi{y}\to \mi{y},\theta(a):=a\setminus \{t\}$. Obviously $\theta$ is bijective, so $\mi{x}\setminus\mi{y}\approx \mi{y}$ is finite. By \Cref{it:2.2}, $\mi{x}=\mi{y}\cup(\mi{x}\setminus\mi{y})$ is finite. 
+     \end{enumerate}
+      
+     \item \begin{enumerate}
+        \item For $A\approx 0$ it's obvious. 
+        \item For $A\approx n$ it's right.It goes for $A\approx n+1$. Let $f:A\to n+1$ is a bijection, and $g:A\to\set$ is a map on $A$. Let $B:=f^{-1}[n]\subset A,t=f^{-1}(n)\in A$. Then $B\approx n$, so $g[B]$ is finite. Since $A=B\cup\{t\}$, then $g[A]=g[B]\cup g[\{t\}]=g[B]\cup \{g(t)\}$. And $ \{g(t)\}\approx 1$ is finite, by \Cref{it:2.2}, $g[A]$ is finite.
+     \end{enumerate}
+     
+ 
+    \end{enumerate}
+    
+   \end{solution}
+
+\begin{problem}
+\begin{enumerate}
+\item A subset of a countable set is at most countable.
+\item The union of a finite set of countable sets is countable.
+\item The image of a countable set (under a mapping) is at most countable.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}
+     \item Let $A$ is countable, so $\exists \theta$ s.t. $\theta:A\to \omega$ is bijection. Let $B\subset A$, so $B\approx \theta[B]$. So we only need to prove every subset of $\omega$ is at most countable. Let $x\subset \omega$. If $x$ is finite, then $x$ is at most countable. If $x$ is infinite. Let $f(0)=\min x$ and $f(n)=\min (x\setminus f[n])$. Since $x$ is infinite, so $f[n]\subsetneqq x$, so $f$ is well-defined. And obviously, $f$ is a bijection. So $x\approx \omega$ is countable. 
+     \item That is to prove $\forall n\in \mathbb{N}_+, \{A_k\}_{k=1}^{n}$ is a sequence of countable sets, then $\cup_{k=1}^nA_n$ is countable. 
+     \begin{enumerate}
+        \item When $n=1$ it's obvious.
+        \item For $n=2$, let $f:\omega\to A_1,g:\omega\to A_2$ are bijections, $h:\omega\to A_1\cup A_2$, where $h(n)=f(\min f^{-1}[A_1\setminus h[n]])$, if $2\mid n$; $h(n)=g(\min g^{-1}[A_2\setminus h[n]])$, if $2\nmid n$. Since $A_1,A_2$ are infinite ,so $h$ is well-defined. 
+        \begin{enumerate}
+            \item $\forall m,n\in \omega,m\neq n$, assume $m<n$, then $h(n)=f(\min f^{-1}[A_1\setminus h[n]])\in f[f^{-1}[A_1\setminus h[n]]]=u\setminus h[n]$ and $h(m)\in h[n]$. So $h(m)\neq h(n)$. 
+            \item For $n=0$ it's obvious that $f[n]\subset h[2n-1]$. Assume for certain $n$ $f[n]\subset h[2n-1]$ is right, when it is for $n+1$, we only need to prove $a:=f(n)\in h[2n+1]$. If not, since $h(2n)=f(\min f^{-1}[A_1\setminus h[2n]])$,  $a\notin h[2n]$, so $a\in A_1\setminus h[2n]$. Then $n=f^{-1}(a)\in f^{-1}[A_1\setminus h[2n]]$. For $m<n$, $f(m)\in h[2m-1]\subset h[2n]$, so $m\notin f^{-1}[A_1\setminus h[2n]]$, thus $n=\min f^{-1}[A_1\setminus h[2n]]$. So $h(2n)=a$, contradiction! So, $A_1\subset h[\omega]$, it is same to prove $A_2\subset h[\omega]$.
+            
+        \end{enumerate}
+        \item Assume for certain $n\geq 2$, $\cup_{k=1}^nA_k$ is countable. It goes to $n+1$: By induction we know $ \cup_{k=1}^nA_k$ is countable. And we have proved union of two countable sets is countable. So $\cup_{k=1}^{n+1}A_k=\cup_{k=1}^nA_k\cup A_{n+1}$ is countable.
+    \end{enumerate}
+     \item Same as the first quesrion. We only need to prove image of $\omega$ is at most countable. For $f:\omega\to \set$ is a map, let $h:\ran(f)\to \omega,t\mapsto \min f^{-1}[\{t\}]$. Obviously $h$ is a injective, so $\ran(f)$ is at most countable. 
+    \end{enumerate}
+   \end{solution}
+
+
+\begin{problem}
+$\mathbb{N} \times \mathbb{N}$ is countable.
+$$
+\left[f(m, n)=2^m(2 n+1)-1 .\right]
+$$
+\end{problem}
+
+\begin{solution}
+    Let $f:\mathbb{N}^2\to \mathbb{N},(m,n)\mapsto 2^m(2n+1)-1$ 
+    \begin{enumerate}
+        \item Let $f(a,b)=f(c,d)$, then $2^a(2b+1)=2^c(2d+1)$. If $a\neq c$, WLOG, let $a<c$, then $2b+1=2^{c-a}(2d+1)$. While $2\mid 2^{c-a}(2d+1),2\nmid 2b+1=2^{c-a}(2d+1)$, contradiction! So $a=c$, then $2b+1=2d+1$, so $b=d$.
+        \item $\forall t\in \mathbb{N}$, let $s:=\sup\{k:2^k\mid t+1\}$. Since $0<t+1<\omega$, then if $2^k\mid t+1$, then $2^k\leq t+1$, so $s<\omega$. Assume $t+1=m2^s\cdot $, so $2\nmid m$, so $m=2n+1$. Then $t=f(m,n)$. 
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}
+Prove that $\kappa^\kappa \leq 2^{\kappa \kappa \kappa}$.
+\end{problem}
+\newcommand{\fun}[2]{^{#1}{#2}}
+\begin{solution}
+    Let $h:\fun{\kappa}{\kappa}\to \fun{\kappa\times \kappa}{2}$. $\forall f\in \fun{\kappa}{\kappa}$, let $h(f):\kappa\times \kappa\to2$, where $\forall u,v\in \kappa$, $h(f)(u,v):=1$ if $u= f(v)$; $h(f)(u,v):=0$, if $u\neq f(v)$. Assume $f,g\in \fun{\kappa}{\kappa}$ and $h(f)=h(g)$. Then $\forall v\in \kappa$, $h(g)(f(v),v)=h(f)(f(v),v)=1$, so $f(v)=g(v)$. So $h$ is injective. 
+   \end{solution}
+
+\begin{problem}
+If $A \preccurlyeq B$, then $A \preccurlyeq^* B$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item If $A=\varnothing$, then $A \preccurlyeq^* B$ is obvious. 
+        \item If $A\neq \varnothing$, then $a\in A$. Let $f:A\to B$ is injection, $g:B\to A,g(y):f^{-1}(y) $, if $ y\in \ran(f)$; $a $, if $y\notin \ran(f)$. Then $\forall x\in A,h(f(x))=x$, obviously. So $h$ is surjective. 
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}
+If $A \preccurlyeq^* B$, then $\mathscr{P}(A) \preccurlyeq \mathscr{P}(B) .^2$
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item If $A=\varnothing$, then $\mi{A}=1$. Let $f:\mi{A}\to \mi{B},0\mapsto B$, then $f$ is injective.\item If $A\neq \varnothing$, then by $A \preccurlyeq^* B$, $\exists f:B\to A$ is surjective. Let $h:\mi{A}\to\mi{B},U\mapsto f^{-1}[U]$. Then we will prove $h$ is injective. Let $U,V\subset A$ and $h(U)=h(V)$, i.e. $f^{-1}[U]=f^{-1}[V]$. If $U\neq V$, WLOG, let $U\setminus V\neq \varnothing$ and let $x\in U\setminus V$. Since $f$ is surjective, so $\exists t\in B,f(t)=x$. So $t\in f^{-1}[U]$ but $t\notin f^{-1}[V]$, contradiction! So $h$ is injective. Then $\mi{A}\peq \mi{B}$. 
+    \end{enumerate}
+     
+   \end{solution}
+
+\begin{problem}
+Let $X$ be a set. If there is an injective function $f: X \rightarrow X$ such that $\operatorname{ran}(f) \subsetneq X$, then $X$ is infinite.
+\end{problem}
+\begin{solution}
+    That is to prove $\forall n\in \omega,X\not\approx n$. By MI, 
+    \begin{enumerate}
+        \item For $n=0$, if $X\approx n$, then $X=0$. So $X\subset \ran(f)$, contradiction! 
+        \item Assume $n\geq 1$, $\forall m<n,X\not\approx m$ is right. If $X\approx n$, then $\exists h:X\to n$ is bijection. So $h[\ran(f)]\subsetneq n$, then $\exists m<n,h[\ran(f)]\approx m$. While $f$ is injective, and $h$ is bijection, so $X\approx m$. Contradiction!
+    \end{enumerate}
+   \end{solution}
+   
+\end{document}

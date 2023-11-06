@@ -1,0 +1,40 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex × 2
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+    Prove: There is no such inner product such that $\forall f\in C[a,b], (f,f)^{\frac{1}{2}}= \max_{x\in[a,b]} |f(x)|$.
+\end{problem}
+
+\begin{solution}
+    Since $x_1=\frac{x-a}{b-a},x_2=\frac{x-b}{a-b}$, $x_1,x_2\in C[a,b]$, then, $x_1+x_2=\frac{x-a+b-x}{b-a}=1$, $x_1-x_2=\frac{2x-a-b}{a-b}$. Let $\norm{f}=\max_{x\in[a,b]} |f(x)|$, then $(C[a,b],\norm{\cdot})$ is $B^*$ space. Since $\norm{x_1+x_2}=1,\norm{x_1-x_2}=\max_{x\in[a,b]} |\frac{2x-a-b}{a-b}|=1,\norm{x_1}=1=\norm{x_2}$, then $\norm{x_1+x_2}^2+\norm{x_1-x_2}^2=1^2+1^2<2(\norm{x_1}^2+\norm{x_2}^2)=2\times (1+1)=4$. Then, there is no such inner product such that $\forall f\in C[a,b], (f,f)^{\frac{1}{2}}= \max_{x\in[a,b]} |f(x)|$.
+\end{solution}
+
+\begin{problem}
+    $f:L^2[0,T]\to[0,+\infty)$, $x\mapsto |\int_0^T \mathrm{e}^{-(T-\tau)}x(\tau)\d \tau|$.Prove: $f$ can reach maximum in $S^2$, calculate the maximum and find the element of $x$ which reaches the maximum.
+\end{problem}
+\begin{solution}
+    $\forall x\in S^2$, $f(x)=|\int_0^T \mathrm{e}^{-(T-\tau)}x(\tau)\d \tau|=\mathrm{e}^T\int_0^T|e^\tau x(\tau)|\d \tau\leq \mathrm{e}^T(\int_0^T \mathrm{e}^{2\tau}\d \tau)^{\frac{1}{2}}(\int_0^T x(\tau)^2\d \tau)^{\frac{1}{2}}=\mathrm{e}^T(\int_0^T \mathrm{e}^{2\tau}\d \tau)^{\frac{1}{2}}=(\frac{1}{2}-\frac{1}{2}\mathrm{e}^{-2T})^{\frac{1}{2}}$.By the equation condition of Cauchy Schwartz inequation, when $x=t \mathrm{e}^u$, the inequation can be an equation. So let $x=\pm(\frac{2}{\mathrm{e}^{2T}-1})^\frac{1}{2}\mathrm{e}^u$, $f(x)=(\frac{1}{2}-\frac{1}{2}\mathrm{e}^{-2T})^{\frac{1}{2}}=\max_{t\in S^2}f(t)$.
+\end{solution}
+
+\begin{problem}
+    $(X,(\cdot,\cdot))$ is an inner product space, $M\subset N\subset X$. Prove $N^{\perp}\subset M^{\perp}$. 
+\end{problem}
+\begin{solution}
+    Since $\forall x\in N^{\perp}:=\{x\in X:\forall y\in N, (x,y)=0\}$, $\forall y\in M\subset N$, $y\in N$, $(x,y)=0$, then $x\in M^{\perp}:=\{x\in X:\forall y\in M, (x,y)=0\}$. So $N^{\perp}\subset M^{\perp}$.
+\end{solution}
+
+\end{document}
