@@ -35,13 +35,7 @@
     $T:(\mathbb{R}^n,l^1)\to (\mathbb{R}^n,l^1)$ is linear operation. Calculate $\norm{T}$.
 \end{problem}
 \begin{solution}
-  Let \(A\) be the matrix of linear operation \(T\). And define \(\ipro {x}{y}= \sum_{i=1}^{n} x_i y_i, x=(x_1,\cdots, x_n), y=(y_1,\cdots,y_n) \)
-  \begin{enumerate}
-
-    \item \( A\) is real symmetric matrix, then let \(\lambda_1,\cdots,\lambda_n, \xi_1,\cdots,\xi_n\) be 
-      the real eigenvalue and its real eigenvector, which satisfies \(\lambda_1=\max_{1 \leq n}|\lambda_i|,\norm{\xi_i}=1, 1 \leq i \leq n\).
-      
-  \end{enumerate}
+    kk
 \end{solution}
 
 \begin{problem}
@@ -61,20 +55,19 @@
     $f: \mathcal{X}\to \mathbb{R}$,$x\mapsto\int_0^1\sqrt{t} x(t^2)\d t$.Calculate $\norm{f}$
     \begin{enumerate}
         \item $\mathcal{X}=C[0,1]$.
-        \item \(\mathcal{X} = L^{ 2}[0,1]\)
+        \item \(\mathcal{X}=L^2[0,1]\)
     \end{enumerate}
 \end{problem}
 \begin{solution}
    \(\int_{0}^{1} \sqrt{t} x(t^2) \d t=\int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} x(u) \d u  \) 
   \begin{enumerate}
-    \item \(\forall x \in \mathcal{X}, \norm{x} = 1, |f(x)| \leq | \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} x(u) \d u| \leq \int_{0}^{1} |\frac{1}{2u^{\frac{1}{4}}} x(u)| \d u \leq \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} \d u= \frac{2}{3}\)
-      \(x=1 \in C[0,1]\) and \(|f(x)|=\frac{2}{3}\). So \(\norm{f}=\frac{2}{3}\).
+    \item \(\forall x \in \mathcal{X}, \norm{x} = 1, |f(x)| \leq | \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} x(u) \d u| \leq \int_{0}^{1} |\frac{1}{2u^{\frac{1}{4}}} x(u)| \d u \leq \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} \d u= \frac{3}{2}\)
+      \(x=1 \in C[0,1]\) and \(|f(x)|=\frac{3}{2}\). So \(\norm{f}=\frac{3}{2}\).
     \item \(\forall x \in \mathcal{X} , \norm{x}=1, |f(x)|=\frac{1}{2} |\int_{0}^{1} \frac{1}{u^{\frac{1}{4}}} x(u) \d u|
       \leq \frac{1}{2} \int_{0}^{1} |\frac{1}{u^{\frac{1}{4}}}x(u)| \d u
       \leq \frac{1}{2} (\int_{0}^{1} (\frac{1}{u^{\frac{1}{4}}})^2 \d u)^{\frac{1}{2}}(\int_{0}^{1} x(u)^{2} \d u)^{\frac{1}{2}} 
-      = \frac{1}{2} \int_{0}^{1} (\frac{1}{u^{\frac{1}{2}}} \d u)^{\frac{1}{2}} = \frac{\sqrt{2}}{2}\)
-      Let \(x=a \frac{1}{u^{\frac{1}{4}}}\) ,then \(\int_{0}^{1} a^{2} \frac{1}{u^{\frac{1}{2}}} \d u = 1\), so \(a= \pm \frac{\sqrt{2}}{2}\).
-      So \(\norm{f}=\frac{\sqrt{2}}{2}\).
+      = \frac{1}{2} \int_{0}^{1} \frac{1}{u^{\frac{1}{2}}} \d u = 1\)
+      Let \(x=a \frac{1}{u^{\frac{1}{4}}}\) ,then \(\int_{0}^{1} a^{2} \frac{1}{u^{\frac{1}{2}}} \d u = 1\), so \(a= \pm \frac{\sqrt{2}}{2}\) 
   \end{enumerate}
 \end{solution}
 

@@ -1,2 +1,4 @@
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ipro}[2]{\left\langle #1, #2 \right\rangle}
+
