@@ -1,0 +1,94 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+
+\begin{problem}
+  \(\mathcal{X}\) is complexed Hilbert space, \(T \in \mathcal{L}(\mathcal{X})\). If \(\exists a_0>0\) s.t. \((Tx,x) \geq a_0(x,x)\), we 
+  call \(T\) is positive definite. Prove: positive definite operator \(T\) must exist inversed
+  operator \(T^{-1}\) and \(\norm{T^{-1}} \leq \frac{1}{a_0}\).
+
+\end{problem}
+\begin{solution}
+ \begin{enumerate}
+   \item \(T\) is injection: 
+     \begin{equation}
+     \, \begin{aligned}
+       Tx = Ty & \iff T(x-y) = 0 \\
+       \,& \iff 0 = \langle T(x-y) , x-y \rangle \leq a_0 \langle x-y , x-y \rangle \geq 0\\ 
+     \end{aligned}
+     \end{equation}
+    Thus, \(\norm{x-y}=0, \) \(x=y\).
+  \item \(T\) is surjection:
+    \begin{enumerate}
+      \item First of all, we prove \(T \mathcal{X}\) is closed: Let \(W : \mathcal{X} \to T \mathcal{X} , x \mapsto Tx\),
+        we easily get \(W\) is bijection, \(T \mathcal{X} \subset \mathcal{X}\) is subspace of \(\mathcal{X}\).
+        So \(T \mathcal{X}\) is \(B^{*}\) space,
+      \(W^{-1} : T \mathcal{X} \to \mathcal{X}, y \mapsto x \) where \(Tx = y \). So 
+      \(W^{-1}\) is well-defined and \(W^{-1}\) is linear operator. 
+      \(\norm{x} \norm{W^{-1}x} = \norm{T W^{-1} x} \norm{W^{-1} x} \geq \langle T W^{-1} x , W^{-1} x \rangle \geq a_0 \norm{W^{-1} x}^2  \)
+      , so \(\norm{W^{-1}x} \leq \frac{1}{a_0}\norm{x}\) and \( W^{-1}\in \mathcal{L} (T \mathcal{X}, \mathcal{X}) \) .
+      By theorem 2.3.13, there exists \(\widetilde{W^{-1}} : \overline{T \mathcal{X}} \to \mathcal{X}\),
+      where \(\widetilde{W^{-1}}\) is extended of \(W^{-1}\) on \(\overline{T \mathcal{X}}\) and \(\norm{\widetilde{W^{-1}}}=\norm{W^{-1}}\). 
+      If \(x \in \overline{T \mathcal{X} } \minus T \mathcal{X}\), then \(\exists \{x_n\}_{n=1}^{\infty} \subset T \mathcal{X}\) such that
+      \(\lim_{n \to \infty} x_n=x\). Then, \(\lim_{n \to \infty}W^{-1} x_n=\lim_{n \to \infty} \widetilde{W^{-1}}x_n=\widetilde{W^{-1}}x \).
+      So \(\lim_{n \to \infty} T(W^{-1}x_n)=\lim_{n \to \infty} x_n=T(\lim_{n \to \infty} W^{-1}x_n)=T(\widetilde{W^{-1}}x)=x\).
+      Thus, \(x \in T \mathcal{X}\). Contradiction! Therefore, \(T \mathcal{X}=\overline{T \mathcal{X}}\).
+      \item \(\forall y \in \mathcal{X}\), \(\exists| y_1, y_2 \in \mathcal{X}\) such that \(y= y_1+y_2\) where \(y_1 \perp T \mathcal{X}, y_2 \in T \mathcal{X}\).
+        So \(0 = \langle T y_1 , y_1 \rangle \geq a_0 \langle y_1 , y_1 \rangle\), i.e. \(y_1=0\).
+        So \(y=y_2 \in T \mathcal{X}\).\\
+
+Another way to prove \(T \mathcal{X}\) is closed: \(\forall \{x_n\}_{n=1}^{\infty} \subset T \mathcal{X}\) such that
+ \(\lim_{n \to \infty} x_n=x \in \mathcal{X}\). Without loss of generality, \(\forall n, \norm{x_n-x} \leq \frac{1}{2^{n+1}}\).
+ Let \(x_0=0\), \(y_n=x_{n+1}-x_n \in T \mathcal{X}\), \(z_n= T x_n\), \(n \geq 1\), so \(\norm{y_n}\leq \frac{1}{2^{n}}\), \(\norm{z_n} \norm{y_n} \geq\langle y_n , z_n \rangle \geq a_0 \langle z_n , z_n \rangle= a_{0} \norm{z_n}^2\). 
+ So  \(\norm{z_n} \leq \frac{\norm{y_n}}{a_0}\). Thus \(\sum_{n=1}^{\infty} \norm{z_n} < \infty\), then \(\exists z \in \mathcal{X} \) such that
+ \(\sum_{n=1}^{\infty} z_n=z \in \mathcal{X}\). Besides, \( T z = T \sum_{n=1}^{\infty} z_n =\lim_{n \to \infty}\sum_{k=1}^{n} T z_n= \lim_{n \to \infty} x_{n+1} = x \in T \mathcal{X} \).
+    \end{enumerate}
+ \end{enumerate} 
+ Thus, by inversed operator theorem, we get that \(T^{-1}\) exists and \(\norm{T^{-1}}= \norm{W^{-1}} \leq \frac{1}{a_{0}}\). 
+\end{solution}
+\begin{problem}
+  Assume \(\{a_k\}_{k=1}^{\infty}\) such that \(\sup_{k \geq 1} |a_k|< \infty\). \(T: l^{1} \to l^{1}\),
+  \(x=\{\xi _k\}_{k=1}^{\infty} \in l^{1}, T(x)=\{a_k \xi_k\}_{k=1}^{\infty}.\)
+  Prove: \(T^{-1} \in \mathcal{L} (l^1) \iff \inf_{k \geq 1} |a_k|>0\).
+\end{problem}
+\begin{solution}
+  \begin{enumerate}
+    \item ``\(\Leftarrow\):" Since \(a:=\inf_{k \geq 1}|a_k| >0,b:= \sup_{k \geq 1} |a_k|< \infty \), 
+      then \(0 \neq a \leq |a_k| \leq b, \forall k \in \mathbb{N}^+\). So \(x=\{x_n\}_{n=1}^{\infty}, y = \{y_n\}_{n=1}^{\infty} \in l^{1}\). 
+      \begin{enumerate}
+        \item \label{it:1} \(T\) is injection: \(T x= T y \iff a_nx_n=a_ny_n, n \in \mathbb{N}_+, \iff x_n=y_n, n \in \mathbb{N}\).
+        \item \label{it:2}\(T\) is surjection: \(z = \{z_n\}_{n=1}^{\infty}, z_n=\frac{x_n}{a_n}\), then 
+      \(\sum_{n=1}^{\infty} |z_n| =\sum_{n=1}^{\infty} |\frac{x_n}{a_n}|\leq \frac{\sum_{n=1}^{\infty}|x_n|}{a} < \infty \).
+        \item \label{it:3} \(T\) is bounded: \(\norm{T x}=\sum_{k=1}^{\infty} |a_kx_k| \leq b \sum_{k=1}^{\infty} |x_k|=b \norm{x}\).
+      \end{enumerate}
+      By inversed operator theorem, we get \(T^{-1}\) exists, and \(T^{-1} \in \mathcal{L} (X)\).
+    \item ``\(\Rightarrow\):"\begin{enumerate}
+        \item If \(\exists a_n=0\), without loss of generality, let \(a_1=0\), then by \Cref{it:1}, 
+          we get \(T\) is not injection. So \(T^{-1}\) doesn't exists.
+        \item If \(\forall a_n \neq 0, n \in \mathbb{N}_+, \inf_{k \geq 1}|a_k|=0  \), without loss of generality, 
+          \(\lim_{n \to \infty} a_n =0\). Consider \(\{x_n\}_{n=1}^{\infty}, x_n = (1,\cdots,1,0,\cdots), \sum_{k=1}^{\infty} x_n(k) = n\), 
+          where \(x_n(k)\) is the \(k\)- th number of \(x_n\). Obviously, 
+          \(\{x_n\}_{n=1}^{\infty} \subset l^1\). \((T^{-1}x_n)(k) = \frac{1}{a_k} \mathbbm{1}_{1 \leq k \leq n}(k)\).
+          So \(\norm{T^{-1}x_n} = \sum_{k=1}^{n} |\frac{1}{a_k}| \to \infty , n \to \infty\).
+          That is \(\norm{T^{-1}} = \infty\), which is contradict with \(T^{-1} \in \mathcal{L}(\mathcal{X})\).
+
+      \end{enumerate}
+
+
+  \end{enumerate}
+\end{solution}
+\end{document}

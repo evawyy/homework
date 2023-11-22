@@ -20,10 +20,29 @@
   Prove: if \( D\) is a division ring, then \(M_n(D)\) is a monocycle.
 \end{problem}
 \begin{solution}
-  
+ \(I\) is non zero two sides ideal of \(M_n(D)\). \(\forall E_{ij}, 1 \leq i, j \leq n\), let \(A=(a_{ij}) \neq 0\) ,
+ \(a_{st} \neq 0\). So \(E_{is}AE_{tj}=a_{st}E_{ij} \in I\). So \(E_{ij} \in I\).
+ So \(M_n(D) \subset I \subset M_n(D)\).
 \end{solution}
 
 \begin{problem}
-   \(V\) is right module of division ring \(D\), 
+   \(V\) is right module of division ring \(D\), \(f: D \times V \to V\) is an action of \(D\) on \(V\).
+   Let \(\forall v \in V, d \in D\), \(vd:=f(d,v)\), we call \(V\) is right linear space 
+   of division ring \(D\). All of module homomerphism from \(V\) to \(V\) is noted as \(\hom_D(V,V)\).
+   Prove: \(\dim_DV = n\), then \(\exists g: \hom_D(V,V) \to M_n(D)\) is ring isomorphism.
+
 \end{problem}
+\begin{solution}
+  \({a_1,\cdots,a_n} \subset V\) is a set of \(V\). \(\forall A \in \hom_D(V,V)\), \(A a_i= \sum_{k=1}^{n} d_{ki}a_k, d_{ki} \in D, \forall 1 \leq k, i \leq n\).
+  Let \(B= (d_{ij}) \in M_n(D)\), \(f: \hom_D(V,V) \to M_n(D), A \mapsto B\). Obviously \(f\) is 
+  well-defined and a bijection.
+  \begin{enumerate}
+    \item \(f\) preserves addition: \(A_1,A_2 \in \hom_D(V,V), (A_1+A_2)(a_i)=A_1 a_i+A_2 a_i=\sum_{k=1}^{n} d_{ki}^{(1)}a_k+\sum_{k=1}^{n}\, d_{ki}^{(2)} a_k=\sum_{k=1}^{n} (d_{ki}^{(1)}+d_{ki}^{(2)}) a_k\).
+      So \(f(A_1+A_2)=f(A_1)+f(A_2)\).
+    \item \(f\) preserves multiplication: \(A, B \in \hom_D(V,V), (AB)(a_i)=A(\sum_{k=1}^{n} d_{ki}^{(2)}a_k )=\sum_{k=1}^{n} d_{ki}^{(2)}A a_k=
+      \sum_{k=1}^{n} d_{ki}^{(2)}\sum_{j=1}^{n} d_{jk}^{(1)}a_j=\sum_{j=1}^{n} \sum_{k=1}^{n} d_{jk}^{(1)}d_{ki}^{(2)}a_j\).
+      So \(f(AB)=f(A)f(B)\).
+
+  \end{enumerate}
+\end{solution}
 \end{document}
