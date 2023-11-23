@@ -1,0 +1,96 @@
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.8)  22 NOV 2023 23:40
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**SetTheory4
+(./SetTheory4.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/ctex/ctexart.cls (/usr/local/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
+File: ctexbackend.cfg 2022/07/14 v2.5.10 Backend configuration file (CTEX)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-08-29 L3 programming layer (loader) 
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2023-04-19 L3 backend support: XeTeX
+\g__graphics_track_int=\count181
+\l__pdf_internal_box=\box51
+\g__pdf_backend_object_int=\count182
+\g__pdf_backend_annotation_int=\count183
+\g__pdf_backend_link_int=\count184
+))
+Document Class: ctexart 2022/07/14 v2.5.10 Chinese adapter for class article (CTEX)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/ctex/ctexhook.sty
+Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/ctex/ctexpatch.sty
+Package: ctexpatch 2022/07/14 v2.5.10 Patching commands (CTEX)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\l__ctex_tmp_int=\count185
+\l__ctex_tmp_box=\box52
+\l__ctex_tmp_dim=\dimen140
+\g__ctex_section_depth_int=\count186
+\g__ctex_font_size_int=\count187
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
+File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen141
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+File: ctex-engine-xetex.def 2022/07/14 v2.5.10 XeLaTeX adapter (CTEX)
+ (/usr/local/texlive/2023/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2023-08-29 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen142
+\l__xtemplate_tmp_int=\count196
+\l__xtemplate_tmp_muskip=\muskip16
+\l__xtemplate_tmp_skip=\skip50
+)
+\l__xeCJK_tmp_int=\count197
+\l__xeCJK_tmp_box=\box53
+\l__xeCJK_tmp_dim=\dimen143
+\l__xeCJK_tmp_skip=\skip51
+\g__xeCJK_space_factor_int=\count198
+\l__xeCJK_begin_int=\count199
+\l__xeCJK_end_int=\count266
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip52
+\c__xeCJK_none_node=\count267
+\g__xeCJK_node_int=\count268
+\c__xeCJK_CJK_node_dim=\dimen144
+\c__xeCJK_CJK-space_node_dim=\dimen145
+\c__xeCJK_default_node_dim=\dimen146
+\c__xeCJK_CJK-widow_node_dim=\dimen147
+\c__xeCJK_normalspace_node_dim=\dimen148
+\c__xeCJK_default-space_node_skip=\skip53
+\l__xeCJK_ccglue_skip=\skip54
+\l__xeCJK_ecglue_skip=\skip55
+\l__xeCJK_punct_kern_skip=\skip56
+\l__xeCJK_indent_box=\box54
+\l__xeCJK_last_penalty_int=\count269
+\l__xeCJK_la
