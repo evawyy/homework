@@ -1,0 +1,38 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+\(\mathcal{X}\) is a linear space on \(\mathbb{C}\). $p$ is a seminorm on \(\mathcal{X}\). \(p(x_0) \neq 0, x_0 \in \mathcal{X}\).
+Prove: \(\exists f\) is a linear funcional on \(\mathcal{X}\) such that
+\begin{enumerate}
+  \item \(f(x_0)=1\)
+  \item \(|f(x_0)| \leq \frac{p(x)}{p(x_0)}\), \(\forall x \in \mathcal{X}\).
+\end{enumerate}
+\end{problem}
+\begin{solution}
+  Consider \(p^*: \mathcal{X} \to \mathbb{C}\), \(x \mapsto \frac{p(x)}{p(x_0)}\). Obviously \(p^*\) 
+  is a seminorm on \(\mathcal{X}\). Let \(\mathcal{X}_0:=\Span\{x_0\} \subset \mathcal{X}\)
+  is a subspace of \(\mathcal{X}\). \(f: \mathcal{X}_0 \to \mathbb{C}\), \(\alpha x_0 \mapsto \alpha f(x_0)\),
+  where \(f(x_0)=1\). So \(f\) is a linear funcional on \(\mathcal{X}_0\). And \( \forall x \in \mathcal{X}_0, x= \alpha x_0, |f(x)|=|\alpha||f(x_0)| \leq |\alpha| = \frac{p(\alpha x_0)}{p(x_0)}=p^*(x)\).
+  Thus, by Hahn-Banach theorem, \(\exists \tilde{f}: \mathcal{X} \to \mathbb{R}\) is a linear funcional on \(\mathcal{X}\) such that
+  \begin{enumerate}
+    \item \(\tilde{f}(x)=f(x), \forall x \in \mathcal{X}_0\).
+    \item \(|\tilde{f}(x)| \leq p^*(x)=\frac{p(x)}{p(x_0)}, \forall x \in \mathcal{X}\).
+  \end{enumerate}
+  So \(\tilde{f}(x_0)=f(x_0)\). 
+\end{solution}
+\end{document}
