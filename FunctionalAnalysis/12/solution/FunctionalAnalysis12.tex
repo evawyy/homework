@@ -15,7 +15,7 @@
 \fi
 \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
 %from_here_to_type
-\begin{problem}
+\begin{problem}\label{pro:1}
 \(\mathcal{X}\) is a linear space on \(\mathbb{C}\). $p$ is a seminorm on \(\mathcal{X}\). \(p(x_0) \neq 0, x_0 \in \mathcal{X}\).
 Prove: \(\exists f\) is a linear funcional on \(\mathcal{X}\) such that
 \begin{enumerate}
@@ -34,5 +34,60 @@ Prove: \(\exists f\) is a linear funcional on \(\mathcal{X}\) such that
     \item \(|\tilde{f}(x)| \leq p^*(x)=\frac{p(x)}{p(x_0)}, \forall x \in \mathcal{X}\).
   \end{enumerate}
   So \(\tilde{f}(x_0)=f(x_0)\). 
+\end{solution}
+
+\begin{problem}
+\(\mathcal{X}\) is a \(B^*\) space, \(\{x_n\}_{n=1}^{\infty} \subset \mathcal{X}\) such that \(\forall f \in \mathcal{X}^*, \{f(x_n)\}_{n=1}^{\infty}\) is bounded.
+Prove that \(\{x_n\}_{n=1}^{\infty}\) is bounded.
+\end{problem}
+\begin{solution}
+  Since there is an embedding map from \(\mathcal{X} \to {\mathcal{X}^*}^*\), which keeps norm. Regard \(\{x_n\}_{n=1}^{\infty}\) as subset of \({\mathcal{X}^*}^*\).
+  And \({\mathcal{X}^*}^*= \mathcal{L}(\mathcal{X}^*, \mathbb{K})\), \(\mathcal{X}^*=\mathcal{L}(X, \mathbb{K})\). 
+  \(\mathbb{K}\) is complete, so \(\mathcal{X}^*\) is a \(B\) space.
+  Besides, \(\forall f \in \mathcal{X}^*, \sup_{n \in \mathbb{N}_+} |x_n(f)|=\sup_{n \in \mathbb{N}_+} |f(x_n)|<\infty\).
+  By Banach-Steinhaus theorem, \(\sup_{n \in \mathbb{N}_+}\norm{x_n}<\infty \)
+\end{solution}
+\begin{problem}
+\(\mathcal{X}\) is a \(B^*\) space, \(\mathcal{X}_0\) is a closed subspace of \(\mathcal{X}\).
+Prove that \(\forall x \in \mathcal{X}, \inf_{y \in \mathcal{X}_0}\norm{x-y}=\sup\{|f(x)|:f \in \mathcal{X} \norm{f}=1, f|_{\mathcal{X}_0}=1\} \).
+
+\end{problem}
+\begin{lemma}\label{lem:1}
+  \(\mathcal{X}\) is a \(B^*\) space, let \(H_{f}^{\lambda}:=\{x \in \mathcal{Z}: f(x)=\lambda\}\) where is a linear functional on \(\mathcal{X}\). 
+  If \(\norm{f}=1\), then \(|f(x)| =  d(x, H_f^0), \forall x \in \mathcal{X}\), where \(\mathrm{d}(x, H_f^0):=\inf_{z \in H_f^0}\norm{x-z}\). 
+
+\end{lemma}
+\begin{proof}
+  Since \(\norm{f}=1\), then \(\exists z \notin H_f^0\). And \(x \in H_f^0\), \(f(x)=0\), let \(z=x\), then \(\norm{x-z}=0\). Next consider \(x \notin H_f^0\):
+  \begin{enumerate} 
+    \item \(|f(x)| \leq \mathrm{d}(x, H_f^0)\): Since \(\forall \varepsilon >0\), \(\exists y \in H_f^0\)
+      such that \(\norm{x-y} \leq \mathrm{d}(x, H_f^0)+ \varepsilon \). And \(|f(x)|=|f(x-y)| \leq \norm{f}\norm{x-y} \leq \mathrm{d}(x,H_f^0)+ \varepsilon \to \mathrm{d}(x,H_f^0), \varepsilon \to 0\).
+    \item \(|f(x) \geq d(x, H_f^0)|\): \(\forall \varepsilon > 0 \), \(\exists y \in x\) 
+
+
+  \end{enumerate}
+\end{proof}
+
+
+\begin{solution}
+ By \Cref{lem:1}, we have that \(\inf_{y \in \mathcal{X}_0}\norm{x-y} \geq \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\} \).
+ Consider \(\mathcal{X}_0=\mathcal{X}\) is possible, we define: \(\sup \varnothing =0\).
+ \begin{enumerate}
+   \item \(\mathcal{X}_0=\mathcal{X}\): \(f(x)=0, \forall x \in \mathcal{X}\), so \(\notexists f: \norm{f}=1\), so \(\sup \{|f(x)|: f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}= \sup \varnothing\).
+     Obviously, the conclusion is true.
+   \item \(\mathcal{X}_0 \subsetneq \mathcal{X}\):\begin{enumerate}
+     \item If \(x \notin \mathcal{X}_0\), since \(\mathcal{X}_0\) is closed, then
+       \(d:=\inf_{y \in \mathcal{X}_0}\norm{x-y} > 0\), by Hahn-Banach theorem, \(\exists f \in \mathcal{X}^*\) such that
+       \(\norm{f}=1, f|_{\mathcal{X}_0}=0, f(x)=d\). Thus, \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=|f(x)| \).
+       So \(\inf_{y \in \mathcal{X}_0 \norm{x-y}}= |f(x)|= \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\} \).
+     \item If \(y \in \mathcal{X}_0\), take \(x \notin \mathcal{X}_0\),\(f\) such that \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=|f(x)| \).
+       So \(f(y)=0\), then  \(\{|f(y)|: f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}\) is not empty.
+       And \(\forall f \in \mathcal{X}^* \) such that \(\norm{f}=1, f|_{\mathcal{X}_0}=0\), then \(f(y)=0\). 
+       Thus,  \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=0=\inf_{y \in \mathcal{X}_0}\norm{x-y} \).
+
+
+   \end{enumerate}
+
+ \end{enumerate}
 \end{solution}
 \end{document}
