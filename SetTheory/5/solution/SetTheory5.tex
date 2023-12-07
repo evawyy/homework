@@ -1,0 +1,268 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\crefname{enumi}{}{}
+%from_here_to_type
+\begin{problem}
+  Prove:\(F \subset \mathcal{N}\) is closed set \(\iff F = [T]\) for some \(T \subset \fun{<\omega}{\omega}\). 
+\end{problem}
+\begin{solution}
+  \begin{itemize}
+    \item \(\implies\): Let \(T:=T_F\), by the definition of \(T_F\) and \([T]\) ,
+      we get \(F \subset [T]\). 
+      For \(f \in [T]\), \(f\upharpoonright n \in T\), so 
+      \(\forall n \in \mathbb{N}, \res{f}{n}=\res{g}{n}\), \(\exists  g \in F\). 
+      So \(d(f,F) \leq d(f,g)=\frac{1}{2^{n}}\to 0, n \to \infty\). 
+      Since \(F\) is closed, then \(f \in F\). 
+
+    \item \(\impliedby\): For any \([T] \in \fun{<\omega}{\omega}\), only need to prove \([T]\) is closed. 
+      Assume \(f \in \overline{[T]}\), then \(\forall n \in \mathbb{N},\exists g \in [T],\res{f}{n}=\res{g}{n}\). 
+      Since \(g \in [T]\), then \(\res{g}{n} \in T\). So \(f \in [ T]\). 
+      So \([T]\) is closed. 
+  \end{itemize}
+\end{solution}
+
+\begin{problem}\label{pro:3}
+  Assume \(f\) is isolated point in closed set \(F \subset \mathcal{N}\), then 
+  \(\exists n \in \mathbb{N},\forall g \in F,g \neq f \to \res{g}{n} \neq \res{f}{n}\). 
+\end{problem}
+
+\begin{solution}
+  Since \(f\) is isolated, we get \(\exists n \in \mathbb{N},\forall g \in F \setminus \{f\},d(f,g)>\frac{1}{2^n}\). 
+  Then \(\res{f}{n} \neq \res{g}{n}\). 
+\end{solution}
+
+\begin{problem}
+  A closed set \(F \subset \mathcal{N}\) is perfect \(\iff T_F\) is a perfect tree. 
+\end{problem}
+
+\begin{solution}
+  \begin{itemize}
+    \item \(\implies\): For \(t \in T_F\), \(\exists f \in F,n \in \mathbb{N},t =\res{f}{n}\).
+      Since \(F\) is perfect, then \(F\) is not isolated,
+      by \Cref{pro:3} \(\forall n, \exists g \in F, g \neq f\) such that 
+      \(d(f,g)<\frac{1}{2^{n+1}}\). 
+      Then \(t =\res{f}{n} \sqsubset g\).
+      Since \(f \neq g\), Then, \(\exists m \in \mathbb{N} , m >n\) such that 
+      \(\res{f}{m}\neq \res{g}{m}\). 
+      So \(t \sqsubset \res{f}{m},t \sqsubset \res{g}{m}\), and \(\res{f}{m},\res{g}{m}\) are incomparable. 
+      So \(T_F\) is perfect.
+    \item \(\impliedby\): For \(f \in F\), only need to prove \(f\) is not isolated.
+      Since \(T_F\) is perfect, then \(\forall t:=\res{f}{n} \in T_F\), where \(f \in F, n \in \mathbb{N}\).
+       \(\exists s_1,s_2 \in T_F\) such that \(t \sqsubset s_1,s_2\) and \(s_1,s_2\) are incomparable. 
+      Then \(s_1,s_2 \sqsubset f\) is impossible. 
+      Without loss of generality assume \(s_1 \not \sqsubset f\). 
+      so \(s_1=\res{g}{m}\) for some \(g \in F,m \in \mathbb{N}\). 
+      So \(d(f,g) \leq \frac{1}{2^{n + 1}}\). So \(f\) is not isolated. 
+  \end{itemize}
+\end{solution}
+
+\begin{problem}
+  For \(\alpha <\omega_1\), we let \(\Sigma_0=\)  \(\{O \subset\mathbb{R}: O\) is open \(\}\), 
+  and \(\Pi_0=\) = \(\{F \subset\mathbb{R}: F \) is closed \(\}\). 
+  And \(\Sigma_{\alpha+1}=\{\bigcup_{n \in \mathbb{N}} A(n):A \in \fun{\mathbb{N}}{\Pi_{\alpha}}\). 
+  \(\Pi_{\alpha+1}=\{\mathbb{R}\setminus A:A \in \Sigma_{\alpha}\}\). 
+  \(\Sigma_{\alpha}=\bigcup_{\beta<\alpha} \Sigma_{\beta},\Pi_{\alpha}=\bigcup_{\beta<\alpha} \Pi _{\beta}\) for limit ordinal \(\alpha\). 
+  Prove that \(\mathcal{B}(\mathbb{R})=\bigcup_{\alpha<\omega_1} \Sigma_{\alpha}\). 
+\end{problem}
+
+\begin{solution}
+  Use MI easily we get \(\bigcup_{\alpha < \omega_1} \Sigma_{\alpha} \subset \mathcal{B}(\mathbb{R})\). 
+  Now we prove \(\mathcal{B}(\mathbb{R})\subset \bigcup_{\alpha<\omega_1} \Sigma_{\alpha}\). 
+  Since open sets is subset of \(\bigcup_{\alpha<\omega_1} \Sigma_{\alpha}\), we only need to prove \(\bigcup_{\alpha<\omega_1} \Sigma_{\alpha}=:\mathcal{A}\) is \(\sigma\)-field. 
+  Easily we get \(\Sigma_{\alpha} \subset \Sigma_{\alpha+2}\). 
+  Obviously \(\mathbb{R} \in \mathcal{A}\). For \(A \in \mathcal{A}\), assume \(A \in \Sigma_{\alpha}\). 
+  Then \(\mathbb{R}\setminus A \in \Pi_{\alpha+1} \subset \Sigma_{\alpha+1}\subset \mathcal{A}\). 
+  Assume \(A \in \fun{\mathbb{N}}{\mathcal{A}}\), let \(f \in \fun{\mathbb{N}}{\omega_1},f(n)=\min\{\alpha \in \omega_1:A(n) \in \Sigma_{\alpha}\}\). 
+  Consider \(\sup \ran f =:\gamma\). Since \(\forall \alpha \in \ran f,\alpha\) is countable. And \(\ran f\) is countable. 
+  So \(\sup \ran f\) is countable, thus \(\sup \ran f <\omega_1\). 
+  Then \(\ran A \subset \Pi_{\gamma+1} \). So we get \(\bigcup_{n \in \mathbb{N}} A(n) \subset \Sigma_{\gamma+2} \subset \mathcal{A}\). 
+  So we get \(\mathcal{A} \) is \(\sigma\)-field. So \(\mathcal{B}(\mathbb{R}) \subset \mathcal{A}\), thus \(\mathcal{A}=\mathcal{B}(\mathbb{R})\). 
+\end{solution}
+
+\begin{problem}
+  Show that \(\mathcal{M}:=\{A \subset \mathbb{R}:A \text{ is measurable}\}\) is a \(\sigma\)-field. 
+\end{problem}
+
+\begin{lemma}\label{lem:0}
+  For \(\mathcal{A} \subset \mathcal{P}(\mathbb{R})\), \(|\mathcal{A}| = alpha_0\),
+  then \(\mu^{*}(\bigcup_{A \in \mathcal{A}} A) \leq \sum_{A \in \mathcal{A}} \mu^{*}(A)\). 
+\end{lemma}
+
+\begin{proof}
+  Since \(|\mathcal{A}| = \alpha_0\), let \(\mathcal{A}=\{A_1 , A_2 , \cdots , A_n , \cdots\}\).
+\(\forall n \in \mathbb{N}\), \(\varepsilon>0,\exists O_n \in \mathcal{O}, A_n\subset O_n \)
+  and \(\mu^{*} (A_n) \leq |O_n|+\frac{\varepsilon}{2^{n+1}}\). 
+  Let \(U:= \bigcup_{ n \in \mathbb{N}} O_n\), then \(\bigcup_{ n \in \mathbb{N}} A_n\subset U\). 
+  So \(\mu^{*}(\bigcup_{n \in \mathbb{N}} A_n \leq |U| \leq \sum_{n \in \mathbb{N}} |O_n| \leq \sum_{ n \in \mathbb{N}} \mu ^{*}(A_n)+\varepsilon\). 
+  Since \(\varepsilon\) is arbitry, then \(\mu^*(\bigcup_{n \in \mathbb{N}} A_n = \sum_{n \in \mathbb{N}} \mu^* (A_n) \). 
+\end{proof}
+\begin{lemma}\label{lem:1}
+  If \(G \in G_{\delta}\), then \(\forall \varepsilon >0,\exists O \in \mathcal{O},G \subset O \wedge \mu^{*}(O\setminus G)\leq \varepsilon\). 
+\end{lemma}
+
+\begin{proof}
+  \begin{enumerate}
+    \item \(G\) is bonded:  Assume \(G \subset [-M,M],M >0\), and
+      \(G =\bigcap_{n \in \mathbb{N}} O_n\), where \(O_n \in \mathcal{O}\).
+      Since \(G = \bigcap_{n \in \mathbb{N}} \bigcap_{k = 0}^{m} O_m  \), then without loss of generality,
+      we can assume \(O_n \supset O_{n+1}, n \in \mathbb{N}\).
+      Besides, since \(G=\bigcap_{n \in \mathbb{N}} (O_n \cap (-M - 1,M + 1))\). 
+      So, we can assume \(O_n \subset (-M-1,M+1)\).
+      So \(|O_n | \) is declining and bounded. Thus, \(\lim_{n \to \infty} |O_n | = a\).
+      Therefore, if \(m_k , 0 \leq k < n\) have define, let we define \(m_n\),
+      \(\forall \varepsilon > 0, \exists N, \forall l, m \geq N, \) \( |O_{l}|-|O_{m}|<\frac{\varepsilon}{ 2^{n-1}}\).
+      Let \(m_n=N\), then \(\{O_{m_{n}}\}_{n=0}^{\infty} \subset \{O_n\}_{n=0}^{\infty}\) is a sub sequence, and \(\lim_{n \to \infty} |O_{m_n}|=a\),
+      \(G = \bigcap_{n \in \mathbb{N}} O_{m_n} \), \(|O_{m_{n}}|-|O_{m_{n+1}}|<\frac{\varepsilon}{2^{n-1}}\).
+      Thus, we can assume \(\{O_{n}\}_{n=0}^{\infty}\) such that \(\forall n, |O_n| - |O_{n+1}| < \frac{\varepsilon}{2^{n}}\)
+      By \Cref{lem:0}, so 
+ \iffalse   
+      \begin{equation}
+        \begin{aligned} 
+          \,\, &(\mu^*(O_{n} \setminus\ G )\\
+  \,\,  \,\,= &\mu^* (\bigcup_{k \geq n} O_k \setminus O_{k+1} )\\ 
+  \,\,\,\, \leq& \sum_{k \geq n} \mu^* (O_k- O_{k+1})\\
+     = &\sum_{k \leq n} |O_{k}| - |O_{k+1}| \\
+     \leq &\frac{\varepsilon}{2^{n}}<\varepsilon \).
+     \end{aligned}
+\,\,\,\,\,\, \end{equation}
+\fi
+  \item \(G\) is not bounded: Let \(G_n = G \cap B(0,n) \), then \(G = \bigcup_{n \in \mathbb{N}} G_n\).
+  So \(\forall \varepsilon >0 \), \(\exists O_n \supset G_n \) such that \(\mu^*(O_n \setminus G_n ) \leq \frac{\varepsilon}{ 2^{n}}\).
+  Then \(O = \bigcup_{n \in \mathbb{N}} O_n \in \mathcal{O}\), \( O \setminus G \subset \bigcup_{n \in \mathbb{N}} O_n \setminus G_n\),
+  so by \Cref{lem:0}, \(\mu^*(O \setminus G) \leq \sum_{n \in \mathbb{N}} \frac{\varepsilon}{ 2^{n}}  < \varepsilon\).
+  \end{enumerate}
+\end{proof}
+\begin{solution}
+ \begin{enumerate}
+   \item Easily, \(\mathbb{R}\) is open and closed, then \(\mathbb{R}\) is \(F_{\sigma}\) and \(G_{\delta}\), 
+     then \(\mathbb{R} \in \mathcal{A}\). 
+   \item If \(A \in \mathcal{M}\), let \(B:=\mathbb{R}\setminus A\). 
+  Then \(\exists F \in F_{\sigma} , G \in G_{\delta}\) such that \( F\subset A \subset G\) 
+  and \(\mu^{*}(G\setminus F)=0\). Then \(G^c \subset B \subset F^c\). 
+  Obviously, \(G^c \in F_{\sigma}\), \(F^c \in G_{\delta}\). 
+  And \(\mu^{*}(F^c\setminus G^c)=\mu^{*}(G\setminus F)=0\). 
+  So \(B \in \mathcal{M}\). 
+    \item Let \(A(n) \in \mathcal{M}\), we need to prove \(\bigcup_{n \in \mathbb{N}} A_n =:A\in \mathcal{M}\). 
+  By AC,  \(\exists F \in \fun{ \mathbb{N}}{F_{\sigma}},G \in \fun{ \mathbb{N}}{G_{\delta}}\) such that \(F(n)\subset A_n \subset G(n),\mu^{*}(G(n)-F(n))=0\). 
+  Let \(T=\bigcup_{n \in \mathbb{N}} F(n)\). Since \(F(n)\) is \(F_{\sigma}\), we get \(T \in F_{\sigma}\). 
+  And easily \(T=\bigcup_{n \in \mathbb{N}} F(n) \subset \bigcup_{n \in \mathbb{N}} A(n)=A\). 
+ \end{enumerate} 
+\end{solution}
+
+\begin{problem}
+  Show that \(\mathcal{A}:=\{A \subset \mathbb{R}:A \text{ has property of Baire}\}\) is \(\sigma\)-field. 
+\end{problem}
+
+\begin{solution}
+  \begin{enumerate}
+    \item Since \(\mathbb{R} \Delta \mathbb{R} = \varnothing\) is meager, so \(\mathbb{R} \in \mathcal{A}\). 
+    \item  If \(A \in \mathcal{A}\), let \(B:=\mathbb{R} \setminus A \in \mathcal{A}\). 
+  Assume \(G \in \mathcal{O}\) and \( A \Delta G\) is meager,  
+  only need to prove \(\exists U \in \mathcal{O}\), such that \(B\setminus U,U\setminus B\) are meager. 
+  Let \(U=\mathbb{R} \setminus \overline{G}\). Then \(B \setminus U = A \setminus \overline{G}\) is meager. 
+  Now only need to prove \(U \setminus B = \overline{ G}\setminus A\) is meager. 
+  Since \(G \setminus A\) is meager, we only need to prove \(\overline{G}\setminus G\) is meager. 
+  In fact, we can prove \(\overline{G}\setminus G\) is nowhere dense. 
+  Consider \(I \in \mathcal{O}\), we need to prove \(\exists J \subset I,J \in \mathcal{O}, J \cap \partial G = \varnothing\). 
+  If \(I \cap \partial G = \varnothing\), we can let \(J = I\). 
+  Else, assume \( a \in I \cap \partial G\). Form the defination of \(\partial G\), 
+  we get \(\exists b \in I \cap G\). Let \(J = I \cap G \neq \varnothing\) is OK. 
+  So \(B \Delta U\) is meager. 
+
+  Assume \(A \in \fun{\mathbb{N}}{\mathcal{P}(\mathcal{A})}\), we need to prove \(\bigcup_{n \in \mathbb{N}} A(n)=:A \in \mathcal{A}\). 
+  Assume \(G(n) \in \mathcal{O}\) and \(A(n) \Delta G(n)\) is meager. Consider \(G:= \bigcup_{ n \in \mathbb{N}} G(n)\). 
+  We only need to prove \(G \Delta A\) is meager. Only need \(G \setminus A,A \setminus G\) is meager. 
+  Since \(G \setminus A \subset \bigcup_{n \in \mathbb{N}} G(n) \setminus A(n)\) and \(G(n)\setminus A(n)\) is meager, we get \(G \setminus A\) is meager. 
+  For the same reason, we get \(A \setminus G \subset \bigcup_{n \in \mathbb{N}} A(n)\setminus G(n)\) is meager. 
+
+  \end{enumerate}
+  So finally we get \(\mathcal{A}\) is \(\sigma\)-field. 
+\end{solution}
+
+\begin{problem}
+  Assume \(A \subset \fun{\omega}{\omega}\) has the property of Baire, prove \(A\) is nonmerger \(\iff \exists O \in \mathcal{O}(\fun{\omega}{\omega}),O \neq \varnothing \wedge O\setminus A\) is meager. 
+\end{problem}
+\iffalse
+\begin{solution}
+  \(\implies\): Since \(A\) has the property of Baire, we know \(\exists O \in \mathcal{O},O \Delta A\) is meager. 
+  Then \(O \setminus A,A \setminus O\) are meager. Since \(A\) is nonmeager, \(A \setminus O\) is meager, we get \(O \neq \varnothing\). 
+
+  \(\impliedby\): Assume \(O \in \mathcal{O}, O \neq \varnothing, O \setminus A\) is meager. 
+ Noting \(O \subset O \setminus A \cup A\) and \(O\) is nonmeager, we get \(A\) is nonmeager. 
+\end{solution}
+
+\begin{problem}
+  Let \(C_A:= \bigcup \{O_s:s \in \fun{<\omega}{\omega},O_s\setminus A \text{ is meager}\} \). 
+  Prove that \(C_A \setminus A \) is meager. 
+\end{problem}
+
+\begin{solution}
+  We know \(\mathbb{R}\) satisfy the second countable axiom, i.e., \(\exists \mathcal{B} \subset \mathcal{O}(\fun{\omega}{\omega})\) such that \(\forall O \in \mathcal{O},\forall x \in O,\exists B \in \mathcal{B},x \in B \subset O\). 
+  Now we consider \(\mathcal{X}:=\{X \in \mathcal{B}:\exists O_s,X \subset O_s \wedge O_s \setminus A \text{ is meager }\}\). 
+  Consider \(Y= \bigcup \mathcal{X} \), we will prove \(C_A = Y\). 
+
+  On one hand, for \(x \in Y\), we get \(\exists X \in \mathcal{X}\) such that \(x \in X\). 
+  So \(\exists O_s\) such that \(x \in X \subset O_s \wedge O_s \setminus A\) is meager. So \(x \in C_A\). 
+
+  On the other hand, for \(x \in C_A\), we get \(\exists O_s,x \in O_s,O_s \setminus A\) is meager.  
+  Since \(O_s\) is open, we get \(\exists B \in \mathcal{B},x \in B \subset O_s\). 
+  So \(B \in \mathcal{X}\). Thus \(x \in Y\). 
+
+  So we get \(Y = C_A\). So \(C_A\setminus A=Y\setminus A = \bigcup_{X \in \mathcal{X}} X \setminus A \). 
+  From the defination of \(\mathcal{X}\) we know \(X \setminus A\) is meager, and Since \(\mathcal{X} \subset \mathcal{B}\) we get \(\mathcal{X}\) is countable. 
+  So finally we get \(C_A \setminus A = \bigcup_{X \in \mathcal{X}} X \setminus A\) is meager. 
+\end{solution}
+
+\begin{problem}
+  Let \(\pi:\fun{\omega}{\omega} \to \fun{\omega}{2},\pi(x)=s_{x(0)}\madd s_{x(1)}\madd\cdots\). 
+  Where \(s_{x(k)}=11\cdots10\) for even \(k\), there is \(k\) ``\(1\)'' in total, and \(s_{x(k)}=00\cdots0 1\) for odd \(k\), there is \(k\) ``\(0\)'' in total. 
+  Prove that \(\fun{\omega}{2} \setminus \ran \pi\) is countable. 
+\end{problem}
+
+\begin{solution}
+  As we all know, \(\{f \in \fun{\omega}{2}:\limsup f=\liminf f\}\) is countable. So we only need to prove \(\forall f \in \fun{\omega}{2}\setminus \ran \pi,\limsup f = \liminf f\). 
+  Consider \(g \in \fun{\omega}{2}\) and \(\liminf g=0,\limsup g=1\). We only need to prove \(g \in \ran \pi\). 
+  Only need to prove \(\exists h \in \fun{ \omega}{\omega},\pi(h)=g\). 
+  We construct \(h\) rescusively. Let \(h(0):=\min\{n \in \omega:g(n)=0\}\). 
+  Assume \(\res{h}{n}\) is already defined. Let \(M(n)=\sum_{k=0}^{n-1} (h(k)+1) \). 
+  Let \(h(n)= \min\{k:g(M(n)+k)=a_n\}\), where \(a_n=0\) for even \(n\) and \(a_n=1\) for odd \(n\). 
+  Since \(\liminf g=0 \wedge \limsup g=1\), we know \(h\) is well-defined. Now we prove \(\pi(h)=g\). 
+  For \(k<h(0)\), form the defination of \(h(0)\) we know \(g(k)=1=\pi(h)(k)\). 
+  For \(k=h(0)\) we get \(g(k)=0=\pi(h)(k)\). 
+  Now assume \(\sum_{i=0}^{n} (h(i)+1) <k \leq \sum_{i=0}^{n+1} (h(i)+1)\). 
+  Easily we know \(\mathrm{len}(s_{h(k)}=h(k)+1)\), so we get \(\pi(h)(k)=s_{h(n)}(k-M(n) )\). 
+  So from the defination of \(h(n)\) we easily get \(\pi(h)(k)=g(k)\). 
+\end{solution}
+
+\begin{problem}
+  Assume AD, then \(\mathrm{AC}_\omega(\fun{\omega}{\omega}) \). Consequently, \(\omega_1\) is regular. 
+\end{problem}
+
+\begin{solution}
+  Assume \(X:\omega \to \mathcal{P}(\fun{\omega}{\omega})\) and \(\forall n \in \omega,X(n)\neq \varnothing\). 
+  Let \(\theta:\fun{\omega}{\omega}\to \fun{\omega}{\omega},\theta(f)(n):=f(2n+1)\). 
+  Consider \(A:=\{x \in \fun{\omega}{\omega}:\theta(x) \in X(x(0))\}\). 
+  Since \(I\) have no w.s because \(\forall n \in \omega,X(n)\neq \varnothing\). 
+  By AD we get \(II\) has a w.s., write \(\tau\). 
+  Now consider \(\gamma:\omega \to \fun{\omega}{\omega},\gamma(n):=\theta((n,0,0,\cdots)*\tau)\). 
+  Since \(\theta((n,0,\cdots)*\tau) \in X(n)\). So \(\gamma\) is the choose function. 
+  
+  Nov we prove \(\omega_1\) is regular. Only need to prove union countable many countable ordinal is countable. 
+  
+\end{solution}
+\fi
+\end{document}
