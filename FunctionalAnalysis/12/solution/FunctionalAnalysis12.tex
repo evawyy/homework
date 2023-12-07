@@ -62,7 +62,11 @@ Prove that \(\forall x \in \mathcal{X}, \inf_{y \in \mathcal{X}_0}\norm{x-y}=\su
   \begin{enumerate} 
     \item \(|f(x)| \leq \mathrm{d}(x, H_f^0)\): Since \(\forall \varepsilon >0\), \(\exists y \in H_f^0\)
       such that \(\norm{x-y} \leq \mathrm{d}(x, H_f^0)+ \varepsilon \). And \(|f(x)|=|f(x-y)| \leq \norm{f}\norm{x-y} \leq \mathrm{d}(x,H_f^0)+ \varepsilon \to \mathrm{d}(x,H_f^0), \varepsilon \to 0\).
-    \item \(|f(x) \geq d(x, H_f^0)|\): \(\forall \varepsilon > 0 \), \(\exists y \in x\) 
+    \item \(|f(x)| \geq \mathrm{d}(x, H_f^0)\): \(\forall 1>\varepsilon > 0 \), \(\exists y \in \mathcal{X}\), \(\norm{y} = 1\), such that
+      \(|f(y)|+\varepsilon \geq 1\), obviously, \(f(y)\neq 0\), let \(t=\frac{f(x)}{f(y)}\),
+      so \(f(ty)=\frac{f(x)}{f(y)}f(y)=f(x)\), then \(f(ty-x)=f(ty)-f(x)=0\), so \(ty-x \in H_f^{0}\).
+      Then \(ty \in x + H_f^{0}\) and \(|f(x)|+ |t|\varepsilon \geq 
+      |f(ty)|+|t|\varepsilon \geq |t|=\norm{ty}\), so \(|f(x)| \geq \mathrm{d}(x, H_f^{0})\). 
 
 
   \end{enumerate}
@@ -73,9 +77,11 @@ Prove that \(\forall x \in \mathcal{X}, \inf_{y \in \mathcal{X}_0}\norm{x-y}=\su
  By \Cref{lem:1}, we have that \(\inf_{y \in \mathcal{X}_0}\norm{x-y} \geq \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\} \).
  Consider \(\mathcal{X}_0=\mathcal{X}\) is possible, we define: \(\sup \varnothing =0\).
  \begin{enumerate}
-   \item \(\mathcal{X}_0=\mathcal{X}\): \(f(x)=0, \forall x \in \mathcal{X}\), so \(\nexists f: \norm{f}=1\), so \(\sup \{|f(x)|: f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}= \sup \varnothing\).
+   \item \(\mathcal{X}_0=\mathcal{X}\): \(f(x)=0, \forall x \in \mathcal{X}\), so \(\nexists f: \norm{f}=1\), 
+     so \(\sup \{|f(x)|: f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}= \sup \varnothing\).
      Obviously, the conclusion is true.
-   \item \(\mathcal{X}_0 \subsetneq \mathcal{X}\):\begin{enumerate}
+   \item \(\mathcal{X}_0 \subsetneq \mathcal{X}\):
+     \begin{enumerate}
      \item If \(x \notin \mathcal{X}_0\), since \(\mathcal{X}_0\) is closed, then
        \(d:=\inf_{y \in \mathcal{X}_0}\norm{x-y} > 0\), by Hahn-Banach theorem, \(\exists f \in \mathcal{X}^*\) such that
        \(\norm{f}=1, f|_{\mathcal{X}_0}=0, f(x)=d\). Thus, \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=|f(x)| \).
@@ -83,11 +89,50 @@ Prove that \(\forall x \in \mathcal{X}, \inf_{y \in \mathcal{X}_0}\norm{x-y}=\su
      \item If \(y \in \mathcal{X}_0\), take \(x \notin \mathcal{X}_0\),\(f\) such that \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=|f(x)| \).
        So \(f(y)=0\), then  \(\{|f(y)|: f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}\) is not empty.
        And \(\forall f \in \mathcal{X}^* \) such that \(\norm{f}=1, f|_{\mathcal{X}_0}=0\), then \(f(y)=0\). 
-       Thus,  \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=0=\inf_{y \in \mathcal{X}_0}\norm{x-y} \).
-
+       Thus, \( \sup\{|f(x)|:f \in \mathcal{X}^*, \norm{f}=1, f|_{\mathcal{X}_0}=0\}=0=\inf_{y \in \mathcal{X}_0}\norm{x-y} \).
+     
 
    \end{enumerate}
 
  \end{enumerate}
+\end{solution}
+
+
+\begin{problem}
+  Let \(\mathcal{X}\) is \(B^*\) space, \(\{x_k\}_{k=1}^{n} \subset \mathcal{X}\) is linear independent. 
+  \(\{C_k\}_{k=1}^{n} \subset \mathbb{K}, M \in \mathcal{X}\). Then, \(\exists f \in \mathcal{X}^*\), such that
+  \(f(x_k)=C_k,1\) \(\leq n\), and \(\norm{f} \leq M\) \(\iff\)
+  \(\forall a_1,a_2,\cdots,a_n \in \mathbb{K}\), \(|\sum_{k=1}^{n}a_kC_k|\) \(\leq\) \(M \norm{\sum_{k=1}^{n}a_kx_k}\).
+\end{problem}
+\begin{solution}
+  Since \(\{x_k\}_{k=1}^{n}\) are linear independent, 
+  then \(\mathcal{X}_0:=\Span\{x_1,\cdots,x_n\} \subset \mathcal{X}\) is closed subspace.
+  \begin{enumerate} 
+    \item \(``\Rightarrow''\): \(\forall a_1,\cdots,a_n \in \mathbb{K}\), 
+      \(\sum_{k=1}^{n} a_kx_k \in \mathcal{X}_0\), so \(f(\sum_{k=1} ^{n} a_kx_k) =\sum_{k=1} ^{n}a_kf(x_k)=\sum_{k=1} ^{n}a_kC_k\).
+      Since \(\norm{f}\leq M\), then \(|f(\sum_{k=1} ^{n}a_kx_k)|\,\leq\) \(M \norm{\sum_{k=1} ^na_kx_k}\).
+    \item \(``\Leftarrow''\): Consider \(f_0:\mathcal{X}_{0} \to \mathcal{K}\), \(x \mapsto \sum_{k=1} ^na_kC_k\), 
+      \(x=\sum_{k=1} ^n a_kx_k\). Obviously, \(f_0\) is a linear funcional on \(\mathcal{X}_0\).
+      So \(|f_0(x)|\leq M \norm{\sum_{k=1}^na_kx_k }=M \norm{x}\), \(\forall x \in \mathcal{X}_0\).
+      Thus, \(\norm{f_{0}}_0\) \(\leq \infty\), by Hahn-Banach theorem, 
+      \(\exists f:\mathcal{X}\to \mathbb{K}\) is linear, and \(f(x)=f_0(x),\) \(\forall x \in \mathcal{X}_0\),
+      \(\norm{f}=\norm{f_{0}}_0\leq\) \(M\).
+
+  \end{enumerate}
+\end{solution}
+\begin{problem}
+ Let \(\mathcal{X}\) is \(B^*\) space, \(\{x_k\}_{k=1}^{n} \subset \mathcal{X}\) is linear independent. 
+ Then \(\exists \{f_k\}_{k=1}^n\) \(\subset \mathcal{X}^*\), such that
+ \(f_i(x_j)=\delta_{i,j}, \forall 1 \leq i,j \leq n\).
+\end{problem}
+\begin{solution}
+  Since \(\{x_k\}_{k=1}^{n}\) are linear independent, 
+  then \(\mathcal{X}_i:=\Span\{\{x_k:1\,\leq\,k\,\leq\,n,k\,\neq\,i\}\} \subset \mathcal{X}\) is closed subspace.
+  So \(x_i\) \(\notin \mathcal{X}_i\), then \(d_i:=\rho(x_i,\mathcal{X}_i)\) .
+  So, by Hahn-Banach theorem, \(\exists g_i\) \(\in \mathcal{X}^*\) such that
+  \(g_i(x_i)=d_i,g_i(x)=0\), \(\forall x \in \mathcal{X}_i\),\(\norm{g_i}=1\).
+  Let \(f_i(x)=\frac{g_i(x)}{d_i}, \forall x \in \mathcal{X}\), Obviously,
+  \(f_i(x_i)=1,f_i(x_j)=0,\) \(\forall j \neq i\), \(\norm{f_i}=\frac{\norm{g_i}}{d_i}\).
+
 \end{solution}
 \end{document}

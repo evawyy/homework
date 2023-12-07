@@ -1,0 +1,34 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+  Prove: \((L^{p} (\Omega, \mu))^* = L^q (\Omega, \mu)\), \(1 \leq p < \infty \), \( \frac{1}{p}+ \frac{1}{q} = 1\).
+  When \(p = 1, q = \infty\).
+\end{problem}
+\begin{solution}
+  \begin{enumerate}
+    \item Consider \( 1 < p < \infty\), that is to prove \( \exists \theta : L^q(\Omega , \mu) \to (L^{p}(\Omega, \mu))'*\) such that
+      \(\theta\) is a surjection keeping norm.
+      Let \(\theta f : L^{q}(\Omega, \mu) \to \mathbb{K}\), where \(g \mapsto \int _{\Omega} f g \mathrm{d}\mu, \forall f \in L^{q}(\Omega, \mu)\).
+      \begin{enumerate}
+        \item \(\theta\) is well-defined: \(\theta f \) is linear, obviously, and \(
+          \int_{\Omega} f g \mathrm{d} \mu| \leq  \int_{\Omega}|f g | \mathrm{d} \mu \leq \int_{} \)
+      \end{enumerate}
+  \end{enumerate}
+\end{solution}
+
+\end{document}
