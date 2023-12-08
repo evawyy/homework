@@ -171,38 +171,42 @@
   \begin{enumerate}
     \item Since \(\mathbb{R} \Delta \mathbb{R} = \varnothing\) is meager, so \(\mathbb{R} \in \mathcal{A}\). 
     \item  If \(A \in \mathcal{A}\), let \(B:=\mathbb{R} \setminus A \in \mathcal{A}\). 
-  Assume \(G \in \mathcal{O}\) and \( A \Delta G\) is meager,  
-  only need to prove \(\exists U \in \mathcal{O}\), such that \(B\setminus U,U\setminus B\) are meager. 
-  Let \(U=\mathbb{R} \setminus \overline{G}\). Then \(B \setminus U = A \setminus \overline{G}\) is meager. 
-  Now only need to prove \(U \setminus B = \overline{ G}\setminus A\) is meager. 
-  Since \(G \setminus A\) is meager, we only need to prove \(\overline{G}\setminus G\) is meager. 
-  In fact, we can prove \(\overline{G}\setminus G\) is nowhere dense. 
-  Consider \(I \in \mathcal{O}\), we need to prove \(\exists J \subset I,J \in \mathcal{O}, J \cap \partial G = \varnothing\). 
-  If \(I \cap \partial G = \varnothing\), we can let \(J = I\). 
-  Else, assume \( a \in I \cap \partial G\). Form the defination of \(\partial G\), 
-  we get \(\exists b \in I \cap G\). Let \(J = I \cap G \neq \varnothing\) is OK. 
-  So \(B \Delta U\) is meager. 
-
-  Assume \(A \in \fun{\mathbb{N}}{\mathcal{P}(\mathcal{A})}\), we need to prove \(\bigcup_{n \in \mathbb{N}} A(n)=:A \in \mathcal{A}\). 
-  Assume \(G(n) \in \mathcal{O}\) and \(A(n) \Delta G(n)\) is meager. Consider \(G:= \bigcup_{ n \in \mathbb{N}} G(n)\). 
-  We only need to prove \(G \Delta A\) is meager. Only need \(G \setminus A,A \setminus G\) is meager. 
-  Since \(G \setminus A \subset \bigcup_{n \in \mathbb{N}} G(n) \setminus A(n)\) and \(G(n)\setminus A(n)\) is meager, we get \(G \setminus A\) is meager. 
-  For the same reason, we get \(A \setminus G \subset \bigcup_{n \in \mathbb{N}} A(n)\setminus G(n)\) is meager. 
+      So \( \exists G \in \mathcal{O}\) such that \( A \Delta G\) is meager,  
+      Let \(U=\mathbb{R} \setminus \overline{G} \in \mathcal{O}\). And \(B \setminus U = A \setminus \overline{G}\)
+      , so \((\overline{B \setminus U })^o = (\overline{A \setminus \overline{G}})^o  \subset (\overline{A \setminus G})^
+      o = \varnothing\), then \(B \setminus U\) is meager. 
+      Since \(U \setminus B = \overline{ G}\setminus A = (\overline{G} \setminus G) \cup (G \setminus A)\)
+      , we only need to prove \(\overline{G}\setminus G\) is meager. 
+      In fact, we can prove \(\overline{G}\setminus G\) is nowhere dense. 
+      Since \(\overline{G} \setminus G = \overline{G} \cap G^c \) is closed,
+       \(\forall a in \overline{G} \setminus G = \partial G \setminus G\), then \(\forall \varepsilon > 0\),
+     \(B(a,\varepsilon) \cap G \neq \varnothing\), so \(\exists b \neq a, b \in B(a, \varepsilon) \cap G \).
+     Since \((\overline{G} \setminus G)^c = G \cup \overline{G}^c\), so \(b \notin \overline{G} \setminus G\).
+     Thus, \(a \notin (\overline{G} \setminus G)^o\).
+     So \(\overline{G} \setminus G\) is nowhere dense. Therfore, \(B \Delta U\) is meager. 
+    \item Let \(A(n) \in \mathcal{A}, n \in \mathbb{N}\), we need to prove \(\bigcup_{n \in \mathbb{N}} A(n)=:A \in \mathcal{A}\). 
+     Let \(G(n) \in \mathcal{O}\) and \(A(n) \Delta G(n)\) is meager. Consider \(G:= \bigcup_{ n \in \mathbb{N}} G(n)\). 
+     Since \(G \setminus A \subset \bigcup_{n \in \mathbb{N}} G(n) \setminus A(n)\) and \(G(n)\setminus A(n)\) is meager, we get \(G \setminus A\) is meager. 
+     For the same reason, we get \(A \setminus G \subset \bigcup_{n \in \mathbb{N}} A(n)\setminus G(n)\) is meager. 
 
   \end{enumerate}
-  So finally we get \(\mathcal{A}\) is \(\sigma\)-field. 
+  So \(\mathcal{A}\) is \(\sigma\)-field. 
 \end{solution}
 
 \begin{problem}
   Assume \(A \subset \fun{\omega}{\omega}\) has the property of Baire, prove \(A\) is nonmerger \(\iff \exists O \in \mathcal{O}(\fun{\omega}{\omega}),O \neq \varnothing \wedge O\setminus A\) is meager. 
 \end{problem}
-\iffalse
+
 \begin{solution}
-  \(\implies\): Since \(A\) has the property of Baire, we know \(\exists O \in \mathcal{O},O \Delta A\) is meager. 
-  Then \(O \setminus A,A \setminus O\) are meager. Since \(A\) is nonmeager, \(A \setminus O\) is meager, we get \(O \neq \varnothing\). 
+  \(\implies\): Since \(A\) has the property of Baire, then \(\exists O \in \mathcal{O},O \Delta A\) is meager. 
+  So \(O \setminus A,A \setminus O\) are meager. 
+  Since \(A\) is nonmeager, \(A \setminus O\) is meager, then \(O \neq \varnothing\). 
 
   \(\impliedby\): Assume \(O \in \mathcal{O}, O \neq \varnothing, O \setminus A\) is meager. 
- Noting \(O \subset O \setminus A \cup A\) and \(O\) is nonmeager, we get \(A\) is nonmeager. 
+  If \(A\) is meager, then \(O \setminus A \cup A = \bigcup_{k \in \mathbb{N}} A_k  \), where \(\overline{A_{k}}^o= \varnothing\).
+  And \(\overline{O} \cap A_k \subset A_k\), so \(\overline{O} \cap A_k\) is nowhere dense.
+  Since \(\overline{O} = \bigcup_{k \in \mathbb{N}} \overline{O} \cap A_k \) is nonmeager and meager at the same time.
+  Contradiction! Therefore, \(A\) is nonmeager. 
 \end{solution}
 
 \begin{problem}
@@ -211,20 +215,22 @@
 \end{problem}
 
 \begin{solution}
-  We know \(\mathbb{R}\) satisfy the second countable axiom, i.e., \(\exists \mathcal{B} \subset \mathcal{O}(\fun{\omega}{\omega})\) such that \(\forall O \in \mathcal{O},\forall x \in O,\exists B \in \mathcal{B},x \in B \subset O\). 
-  Now we consider \(\mathcal{X}:=\{X \in \mathcal{B}:\exists O_s,X \subset O_s \wedge O_s \setminus A \text{ is meager }\}\). 
-  Consider \(Y= \bigcup \mathcal{X} \), we will prove \(C_A = Y\). 
-
-  On one hand, for \(x \in Y\), we get \(\exists X \in \mathcal{X}\) such that \(x \in X\). 
+  Since \(\mathbb{R}\) satisfies the second countable axiom, i.e., \(\exists \mathcal{B} \subset \mathcal{O}(\fun{\omega}{\omega})\) such that \(\forall O \in \mathcal{O},\forall x \in O,\exists B \in \mathcal{B},x \in B \subset O\).
+  And \(\mathcal{B}\) is countable. i.e. \(\mathcal{B}\) is countable topology basis of \(\mathcal{O}(\fun{\omega}{\omega})\).
+  Consider \(\mathcal{X}:=\{X \in \mathcal{B}:\exists O_s,X \subset O_s \wedge O_s \setminus A \text{ is meager }\}\). 
+  Let \(Y= \bigcup \mathcal{X} \), we will prove \(C_A = Y\). 
+  \begin{enumerate}
+    \item \(x \in Y\), then \(\exists X \in \mathcal{X}\) such that \(x \in X\). 
   So \(\exists O_s\) such that \(x \in X \subset O_s \wedge O_s \setminus A\) is meager. So \(x \in C_A\). 
-
-  On the other hand, for \(x \in C_A\), we get \(\exists O_s,x \in O_s,O_s \setminus A\) is meager.  
-  Since \(O_s\) is open, we get \(\exists B \in \mathcal{B},x \in B \subset O_s\). 
+\item \(x \in C_A\), then \(\exists O_s,x \in O_s,O_s \setminus A\) is meager.  
+  Since \(O_s\) is open, then \(\exists B \in \mathcal{B},x \in B \subset O_s\). 
   So \(B \in \mathcal{X}\). Thus \(x \in Y\). 
 
+  \end{enumerate}
   So we get \(Y = C_A\). So \(C_A\setminus A=Y\setminus A = \bigcup_{X \in \mathcal{X}} X \setminus A \). 
-  From the defination of \(\mathcal{X}\) we know \(X \setminus A\) is meager, and Since \(\mathcal{X} \subset \mathcal{B}\) we get \(\mathcal{X}\) is countable. 
-  So finally we get \(C_A \setminus A = \bigcup_{X \in \mathcal{X}} X \setminus A\) is meager. 
+  Since \(\forall X \in \mathcal{X}\), then \(X \setminus A\) is meager. Besides,
+  \(\mathcal{X} \subset \mathcal{B}\), so \(\mathcal{X}\) is countable. 
+  Therfore, \(C_A \setminus A = \bigcup_{X \in \mathcal{X}} X \setminus A\) is meager. 
 \end{solution}
 
 \begin{problem}
@@ -234,18 +240,21 @@
 \end{problem}
 
 \begin{solution}
-  As we all know, \(\{f \in \fun{\omega}{2}:\limsup f=\liminf f\}\) is countable. So we only need to prove \(\forall f \in \fun{\omega}{2}\setminus \ran \pi,\limsup f = \liminf f\). 
-  Consider \(g \in \fun{\omega}{2}\) and \(\liminf g=0,\limsup g=1\). We only need to prove \(g \in \ran \pi\). 
-  Only need to prove \(\exists h \in \fun{ \omega}{\omega},\pi(h)=g\). 
-  We construct \(h\) rescusively. Let \(h(0):=\min\{n \in \omega:g(n)=0\}\). 
-  Assume \(\res{h}{n}\) is already defined. Let \(M(n)=\sum_{k=0}^{n-1} (h(k)+1) \). 
-  Let \(h(n)= \min\{k:g(M(n)+k)=a_n\}\), where \(a_n=0\) for even \(n\) and \(a_n=1\) for odd \(n\). 
-  Since \(\liminf g=0 \wedge \limsup g=1\), we know \(h\) is well-defined. Now we prove \(\pi(h)=g\). 
-  For \(k<h(0)\), form the defination of \(h(0)\) we know \(g(k)=1=\pi(h)(k)\). 
-  For \(k=h(0)\) we get \(g(k)=0=\pi(h)(k)\). 
-  Now assume \(\sum_{i=0}^{n} (h(i)+1) <k \leq \sum_{i=0}^{n+1} (h(i)+1)\). 
-  Easily we know \(\mathrm{len}(s_{h(k)}=h(k)+1)\), so we get \(\pi(h)(k)=s_{h(n)}(k-M(n) )\). 
-  So from the defination of \(h(n)\) we easily get \(\pi(h)(k)=g(k)\). 
+  Consider \(g \in \fun{\omega}{2}\) and \(\forall N in \mathbb{N}, \exists n,m \in \mathbb{N}, n,m \geq N\) such that 
+  \(g(n) = 1, g(n) = 0\). 
+  Next, prove \(\exists h \in \fun{ \omega}{\omega},\pi(h)=g\). 
+  Let \(h(0):=\min\{n \in \omega:g(n)=0\}\). 
+  If \(\res{h}{n}\) is defined. Let \(M(n)=\sum_{k=0}^{n-1} (h(k)+1) \). 
+  Let \(h(n)= \min\{k- 1:g(M(n)+k)=a_n\}\), where \(a_n=0\) for even \(n\) and \(a_n=1\) for odd \(n\). 
+  By the definition of \(g\), \(h\) is well-defined. Now we prove \(\pi(h)=g\). 
+  For \(k<h(0)\), by the defintion of \(h(0)\), \(g(k)=1=\pi(h)(k)\). 
+  For \(k=h(0)\), then \(g(k)=0=\pi(h)(k)\). 
+  \(\forall k: \sum_{i=0}^{n} (h(i)+1) <k \leq \sum_{i=0}^{n+1} (h(i)+1)\). 
+  \(\pi(h)(k)=s_{h(n)}(k-M(n) )\). By the definition of \(h\), if \(n\) is even, 
+  \(s_{h(n)}(k-M(n))=1=g(n), k \leq M(n)+h(n), s_{h(n)}(h(n)+1)= 0 = g(k),\)
+  Thus, \(\pi(h)(k) = g(k)\). So \(\pi(h)=g\).
+  Since \(\mathcal{A} = \{g \in \fun{\omega}{2}: \exists N, n >N , g(n)=g(N)\}\) is countable,
+  \(\fun{\omega}{2} \setminus \ran f \subset \mathcal{A}\), then \(\fun{\omega}{2}\) is countable.
 \end{solution}
 
 \begin{problem}

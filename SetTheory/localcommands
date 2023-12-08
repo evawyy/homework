@@ -1,3 +1,3 @@
-\newcommand{\fun}[2]{_{#1}#2}
+\newcommand{\fun}[2]{^{#1}#2}
 \newcommand{\res}[2]{{#1}\upharpoonright{#2}}
 
