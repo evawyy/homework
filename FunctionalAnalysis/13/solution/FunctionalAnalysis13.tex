@@ -15,6 +15,7 @@
 \fi
 \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
 %from_here_to_type
+\iffalse
 \begin{problem}
   Prove: \((L^{p} (\Omega, \mu))^* = L^q (\Omega, \mu)\), \(1 \leq p < \infty \), \( \frac{1}{p}+ \frac{1}{q} = 1\).
   When \(p = 1, q = \infty\).
@@ -30,5 +31,36 @@
       \end{enumerate}
   \end{enumerate}
 \end{solution}
+\fi
 
+\begin{problem}
+  \(\mathcal{X}, \mathcal{Y}\) are \(B\) space, \(T\) is linear operator from \(\mathcal{X}\) to \(\mathcal{Y}\),
+  \(\forall g \in \mathcal{Y}^*\), \(\sup_{x \in \mathcal{X}, \norm{x} = 1} g(Tx) < \infty\),
+  prove: \(T\) is bounded.
+  
+\end{problem}
+\begin{solution}
+Let \(\mathcal{C} = \{ x \in \mathcal{X}: \norm{x} = 1\} \subset \mathcal{X}\), \(\mathcal{E} = \{Tx: x \in \mathcal{C}\}\),
+then, \(\mathcal{E} \subset \mathcal{Y}\), moreover, \(\mathcal{E}\) is a subsapce of \(\mathcal{Y}\).
+Since \(\mathcal{Y}\subset \mathcal{Y}^{**}\), then \(\mathcal{E} \subset \mathcal{Y}^{**}\).
+Besides, \(\forall g \in \mathcal{Y}^*, \sup_{x \in \mathcal{C}} g(Tx) < \infty\),
+\(\mathcal{Y}^{*}\) is \(B\) space, by Banach-Steinhaus theorem, \(\sup_{x \in \mathcal{C}} \norm{Tx} < \infty\).
+Therefore, \(T\) is bounded.
+
+
+\end{solution}
+\begin{problem}
+  \(\mathcal{H}\) is a Hilbert space, \( x_n \to x , n \to \infty\) \(\iff\) \(\norm{x_n} \to \norm{x}, n \to \infty\) and \(x_n \rightharpoonup x, n \to \infty\).
+
+\end{problem}
+\begin{solution}
+  \begin{enumerate}
+    \item ``\(\implies\)'': \(|\norm{x_n} - \norm{x}| \leq \norm{x_n - x} \to 0, n \to \infty\), \(\forall f \in H^*\), \(|f(x_n) - f(x)| = | f(x_n - x)| \leq \norm{f} \norm{x_n - x} \to 0, n \to \infty\).
+    \item ``\(\impliedby\)'': Consider \(f(y): = (y,x)\), then \(f\) is linear, obviously.
+      \(\forall y \in \mathcal{X}, \norm{y} = 1\), \( |(y,x)| \leq \norm{y}\norm{x}=\norm{x} < \infty\), then \(f \in H^*\).
+      So \((x_n,x) = f(x_n) \to f(x) = (x,x) = \norm{x}^2\). 
+      And \((x,x_n) = \overline{(x_n, x)} \to \overline{\norm{x}^2} = \norm{x}^2\).
+      Therefore, \(\norm{x_n - x} = \norm{x_n}^2 -(x_n,x)-(x,x_n)+\norm{x}^2 \to 0, n \to \infty\).
+  \end{enumerate}
+\end{solution}
 \end{document}

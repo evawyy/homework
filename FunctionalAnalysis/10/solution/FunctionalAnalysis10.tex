@@ -14,34 +14,81 @@
 \maketitle
 \fi
 \newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
-\begin{problem}
+\begin{problem}\label{pro:1}
   Let \(f \in \mathcal{X}^*\), \(f \neq 0\), let \(\mathrm{d}:= \inf\{\norm{x}: f(x)=1, x \in \mathcal{X}\}\),
   prove: \(\norm{f}=\frac{1}{d}\).
 \end{problem}
 \begin{solution}
-  kk
+  First of all \(d > 0\), that is because \(f\) is continue, \(\exists \delta > 0 \), \(\forall \norm{x} < \delta\), \(|f(x)| \leq 1\). 
+  So \(d \geq \delta\). Besides, \(\exists x \neq 0\), such that \(f(x) \neq 0\), then \(\{x \in \mathcal{X}: f(x) =1 \}\) is not empty.
+  \begin{enumerate}
+    \item \(\forall \norm{x} = 1\), \( |f(x)| \leq \frac{1}{d}\): if not, \(\exists \norm{x} = 1, |f(x)| > \frac{1}{d}\), 
+      let \(x = \frac{x}{f(x)}\), so \(f(\frac{x}{f(x)}) = 1\), \(\norm{\frac{x}{f(x)}} = \frac{\norm{x}}{|f(x)|} = \frac{1}{|f(x)|} < d \).
+      So \(\inf\{\norm{x}: f(x) =1\} < d\).
+    \item \(\norm{f} \geq \frac{1}{d}\): Since \(\exists \{x_n\}_{n=1}^{\infty}\), such that \(f(x_n) = 1\), \(\lim_{n \to \infty} \norm{x_n} = d\).
+      Then, \(y_n:=\frac{x_n}{\norm{x_n}}\), so \(\norm{y_n} = 1\), \(|f(y_n)| = \frac{|f(x_n)|}{\norm{x_n}}=\frac{1}{\norm{x_n}} \to \frac{1}{d}\).
+  \end{enumerate}
 \end{solution}
 
 \begin{problem}
   Let \(f \in \mathcal{X}^*\), prove: \(\forall \varepsilon >0\), \(\exists x_0 \in \mathcal{X}\), such that 
-  \(f(x_{0)} = \norm{f}\), and \(\norm{x_{0}}< 1+ \varepsilon\).
+  \(f(x_{0}) = \norm{f}\), and \(\norm{x_{0}}< 1+ \varepsilon\).
 \end{problem}
 
 \begin{solution}
-  kk
+  \(\forall \varepsilon > 0\), \(n = \left[ \frac{\norm{f}}{1+ \varepsilon}\right] + 1\), so \(\exists \norm{x}=1\), \(|f(x)| \geq \norm{f} - \frac{\varepsilon}{n} > \frac{1}{n}\),
+  Let \(y := x \mathrm{e}^{-\mathrm{i} \theta}\), where \(\theta: = \arg f(x)\), then \(f(y) = \mathrm{e}^{-\mathrm{i} \theta}f(x) \geq 0\), \(f(y) = |f(x)|\).
+  So \(z = y + \frac{\varepsilon}{n f(y)} y \), \(f(z) = f(y) + \frac{\varepsilon}{n f(y)} f(y) = f(y)+ \frac{\varepsilon}{n} \geq \norm{f}\), \(\norm{z} \leq |(k+1)|\norm{x} = \frac{\varepsilon}{n f(y)}+1 < 1 + \varepsilon\).
+  Therefore, \(f(z) = \norm{f}\) and \(\norm{z} < 1+ \varepsilon\).
 \end{solution}
 
 \begin{problem}
   Let \(T:\mathcal{X} \to \mathcal{Y}\) is linear, let \(N(T):=\{x \in \mathcal{X}: Tx = 0\}\).
   \begin{enumerate}
-    \item If \(T \in \mathscr{L}(\mathcal{X},\mathcal{Y})\), prove: \(N(T)\)
+    \item \label{it:1}If \(T \in \mathscr{L}(\mathcal{X},\mathcal{Y})\), prove: \(N(T)\)
       is closed subspace of \(\mathcal{X}\).
-    \item Can \(N(T)\) is closed subspace in \(\mathcal{X}\) infer \(T \in \mathscr{L}(\mathcal{X},\mathcal{Y})\)?
+    \item Can we infer \(T \in \mathscr{L}(\mathcal{X},\mathcal{Y})\) throught that \(N(T)\) is closed subspace in \(\mathcal{X}\). 
     \item If \(f \) is a linear functional, prove: \(f \in \mathcal{X}^* \iff N(f)\) is closed subspace in \(\mathcal{X}\).
       
   \end{enumerate}
 \end{problem}
 \begin{solution}
-  kk
+  \begin{enumerate}
+    \item \(\forall x, y \in \mathcal{X}, a, b \in \mathbb{K}\), \(f(ax+by) = af(x)+bf(y) = 0\). So \(ax+by \in N(T)\).
+      \(\{x_n\}_{n=1}^{\infty} \subset N(T), \lim_{n \to \infty} x_n = x \). 
+      Since \(T \in \mathscr{L}(\mathcal{X}, \mathcal{Y})\), then \(f(x) = \lim_{n \to \infty} f(x_n) = 0 \).
+      Therefore, \(N(T)\) is closed.
+    \item No. Consider \(\mathcal{X}:= l^1\), where the norm on \(\mathcal{X}\) is \(\norm{x}:=\sup_{n \geq \infty} |x(n)|\), \(x(n)\) is the \(n-\)th number of \(x\).
+        \(a\) such that \(a(k)=1, k =1, a(k) =-1, k =2, a(k) = 0, k >2\).
+        \(f: \mathcal{X} \to \mathbb{K}\), \(f(x) = \sum_{n=1} x(n)\).
+        Let \(T: \mathcal{X} \to \mathcal{X}\), \(T(x) = x - af(x)\). Since \(x \in l^1\), then \(|f(x)|= | \sum_{n \in \mathbb{N}_+} x(n)|\leq\sum_{n \in \mathbb{N}_+} |x(n)| < \infty\)
+        So \(\sum_{n \in \mathbb{N}_+} |x(n)- f(x) a(n)| \leq \sum_{n \in \mathbb{N}_+} |x(n)|+ |f(x)| < \infty\).
+        Terefore, \(T\) is well-defined. Besides, \(T\) is linear obviously. 
+        And \(\forall x \in N(T)\), \(x=af(x) \iff x(n) = f(x) a(n), n \in \mathbb{N}_+ \), and \(f(x) =\sum_{n \in \mathbb{N}_+} x(n)=0\).
+        Therefore, \(N(T)=\{\theta\}\). Besides, \(\mathcal{X}\) can be a disstance space, then \(N(T)\) is closed.
+        However, \(\norm{f} = \infty\), that is because \(f(x_n) = n\), where \(x_n(k)=\mathbbm{1}_{k \leq n}\). 
+        So \(\norm{x_n} = 1\), \(\norm{f(x_n)} = n \to \infty, n \to \infty\).
+        And \(\forall x:\norm{x} = 1, \norm{af(x)} = \norm{x- T(x)} \leq \norm{x}+ \norm{T(x)}= 1+\norm{T(x)}\),
+        thus, \(\norm{T} = \infty\).
+    
+    \item
+      By \Cref{it:1}, we only need to prove \(N(T)\) is closed \(\implies\) \(T \in \mathcal{X}^*\). 
+      \begin{enumerate}
+        \item If \(N(T)=\mathcal{X}\), then \(\norm{T} =0\), so \(T \in \mathcal{X}^*\).
+        \item f \(N(T) \subsetneq \mathcal{X}\), \(\exists x \in \mathcal{X} \setminus N(T)\), such that \(T(x) \neq 0\).
+        So \(x_0:=\frac{x}{T(x)} \in \mathcal{A} := \{x: T(x) = 1\}\).
+        Obviously, \(x_0+N(T) \subset \mathcal{A}\), \(\forall y \in \mathcal{A}\), \(T(y-x_0) = T(y) - T(x_0) = 1-1 = 0\).
+        Therefore, \(\mathcal{A} \subset x_0 + N(T)\). Let \(d:= \inf\{\norm{x}: x \in \mathcal{A}\}\).
+        So \(d \geq 0\). If \(d = 0\), then \(\{x_n\}_{n=1}^{\infty} \subset \mathcal{A}\), \(\norm{x_n} \to 0, n \to \infty\).
+        Consider \(y_n = x_n - x_0 \in N(T)\), then \(\norm{y_n} = \norm{x_n - x_0} \leq \norm{x_n} + \norm{x_0} \to \norm{x_0}, n \to \infty\).
+        Then \(\{y_n\}_{n=1}^{\infty} \subset N(T)\) is bounded. Besides, \(N(T)\) is closed, 
+        then \(\exists \{y_{n_k}\}_{k=1}^{\infty} \subset \{y_n\}_{n=1}^{\infty}\) such that \(\exists y_0 \in N(T), y_{n_k} \to y_0, k \to \infty\).
+        For convenience's sake, assume \(\lim_{n \to \infty} y_n = y_0\).
+        So \(\lim_{n \to \infty} \norm{x_n} = \lim_{n \to \infty} \norm{x_0+y_n} = \lim_{n \to \infty} \norm{x_0+y_0} = 0\).
+        Therefore, \(x_0+y_0 = 0\), then \(x_0 \in N(T)\), i.e. \(T(x_0) = 0\). Contradiction!
+        Thus \(d > 0\). Same as \Cref{pro:1}, then \(\norm{T} = \frac{1}{d} < \infty\).
+       Therefore, \(T \in \mathscr{L}(\mathcal{X}, \mathbb{K})\).
+     \end{enumerate}
+  \end{enumerate}
 \end{solution}
 \end{document}

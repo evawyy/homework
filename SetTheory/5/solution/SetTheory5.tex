@@ -73,24 +73,42 @@
 \begin{problem}
   For \(\alpha <\omega_1\), we let \(\Sigma_0=\)  \(\{O \subset\mathbb{R}: O\) is open \(\}\), 
   and \(\Pi_0=\) = \(\{F \subset\mathbb{R}: F \) is closed \(\}\). 
-  And \(\Sigma_{\alpha+1}=\{\bigcup_{n \in \mathbb{N}} A(n):A \in \fun{\mathbb{N}}{\Pi_{\alpha}}\). 
+  And \(\Sigma_{\alpha+1}=\{\bigcup_{n \in \mathbb{N}} A(n):A \in \fun{\mathbb{N}}{\Pi_{\alpha}}\}\). 
   \(\Pi_{\alpha+1}=\{\mathbb{R}\setminus A:A \in \Sigma_{\alpha}\}\). 
   \(\Sigma_{\alpha}=\bigcup_{\beta<\alpha} \Sigma_{\beta},\Pi_{\alpha}=\bigcup_{\beta<\alpha} \Pi _{\beta}\) for limit ordinal \(\alpha\). 
   Prove that \(\mathcal{B}(\mathbb{R})=\bigcup_{\alpha<\omega_1} \Sigma_{\alpha}\). 
 \end{problem}
 
 \begin{solution}
-  Use MI easily we get \(\bigcup_{\alpha < \omega_1} \Sigma_{\alpha} \subset \mathcal{B}(\mathbb{R})\). 
-  Now we prove \(\mathcal{B}(\mathbb{R})\subset \bigcup_{\alpha<\omega_1} \Sigma_{\alpha}\). 
-  Since open sets is subset of \(\bigcup_{\alpha<\omega_1} \Sigma_{\alpha}\), we only need to prove \(\bigcup_{\alpha<\omega_1} \Sigma_{\alpha}=:\mathcal{A}\) is \(\sigma\)-field. 
-  Easily we get \(\Sigma_{\alpha} \subset \Sigma_{\alpha+2}\). 
-  Obviously \(\mathbb{R} \in \mathcal{A}\). For \(A \in \mathcal{A}\), assume \(A \in \Sigma_{\alpha}\). 
-  Then \(\mathbb{R}\setminus A \in \Pi_{\alpha+1} \subset \Sigma_{\alpha+1}\subset \mathcal{A}\). 
-  Assume \(A \in \fun{\mathbb{N}}{\mathcal{A}}\), let \(f \in \fun{\mathbb{N}}{\omega_1},f(n)=\min\{\alpha \in \omega_1:A(n) \in \Sigma_{\alpha}\}\). 
-  Consider \(\sup \ran f =:\gamma\). Since \(\forall \alpha \in \ran f,\alpha\) is countable. And \(\ran f\) is countable. 
-  So \(\sup \ran f\) is countable, thus \(\sup \ran f <\omega_1\). 
-  Then \(\ran A \subset \Pi_{\gamma+1} \). So we get \(\bigcup_{n \in \mathbb{N}} A(n) \subset \Sigma_{\gamma+2} \subset \mathcal{A}\). 
-  So we get \(\mathcal{A} \) is \(\sigma\)-field. So \(\mathcal{B}(\mathbb{R}) \subset \mathcal{A}\), thus \(\mathcal{A}=\mathcal{B}(\mathbb{R})\). 
+  \begin{enumerate}
+    \item \(\bigcup_{\alpha < \omega_1} \Sigma_{\alpha} \subset \mathcal{B}(\mathbb{R})\):
+      Since \(\cup\Sigma_0 \subset \mathcal{B}(\mathbb{R})\), if \(\alpha < \omega_1\), such that \(\bigcup_{\beta <\alpha}\Sigma_{\alpha} \subset \mathcal{B}(\mathbb{R})\).
+      Next to prove \(\bigcup_{\beta < \alpha + 1} \Sigma_{\alpha} \subset \mathcal{B}(\mathbb{R})\), 
+      that is to prove \(\bigcup \Sigma_{\alpha} \subset \mathcal{B}(\mathbb{R})\).
+      Since \(\alpha\) can be a succssor ordinal or limit ordinal, 
+      by induction assumption, 
+      in the first case, \(\Pi_{\alpha} = \{\mathbb{R} \setminus A : A \in \Sigma_{\alpha - 1 }\}\), 
+      \(\Sigma_{\alpha -1} \subset \mathcal{B}(\mathbb{R}) \), so \(\Pi_{\alpha} \subset \mathcal{B}(\mathbb{R})\).
+      Therefore, \(\cup \Sigma_{\alpha+1} = \bigcup_{n \in \mathbb{N}} A(n) \subset \mathbb{R}\), 
+      where \(A \in \{\fun{\mathbb{N}}{\Pi_{\alpha}}\}\). 
+      In the second case, \(\Pi_{\alpha } = \bigcup_{\beta < \alpha} \Pi_{\beta}\), \(\Pi_{\beta} \subset \mathcal{B}(\mathbb{R})\).
+      so \(\Pi_{\alpha} \subset \mathcal{B}(\mathbb{R})\). 
+      Therefore, \(\cup \Sigma_{\alpha+1} = \bigcup_{n \in \mathbb{N}} A(n) \subset \mathbb{R}\), 
+    \item \(\mathcal{B}(\mathbb{R}) \subset \bigcup_{\alpha < \omega_1} \Sigma_{\alpha} =: \mathcal{A}\):
+      Since \(\mathcal{B}(\mathbb{R})\) is \(\sigma-\) algebra and \(\Sigma_0 \subset \mathcal{A}\), then only 
+      need to prove \(\mathcal{A}\) is a \(\sigma-\) algebra.
+      \(\forall A \in\Sigma_{\alpha}\), then \(\mathbb{R} \setminus A \in \Pi_{\alpha+1}\),
+      then \(\mathbb{R} \setminus A \in \Sigma_{\alpha + 1}\), then \(A \in \Pi_{\alpha+1}\), 
+      therefore, \(A \in \Sigma_{\alpha+2}\). 
+      Obviously \(\mathbb{R} \in \mathcal{A}\). For \(A \in \mathcal{A}\), assume \(A \in \Sigma_{\alpha}\). 
+      Then \(\mathbb{R}\setminus A \in \Pi_{\alpha+1} \subset \Sigma_{\alpha + 2 }\subset \mathcal{A}\). 
+      Assume \(A \in \fun{\mathbb{N}}{\mathcal{A}}\), let \(f \in \fun{\mathbb{N}}{\omega_1},f(n)=\min\{\alpha \in \omega_1:A(n) \in \Sigma_{\alpha}\}\). 
+      Consider \(\sup \ran f =:\gamma\). Since \(\forall \alpha \in \ran f,\alpha\) is countable. And \(\ran f\) is countable. 
+      So \(\sup \ran f\) is countable, thus \(\sup \ran f <\omega_1\). 
+      Then \(\ran \mathcal{A} \subset \Pi_{\gamma+2} \). So we get \(\bigcup_{n \in \mathbb{N}} A(n) \subset \Sigma_{\gamma+2} \subset \mathcal{A}\). 
+      So we get \(\mathcal{A} \) is \(\sigma\)-field. So \(\mathcal{B}(\mathbb{R}) \subset \mathcal{A}\), thus \(\mathcal{A}=\mathcal{B}(\mathbb{R})\). 
+
+  \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -273,5 +291,5 @@
   Nov we prove \(\omega_1\) is regular. Only need to prove union countable many countable ordinal is countable. 
   
 \end{solution}
-\fi
+
 \end{document}
