@@ -18,6 +18,7 @@
 \begin{problem}
     $(C[0,1],\norm{\cdot}_1)$, let $f:C[0,1]\to \mathbb{R}$, $x\mapsto\int_0^1sx(s)\d s$. 
     Prove $f$ is continous linear functional on $C[0,1]$, calculate $\norm{f}$.
+     
 \end{problem}
 \begin{solution}
   \begin{enumerate}
@@ -25,9 +26,9 @@
       \(\forall a,b \in \mathbb{R}, \forall x,y \in C[0,1], f(ax+by)=\int_{0}^{1} s(ax(s)+by(s)) \d s=a\int_{0}^{1} sx(s)\d s+b\int_{0}^{1}  sy(s)\d s=af(x)+bf(y)\), 
       \(|f(x)-f(y)| = |\int_{0}^{1} sx(s) \d s- \int_{0}^{1} sy(s)\d s|= |\int_{0}^{1} s(x(s)-y(s)) \d s|\leq \int_{0}^{1} |x(s)-y(s)|\d s \leq \int_{0}^{1} \norm{x-y} \d s=\norm{x-y}\). 
       So \(f\) is continous linear functional.
-    \item \(\norm{f}=\sup_{\norm{x}=1} |\int_{0}^{1} sx(s)\d s \leq \sup_{\norm{x}} \int_{0}^{1} s \d s \leq \frac{1}{2}\)
-      Let \(x=1\) and \(\norm{x}=1\), then \(\norm{f(x)}=\int_{0}^{1} s \d s = \frac{1}{2}\)
-      So, \(\norm{f}=\frac{1}{2}\)
+    \item \(\norm{f}=\sup_{\norm{x}=1} |\int_{0}^{1} sx(s)|\d s \leq \sup_{\norm{x} = 1 } \int_{0}^{1} |x(s)| \d s = 1\).
+      Let \(x_n=(n+1)s^n\) and \(\norm{x}=1\), then \(\norm{f(x)}=\int_{0}^{1} (n+1)s^{n+1} \d s = \frac{n+1}{n+2} \to 1, n \to \infty\).
+      So, \(\norm{f}=1\).
   \end{enumerate}
 \end{solution}
 
@@ -45,9 +46,9 @@
     \leq&\sup_{1 \leq j \leq n} \sum_{i=1}^{n} |a_{ij}|\\
     \end{aligned}
   \end{equation}
-While \(\forall 1 \leq j \leq n,\) \(x_k=\shi_{k=j}, \sum_{i=1}^{n} |a_{ij}|=\sum_{i=1}^{n} |a_{ij}x_j|
+While \(\forall 1 \leq j \leq n,\) \(x_k=\mathbbm{1}_{k=j}, \sum_{i=1}^{n} |a_{ij}|=\sum_{i=1}^{n} |a_{ij}x_j|
 =\sum_{i=1}^{n} \sum_{j=1}^{n} |a_{ij}x_j|=\norm{Ax}\), 
-so \(\sup_{1 \leq j \leq n} \sum_{i=1}^{n} \leq \norm{Ax}\).
+so \(\sup_{1 \leq j \leq n} \sum_{i=1}^{n} |a_{ij}|\leq \norm{Ax}\).
   
 \end{solution}
 
@@ -74,22 +75,32 @@ so \(\sup_{1 \leq j \leq n} \sum_{i=1}^{n} \leq \norm{Ax}\).
 \begin{solution}
    \(\int_{0}^{1} \sqrt{t} x(t^2) \d t=\int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} x(u) \d u  \) 
   \begin{enumerate}
-    \item \(\forall x \in \mathcal{X}, \norm{x} = 1, |f(x)| \leq | \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} x(u) \d u| \leq \int_{0}^{1} |\frac{1}{2u^{\frac{1}{4}}} x(u)| \d u \leq \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} \d u= \frac{2}{3}\)
+    \item \(\forall x \in \mathcal{X}, \norm{x} = 1, |f(x)| \leq | \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} x(u) \d u| \leq \int_{0}^{1} |\frac{1}{2u^{\frac{1}{4}}} x(u)| \d u \leq \int_{0}^{1} \frac{1}{2u^{\frac{1}{4}}} \d u= \frac{2}{3}\).
       \(x=1 \in C[0,1]\) and \(|f(x)|=\frac{2}{3}\). So \(\norm{f}=\frac{2}{3}\).
     \item \(\forall x \in \mathcal{X} , \norm{x}=1, |f(x)|=\frac{1}{2} |\int_{0}^{1} \frac{1}{u^{\frac{1}{4}}} x(u) \d u|
       \leq \frac{1}{2} \int_{0}^{1} |\frac{1}{u^{\frac{1}{4}}}x(u)| \d u
       \leq \frac{1}{2} (\int_{0}^{1} (\frac{1}{u^{\frac{1}{4}}})^2 \d u)^{\frac{1}{2}}(\int_{0}^{1} x(u)^{2} \d u)^{\frac{1}{2}} 
-      = \frac{1}{2} \int_{0}^{1} (\frac{1}{u^{\frac{1}{2}}} \d u)^{\frac{1}{2}} = \frac{\sqrt{2}}{2}\)
+      = \frac{1}{2} (\int_{0}^{1} \frac{1}{u^{\frac{1}{2}}} \d u)^{\frac{1}{2}} = \frac{\sqrt{2}}{2}\)
       Let \(x=a \frac{1}{u^{\frac{1}{4}}}\) ,then \(\int_{0}^{1} a^{2} \frac{1}{u^{\frac{1}{2}}} \d u = 1\), so \(a= \pm \frac{\sqrt{2}}{2}\).
       So \(\norm{f}=\frac{\sqrt{2}}{2}\).
   \end{enumerate}
-\end{solution}
+\end{solution} 
 
 \begin{problem}
     $\Phi: C[0,1]\to \mathbb{R}$, $\Phi(f)\mapsto \int_0^1\phi(t)f(t)\d t$, where $\phi\in C[0,1]$ Calculate $\norm{\Phi}$
 \end{problem}
 \begin{solution}
-  kk
+  \begin{enumerate}
+    \item \(\Phi\) is well-defined: Obviously.
+    \item \(\Phi\) is linear: Obviously.
+    \item \(|\int_{0}^1 \phi(t)f(t) \d t| \leq \int_0^1 |\phi(t)f(t)| \d t \leq \int_{0}^1 |f(t)| \d t \norm{\phi}  \).
+      So \(\norm{\Phi} \leq \int_{0}^1 |f(t)| \d t\).
+      Let \(g(t) = \mathrm{Sgn}(f(t))\), so \(g\) is measurable. 
+      And \(\int_{0}^1 g(t)f(t) \d t = \int_{0}^1 |f(t)| \d t\). By Lusin theorem, 
+      \(\forall \varepsilon>0\), \(\exists h \in C[0,1]\), such that \(A=\{x \in [0,1]: h(x) \neq g(x), |h(x)| \leq 1\}, m(A) < \varepsilon\) and \(h(1) = 1\).
+      So \(|\int_{0}^1 g(t)f(t)- h(t)f(t) \d t| \leq \int_{0}^1 |g(t)-h(t)| |f(t)| \d t \leq 2\varepsilon \int_{0}^1 |f(t)| \d t \to 0, \varepsilon \to 0  \).
+      Therefore, \(\norm{\Phi} = \int_{0}^1 |f(t)| \d t \).
+  \end{enumerate}
 \end{solution}
 
 

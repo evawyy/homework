@@ -103,8 +103,8 @@
       Obviously \(\mathbb{R} \in \mathcal{A}\). For \(A \in \mathcal{A}\), assume \(A \in \Sigma_{\alpha}\). 
       Then \(\mathbb{R}\setminus A \in \Pi_{\alpha+1} \subset \Sigma_{\alpha + 2 }\subset \mathcal{A}\). 
       Assume \(A \in \fun{\mathbb{N}}{\mathcal{A}}\), let \(f \in \fun{\mathbb{N}}{\omega_1},f(n)=\min\{\alpha \in \omega_1:A(n) \in \Sigma_{\alpha}\}\). 
-      Consider \(\sup \ran f =:\gamma\). Since \(\forall \alpha \in \ran f,\alpha\) is countable. And \(\ran f\) is countable. 
-      So \(\sup \ran f\) is countable, thus \(\sup \ran f <\omega_1\). 
+      Consider \(\sup \ran f =:\gamma\). Since \(\forall \alpha \in \ran f,\alpha\) is countable. And \(\ran f\) is countable, 
+      so \(\sup \ran f\) is countable, thus \(\sup \ran f <\omega_1\). 
       Then \(\ran \mathcal{A} \subset \Pi_{\gamma+2} \). So we get \(\bigcup_{n \in \mathbb{N}} A(n) \subset \Sigma_{\gamma+2} \subset \mathcal{A}\). 
       So we get \(\mathcal{A} \) is \(\sigma\)-field. So \(\mathcal{B}(\mathbb{R}) \subset \mathcal{A}\), thus \(\mathcal{A}=\mathcal{B}(\mathbb{R})\). 
 
@@ -178,6 +178,14 @@
   By AC,  \(\exists F \in \fun{ \mathbb{N}}{F_{\sigma}},G \in \fun{ \mathbb{N}}{G_{\delta}}\) such that \(F(n)\subset A_n \subset G(n),\mu^{*}(G(n)-F(n))=0\). 
   Let \(T=\bigcup_{n \in \mathbb{N}} F(n)\). Since \(F(n)\) is \(F_{\sigma}\), we get \(T \in F_{\sigma}\). 
   And easily \(T=\bigcup_{n \in \mathbb{N}} F(n) \subset \bigcup_{n \in \mathbb{N}} A(n)=A\). 
+  By AC and \Cref{lem:1}, \(\forall n \in \mathbb{N}\), \(\exists \mathcal{O} \ni O(n,m) \supset G(n), \mu(O(n,m) \setminus G(n)) \leq \frac{1}{m 2^n}, m \in \mathbb{N}_+\).
+  So \(\bigcap_{m \in \mathbb{N}_+}\bigcup_{n \in \mathbb{N}}O(n,m):=G \in G_{\delta}\), \(G(n) \subset G\),
+  \(\mu(G \setminus A) \leq \mu(G \setminus \bigcup_{n \in \mathbb{N}} G(n)) \leq \mu(\bigcup_{n \in \mathbb{N}} O(n,m) \setminus \bigcup_{n \in \mathbb{N}} G(n)) 
+  \leq \mu(\bigcup_{n \in \mathbb{N}} (O(n,m)\setminus G(n))) \leq \sum_{n \in \mathbb{N}} \mu(O(n,m) \setminus G(n)) = \frac{1}{m} \to 0, m \to \infty \).
+  So \(\mu(G \setminus F) \leq \mu(G \setminus A) + \mu(A \setminus F) =0  \).
+  Therefore, \(A\) is measurable.
+
+
  \end{enumerate} 
 \end{solution}
 
@@ -280,16 +288,26 @@
 \end{problem}
 
 \begin{solution}
-  Assume \(X:\omega \to \mathcal{P}(\fun{\omega}{\omega})\) and \(\forall n \in \omega,X(n)\neq \varnothing\). 
+  \begin{enumerate}
+    \item Assume \(X:\omega \to \mathcal{P}(\fun{\omega}{\omega})\) and \(\forall n \in \omega,X(n)\neq \varnothing\). 
   Let \(\theta:\fun{\omega}{\omega}\to \fun{\omega}{\omega},\theta(f)(n):=f(2n+1)\). 
-  Consider \(A:=\{x \in \fun{\omega}{\omega}:\theta(x) \in X(x(0))\}\). 
-  Since \(I\) have no w.s because \(\forall n \in \omega,X(n)\neq \varnothing\). 
+  Consider \(G(A)\), where \(A^c:=\{x \in \fun{\omega}{\omega}:\theta(x) \in X(x(0))\}\). 
+  So \(I\) have no w.s since \(\forall n \in \omega,X(n)\neq \varnothing\). 
   By AD we get \(II\) has a w.s., write \(\tau\). 
   Now consider \(\gamma:\omega \to \fun{\omega}{\omega},\gamma(n):=\theta((n,0,0,\cdots)*\tau)\). 
   Since \(\theta((n,0,\cdots)*\tau) \in X(n)\). So \(\gamma\) is the choose function. 
   
-  Nov we prove \(\omega_1\) is regular. Only need to prove union countable many countable ordinal is countable. 
-  
+    \item Now we prove \(\omega_1\) is regular. Only need to prove union countable many countable ordinal is countable. 
+      Assume \(f: \omega \to \omega_1\), now we only need to prove \( \bigcup \ran f \in \omega_1\). 
+      Consider \(F:\ran f \to \mathcal{P}(\omega \times \omega)\), \(F(\alpha):=\{R \subset \omega \times \omega:(\omega,R)\cong \alpha\}\). 
+      Since \(\fun{\omega}{\omega}\approx \mathcal{P}(\omega \times \omega)\), we get \(\text{AC}_\omega(\mathcal{P}(\omega \times \omega))\). 
+  So \(\exists \theta:\ran f \to \omega \times \omega,\theta(\alpha) \in F(\alpha),\forall \alpha \in \ran f\). 
+  Consider \(G:\omega \to \fun{\omega}{\omega_1},G(n)\) is the isomorphic from \((\omega,\theta(\omega))\) to \(f(n)\). 
+  Let \(h:\omega \times \omega \to \bigcup \ran f,h(n,m):=G(n)(m) \). Easily \(h\) is surjective. 
+  And since we have \(\text{AC}_\omega(\mathcal{P}(\omega \times \omega))\), we get \(\bigcup \ran f \approx A \) for some \(A \subset \omega \times \omega\). 
+  So we get \(\bigcup \ran f \) is countable. So \(\omega_1\) is regular. 
+   
+  \end{enumerate}
 \end{solution}
 
 \end{document}

@@ -1,0 +1,28 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\newif\ifpreface
+\prefacetrue
+\input{../../../global/all}
+\begin{document}
+\large
+\setlength{\baselineskip}{1.2em}
+\ifpreface
+    \input{../../../global/preface}
+\else
+\maketitle
+\fi
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%from_here_to_type
+\begin{problem}
+  Compute complex character of group as fellow:
+  \begin{enumerate}
+    \item \(D_4 = < \sigma, \tau | \sigma^4=\tau^2=I, \tau \sigma \tau = \sigma^{-1}>\);
+    \item \(Q = <i,j| i^4=j^4=1, jij^{-1}>\);
+    \item \(A_4\);
+    \item \(D_6=< \sigma, \tau | \sigma^6=\tau^2=I, \tau \sigma \tau =\sigma^{-1}>\).
+  \end{enumerate}
+\end{problem}
+  
+\end{document}

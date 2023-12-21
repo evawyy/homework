@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.4)  14 NOV 2023 11:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.4)  20 DEC 2023 08:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1189,26 +1189,61 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 (fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.46 
-     
-? 
-! Emergency stop.
-<inserted text> 
-                $
-l.46 
-     
-End of file on the terminal!
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 49.
 
- 
+(/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+Overfull \hbox (15.62613pt too wide) in paragraph at lines 60--64
+[]$\OML/cmm/m/it/12.045 f$ \TU/lmr/m/n/12.045 is bounded linear functional: $\O
+MS/cmsy/m/n/12.045 8\OML/cmm/m/it/12.045 x \OMS/cmsy/m/n/12.045 2 \OML/cmm/m/it
+/12.045 C\OT1/cmr/m/n/12.045 [0\OML/cmm/m/it/12.045 ; \OT1/cmr/m/n/12.045 1]\OM
+L/cmm/m/it/12.045 ; [] \OT1/cmr/m/n/12.045 = 1\OML/cmm/m/it/12.045 ; \OMS/cmsy/
+m/n/12.045 j\OML/cmm/m/it/12.045 x\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.045 a\O
+T1/cmr/m/n/12.045 ) \OMS/cmsy/m/n/12.045 ^^@ \OML/cmm/m/it/12.045 x\OT1/cmr/m/n
+/12.045 (\OML/cmm/m/it/12.045 b\OT1/cmr/m/n/12.045 )\OMS/cmsy/m/n/12.045 j ^^T 
+\OT1/cmr/m/n/12.045 2 [][] \OMS/cmsy/m/n/12.045 j\OML/cmm/m/it/12.045 x\OT1/cmr
+/m/n/12.045 (\OML/cmm/m/it/12.045 t\OT1/cmr/m/n/12.045 )\OMS/cmsy/m/n/12.045 j 
+\OT1/cmr/m/n/12.045 =
+ []
+
+[2
+
+]
+Overfull \hbox (19.39214pt too wide) in paragraph at lines 80--86
+[]$\OMS/cmsy/m/n/12.045 8\OML/cmm/m/it/12.045 x \OMS/cmsy/m/n/12.045 2 X\OML/cm
+m/m/it/12.045 ; [] \OT1/cmr/m/n/12.045 = 1\OML/cmm/m/it/12.045 ; \OMS/cmsy/m/n/
+12.045 j\OML/cmm/m/it/12.045 f\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.045 x\OT1/c
+mr/m/n/12.045 )\OMS/cmsy/m/n/12.045 j \OT1/cmr/m/n/12.045 = []\OMS/cmsy/m/n/12.
+045 j [][] []\OML/cmm/m/it/12.045 x\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.045 u\
+OT1/cmr/m/n/12.045 ) []  []\OML/cmm/m/it/12.045 u\OMS/cmsy/m/n/12.045 j ^^T [] 
+[][] j[]\OML/cmm/m/it/12.045 x\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.045 u\OT1/c
+mr/m/n/12.045 )\OMS/cmsy/m/n/12.045 j []  []\OML/cmm/m/it/12.045 u \OMS/cmsy/m/
+n/12.045 ^^T []\OT1/cmr/m/n/12.045 ([][]([])[] []  []\OML/cmm/m/it/12.045 u\OT1
+/cmr/m/n/12.045 )[]([][] \OML/cmm/m/it/12.045 x\OT1/cmr/m/n/12.045 (\OML/cmm/m/
+it/12.045 u\OT1/cmr/m/n/12.045 )[] []  []\OML/cmm/m/it/12.045 u\OT1/cmr/m/n/12.
+045 )[] =
+ []
+
+[3] (./FunctionalAnalysis9.aux)
+ ***********
+LaTeX2e <2023-11-01>
+L3 programming layer <2022/07/14>
+ ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `FunctionalAnalysis9.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
 Here is how much of TeX's memory you used:
- 32139 strings out of 474935
- 675763 string characters out of 5761827
- 1929161 words of memory out of 5000000
- 53561 multiletter control sequences out of 15000+600000
- 565506 words of font info for 97 fonts, out of 8000000 for 9000
+ 32178 strings out of 474935
+ 676842 string characters out of 5761827
+ 1954161 words of memory out of 5000000
+ 53590 multiletter control sequences out of 15000+600000
+ 565909 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  112i,13n,113p,3332b,1078s stack positions out of 10000i,1000n,20000p,200000b,200000s
-Output written on FunctionalAnalysis9.pdf (1 page).
+
+Output written on FunctionalAnalysis9.pdf (3 pages).
