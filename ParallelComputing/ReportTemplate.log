@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.4)  10 JAN 2024 14:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.4)  1 FEB 2024 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ReportTemplate.tex
-(./ReportTemplate.tex
+**/root/homework/ParallelComputing/ReportTemplate.tex
+(/root/homework/ParallelComputing/ReportTemplate.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/book.cls
@@ -1243,7 +1243,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--161
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2023/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}] [2] [3]
-(./ReportTemplate.aux)
+[4] (./ReportTemplate.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
@@ -1252,13 +1252,13 @@ Package rerunfilecheck Info: File `ReportTemplate.out' has not changed.
 (rerunfilecheck)             Checksum: 0A3ABB2557005C1ACF9920210FCE29EF;1428.
  ) 
 Here is how much of TeX's memory you used:
- 27733 strings out of 474278
- 522069 string characters out of 5747803
+ 27751 strings out of 474278
+ 522310 string characters out of 5747803
  1934530 words of memory out of 5000000
  49416 multiletter control sequences out of 15000+600000
- 586287 words of font info for 94 fonts, out of 8000000 for 9000
+ 586987 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,93p,1011b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,93p,1044b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
@@ -1272,10 +1272,10 @@ live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
 exlive/2023/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on ReportTemplate.pdf (3 pages, 205046 bytes).
+Output written on ReportTemplate.pdf (4 pages, 209652 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
+ 132 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 23 named destinations out of 1000 (max. 500000)
  15413 words of extra memory for PDF output out of 17280 (max. 10000000)
 

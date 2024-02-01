@@ -202,19 +202,48 @@ the critical temperature. In this article, we focus on these two problem:
 
 
 \section{The procedure you take to do the computation }
-
+\begin{enumerate}
+  \item First of all, set the initial paraments: Set up 
+    the grid to imitate the magnet. We write a function 
+    to generate the magnet. And we set the process time.
+  \item Secondly, we randomly choose a point to change 
+    its direction of magnet, and caculate the changed energy
+    by the getDeltaEnergy function. And then, we write a 
+    use the WhetherAccept function to judge whether to accept 
+    the direction change of this point.
+  \item Repeat the process above for times that we have set
+    in the first step.
+  \item Last, we plot the object graphs and grams.
+\end{enumerate}
 
 
 
 
 \section{Analysis of the numerical results }
-
+\begin{enumerate}
+  \item In the first problem,
+\end{enumerate}
 \section{The issues you encounter and how you overcome }
+First of all, when we was running our program, our compute is not capable enough. But fortunately, 
+we have a generous teacher, who borrowed us his compute to complete our program.
 
 \section{ Possible discussion about the results and further thinking }
 Ising model can be applied to many other situations and fields. For example, opinion dynamics.
-Consider a group of people, each person can support one of two different candidates (like A and B),
-let the 
+Consider a group of people, each person can support one of two different candidates (like A and B).
+The candidate one support may change after exchanging ideas with sourroundings. 
+What's more, the residents there may be influenced by advertisement of candidates. This is a typical
+reality situation for Ising model.
+
+Besides, we can apply the Ising model to neuroscience. The activity of neuros in the brain can be 
+modelled statistically. Each neuron at anytime is either active or inactive. Hopfield suggested in 1982
+that a dynamic Ising model would provide a first approximate to a neural network which is capable of learning.
+And following the general approach of a lot scientists, we can model the process of neurons by the following 
+model. Given a collection of neurons, we assume the energy as:
+\begin{equation}
+\, E = -1/2 \sum_{ij}J_{ij}SiSj-\sum_i h_iS_i
+\end{equation}
+In this process, we can apply Ising model to simulate it. 
+
 
 %\bibliographystyle{plainnat}
 %\bibliography{report}
