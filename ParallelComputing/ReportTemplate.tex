@@ -26,6 +26,19 @@
 \usepackage{lipsum}
 \usepackage{tcolorbox}
 
+ \usepackage{pgfplots}
+ \pgfplotsset{compat=newest}
+  %% the following commands are needed for some matlab2tikz features
+  \usetikzlibrary{plotmarks}
+  \usetikzlibrary{arrows.meta}
+  \usepgfplotslibrary{patchplots}
+  \usepackage{grffile}
+
+
+  %% you may also want the following commands
+  %\pgfplotsset{plot coordinates/math parser=false}
+  %\newlength\figureheight
+  %\newlength\figurewidth
 
 \usepackage{microtype}
 
@@ -222,6 +235,7 @@ the critical temperature. In this article, we focus on these two problem:
 \section{Analysis of the numerical results }
 \begin{enumerate}
   \item In the first problem,
+    \input{myfile.tex}
 \end{enumerate}
 \section{The issues you encounter and how you overcome }
 First of all, when we was running our program, our compute is not capable enough. But fortunately, 
