@@ -4,20 +4,37 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
+\documentclass[tikz]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{grffile}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+\usepackage{amsmath}
+
+\begin{document}
 \definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
 %
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=4.44in,
-height=3.667in,
-at={(0.745in,0.495in)},
+width=15.5in,
+height=8.014in,
+at={(2.6in,1.082in)},
 scale only axis,
 xmin=0.5,
 xmax=4,
+xlabel style={font=\color{white!15!black}},
+xlabel={T},
 ymin=0,
 ymax=2.5,
-axis background/.style={fill=white}
+ylabel style={font=\color{white!15!black}},
+ylabel={c},
+axis background/.style={fill=white},
+title={T-c figure}
 ]
 \addplot [color=mycolor1, forget plot]
   table[row sep=crcr]{%
@@ -724,4 +741,21 @@ axis background/.style={fill=white}
 4	0.171003272040409\\
 };
 \end{axis}
+
+\begin{axis}[%
+width=20in,
+height=9.833in,
+at={(0in,0in)},
+scale only axis,
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+axis line style={draw=none},
+ticks=none,
+axis x line*=bottom,
+axis y line*=left
+]
+\end{axis}
 \end{tikzpicture}%
+\end{document}

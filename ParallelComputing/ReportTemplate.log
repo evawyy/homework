@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.8)  7 FEB 2024 21:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.8)  10 FEB 2024 22:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1384,27 +1384,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--174
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2023/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}] [2]
-(./myfile.tex)
-Overfull \hbox (110.22948pt too wide) in paragraph at lines 237--239
-[]\T1/qpl/m/n/10.95 (-20) In the first prob-lem, [] 
- []
+<Tc.pdf, id=56, 1445.38898pt x 710.6289pt>
+File: Tc.pdf Graphic file (type pdf)
+<use Tc.pdf>
+Package pdftex.def Info: Tc.pdf  used on input line 246.
+(pdftex.def)             Requested size: 288.0011pt x 141.59193pt.
+<Tu.pdf, id=57, 1445.38898pt x 710.6289pt>
+File: Tu.pdf Graphic file (type pdf)
+<use Tu.pdf>
+Package pdftex.def Info: Tu.pdf  used on input line 252.
+(pdftex.def)             Requested size: 288.0011pt x 141.59193pt.
+<THM.pdf, id=58, 1445.38898pt x 710.6289pt>
+File: THM.pdf Graphic file (type pdf)
+<use THM.pdf>
+Package pdftex.def Info: THM.pdf  used on input line 260.
+(pdftex.def)             Requested size: 288.0011pt x 141.59193pt.
 
-[3] [4] (./ReportTemplate.aux)
+Underfull \vbox (badness 1082) has occurred while \output is active []
+
+ [3]
+[4 <./Tc.pdf> <./Tu.pdf> <./THM.pdf>] [5] (./ReportTemplate.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `ReportTemplate.out' has not changed.
-(rerunfilecheck)             Checksum: 0A3ABB2557005C1ACF9920210FCE29EF;1428.
+(rerunfilecheck)             Checksum: BE7EFE381EA5E6BFF6F1BCCCC0D53B66;1420.
  ) 
 Here is how much of TeX's memory you used:
- 39012 strings out of 474934
- 899637 string characters out of 5759817
- 1933791 words of memory out of 5000000
- 59871 multiletter control sequences out of 15000+600000
- 586987 words of font info for 99 fonts, out of 8000000 for 9000
+ 38626 strings out of 474934
+ 887820 string characters out of 5759817
+ 1928791 words of memory out of 5000000
+ 59475 multiletter control sequences out of 15000+600000
+ 587547 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,93p,1061b,2024s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,93p,1061b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
@@ -1417,11 +1435,12 @@ exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/tex
 live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
 exlive/2023/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive
-/2023/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on ReportTemplate.pdf (4 pages, 218000 bytes).
+/2023/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2023/
+texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on ReportTemplate.pdf (5 pages, 314376 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
- 15413 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 194 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 15428 words of extra memory for PDF output out of 17280 (max. 10000000)
 

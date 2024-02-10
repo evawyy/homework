@@ -4,6 +4,18 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
+\documentclass[tikz]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{grffile}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+\usepackage{amsmath}
+
+\begin{document}
 \begin{tikzpicture}
 
 \begin{axis}[%
@@ -14,12 +26,19 @@ scale only axis,
 xmin=0.5,
 xmax=4,
 tick align=outside,
+xlabel style={font=\color{white!15!black}},
+xlabel={T},
 ymin=0,
 ymax=1,
+ylabel style={font=\color{white!15!black}},
+ylabel={H},
 zmin=0,
 zmax=1,
-view={-11.075}{35.3524057217165},
+zlabel style={font=\color{white!15!black}},
+zlabel={m},
+view={-10.6375}{17.4218465539662},
 axis background/.style={fill=white},
+title={T-H-m figure},
 axis x line*=bottom,
 axis y line*=left,
 axis z line*=left,
@@ -1544,3 +1563,4 @@ axis y line*=left
 ]
 \end{axis}
 \end{tikzpicture}%
+\end{document}

@@ -232,10 +232,34 @@ the critical temperature. In this article, we focus on these two problem:
 
 
 
-\section{Analysis of the numerical results }
+\section{Analysis of the numerical results}
 \begin{enumerate}
-  \item In the first problem,
-    \input{myfile.tex}
+  \item In the first problem, we suppose that $J = 1, k_B = 1$, and $H = 0$. 
+    And we set the size of grid xxx and the program processing time xxx. 
+    Just like the picture xxx below, we find out the both specific temperature \(C\)- which is the variance of Hamiltonian energy -  and inner energy \(U\) vary with temperature in a particular patten. Here are the rules.
+    As the temperature increases below the critical temperature, which is $T_c =\frac{2 |J|}{k_B \ln ( 1+\sqrt{2})} $, the specific heat increases.
+    And after temperature goes over \(T_c\), as temperature increases, the specific heat decrease, which means the specific heat has a phrase transition when it reaches critical temperature.
+    As for the inner energy, before the critical temperature, the increasing speed of inner energy slows down as temperature increases, and the increasing speed of inner energy speeds up as temperature increases, which showes the inner energy has a phrase transition when reaching critical temperature.
+    
+	\begin{figure}\label{fig:Tc}
+		\centering
+		\includegraphics[width=0.8\linewidth]{Tc.pdf}
+		\caption{T-c}
+	\end{figure}
+  
+	\begin{figure}\label{fig:Tu}
+		\centering
+		\includegraphics[width=0.8\linewidth]{Tu.pdf}
+		\caption{T-u}
+	\end{figure}
+  \item And in problem 2, we set the size of grid as xxx and the programing process time as xxx. We take \(H, T\) xxx/
+    We observe that the magnetization \(M\) change near the critical temperature, i. e. \(T_c\).
+    
+	\begin{figure}\label{fig:THM}
+		\centering
+		\includegraphics[width=0.8\linewidth]{THM.pdf}
+		\caption{T-H-M}
+	\end{figure}
 \end{enumerate}
 \section{The issues you encounter and how you overcome }
 First of all, when we was running our program, our compute is not capable enough. But fortunately, 
